@@ -1,0 +1,105 @@
+<style>
+.MenuDown {
+  background-color: #ebe8eb;
+  align-items: center;
+  height: 52px;
+  z-index: -1;
+}
+
+#MenuIcon {
+  color: black;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  height: 26px;
+  font-size: 19px;
+  color: #326c9c;
+}
+
+#MenuName {
+  color: black;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 12px;
+  font-size: 9px;
+}
+/*
+#MenuName:hover #MenuIcon:hover {
+  color: purple;
+} */
+
+
+tr.menu-row {
+  height: 30px;
+}
+
+td.home-m td.categ-m td.cart-m td.account-m {
+  width: 25%;
+  height: 15px;
+}
+
+
+table.menu-table {
+  width: 100%;
+  text-align: center;
+}
+
+</style>
+
+<div class="menu-icon">
+<div class="MenuDown">
+  <table class="menu-table">
+    <tr class="menu-row">
+        <td class="home-m">
+          <%= link_to spree.root_path do %>
+            <div id="MenuIcon" class="glyphicon glyphicon-home"></div>
+          <% end %>
+        </td>
+
+        <td class="categ-m">
+          <%= link_to categories_path do %>
+            <div id="MenuIcon" class="glyphicon glyphicon-th"></div>
+          <% end %>
+        </td>
+
+        <td class="cart-m">
+          <%= link_to spree.cart_path do %>
+            <div id="MenuIcon" class="glyphicon glyphicon-shopping-cart"></div>
+          <% end %>
+        </td>
+
+        <td class="account-m">
+          <%= link_to spree.account_path do %>
+            <div id="MenuIcon" class="glyphicon glyphicon-user"></div>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <td class="home-m">
+        <%= link_to spree.root_path do %>
+          <div id="MenuName">Home</div>
+        <% end %>
+      </td>
+
+      <td class="categ-m">
+        <%= link_to categories_path do %>
+          <div id="MenuName">Categories</div>
+        <% end %>
+      </td>
+
+      <td class="cart-m">
+        <%= link_to spree.cart_path do %>
+          <div id="MenuName">Cart</div>
+        <% end %>
+      </td>
+
+      <td class="account-m">
+        <%= link_to spree.account_path do %>
+          <div id="MenuName">Acount</div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
+</div>
+</div>

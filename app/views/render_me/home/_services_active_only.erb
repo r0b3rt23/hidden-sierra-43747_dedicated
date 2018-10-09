@@ -1,0 +1,54 @@
+<style>
+.services_active_only_body {
+  margin-top: -240px;
+}
+</style>
+<!-- ACTIVE SERVICES ONLY -->
+<body class="two-col" id="home-page" data-hook="body" style="">
+
+    <div class="container">
+      <div class="row" data-hook="">
+        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+
+        </aside>
+
+
+<div id="content" class="col-sm-8 col-md-9" data-hook="">
+  <div id="home-web" data-hook="homepage_products">
+    <!-- Insert Categories here -->
+
+    <% if current_spree_user && current_spree_user.admin? %>
+
+    <% else %>
+
+  <div class="home-web">
+    <div class="services_active_only_body">
+    <% @active_services_only = Category.where(:cgroup => 2, :active => true).sort_by &:sort_order %>
+    <% @active_services_only.each do |active_services_only| %>
+    <%= link_to active_services_only do %>
+      <div class="active_img_txt_container">
+        <div class="active_prod_img">
+
+          <%=image_tag active_services_only.image_category.url(:thumb), :class => "active_home_image_mobile"%>
+        </div>
+        <span class="active_prod_txt">
+          <%= truncate(active_services_only.name, length: 47)%>
+        </span>
+      </div>
+    <% end %>
+
+    <% end %>
+  </div>
+  </div>
+  <% end %>
+
+  </div>
+</div>
+
+<div class="sideCart">
+
+</div>
+</div>
+</div>
+</body>
+<!-- ACTIVE SERVICES ONLY END-->

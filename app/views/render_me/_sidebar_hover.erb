@@ -1,0 +1,90 @@
+<style>
+  .CategDiv {
+    display: flex;
+    background-color: white !important;
+  }
+  .ListA {
+    padding: 1px;
+  }
+  #not-active {
+    color: grey;
+  }
+</style>
+
+<%= stylesheet_link_tag "sidebar_hover" %>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<body>
+<div class="CategDiv">
+
+  <div class="ListOfOffers">
+<!-- products -->
+      <% @categories_products = Category.where(:cgroup => 1, :active => true).sort_by &:sort_order %>
+      <% @categories_products.each do |category_products| %>
+        <div class="ListA">
+          <%= link_to category_products.name, category_products %><br>
+            <div class="SubMenu">
+              <% @subcat_prod = Subcategory.where(:category_id => category_products.id).sort_by &:name %>
+              <% @subcat_prod.each do |j| %>
+                <div class="ListB">
+                  <%= link_to truncate(j.name, length: 20), j%>
+                    <div class="SpecMenu">
+                      <% @specsub_prod = Specific.where(:subcategory_id => j.id).sort_by &:name %>
+                      <% @specsub_prod.each do |r| %>
+                        <div class="ListC">
+                          <%= link_to truncate(r.name, length: 20), r%>
+                            <div class="BrandMenu">
+                              <% @branspec_prod = Brand.where(:specific_id =>r.id).sort_by &:name %>
+                              <% @branspec_prod.each do |l| %>
+                                <div class="ListD">
+                                  <%= link_to truncate(l.name, length: 24), l %>
+                                </div>
+                              <% end %>
+                            </div>
+                        </div>
+                      <% end %>
+                    </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
+      <% end %>
+
+      <% @categories_products_false = Category.where(:cgroup => 1, :active => false).sort_by &:sort_order %>
+      <% @categories_products_false.each do |category_products_false| %>
+        <div class="ListA">
+          <div id="not-active"><%= category_products_false.name %><br></div>
+        </div>
+      <% end %>
+<br>
+<!-- services -->
+      <% @categories_services = Category.where(:cgroup => 2, :active => true).sort_by &:sort_order %>
+      <% @categories_services.each do |category_services| %>
+        <div class="ListA">
+          <%= category_services.name %><br>
+        </div>
+      <% end %>
+
+      <% @categories_services_false = Category.where(:cgroup => 2, :active => false).sort_by &:sort_order %>
+      <% @categories_services_false.each do |category_services_false| %>
+        <div class="ListA">
+          <div id="not-active"><%= category_services_false.name %><br></div>
+        </div>
+      <% end %>
+  </div>
+</div>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function()
+{
+    $(".ListA").mouseover(function()
+    {
+        $(".ListA").addClass("ListA_1");
+    },
+  );
+});
+
+</script> -->
+</body>

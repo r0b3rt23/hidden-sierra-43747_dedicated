@@ -1,0 +1,33 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+</style>
+
+<b><h1>Categories Admin</h1>
+<%= link_to 'Add New Subcategory', new_subcategory_path %><br><br></b>
+
+<table style="width:50%;border: 2px solid">
+  <tbody>
+    <% @subcategories_admin.each do |subcategory| %>
+      <tr>
+        <td><%= link_to subcategory.name, subcategory %></td>
+        <td><%= image_tag subcategory.image_subcategory.url(:thumb) %></td>
+        <td style="font-style:italic"><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
+        <td style="font-style:italic"><%= link_to 'Destroy', subcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

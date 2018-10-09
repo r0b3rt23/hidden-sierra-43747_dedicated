@@ -1,0 +1,147 @@
+<style>
+.Tablebutton-mobile
+{
+  display: none;
+}
+@media only screen and (max-width: 360px)
+{
+  .Tablebutton-mobile
+  {
+    display: block;
+  }
+  .Cartbuttons
+  {
+    position: fixed;
+    /* border: 2px solid yellow; */
+    width:220px;
+  }
+  .out
+  {
+    /* border: 2px solid red; */
+    width:220px;
+    height:40px;
+    margin-right:50px;
+  }
+  .up-date-mobile
+  {
+    margin:8px;
+    /* position: sticky; */
+  }
+  .btn.btn-primary
+  {
+    width:100px;
+    font-family: 'Open Sans', sans-serif;
+    /* padding:7px; */
+    padding: 5px 30px;
+    border: 1px solid darkgreen;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+    -moz-box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+    box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+    background-color: blue;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  .check-out-mobile
+  {
+    margin:8px;
+    /* position: fixed; */
+  }
+  #checkout-link
+  {
+    width:85px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    /* padding:7px; */
+    padding: 0px;
+    border: 1px solid darkgreen;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+    -moz-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+    box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+    background-color: green;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    height: 35px;
+  }
+  .emptyCart-mobile
+  {
+    margin:8px;
+    /* position: fixed; */
+  }
+  .emptyCart-mobile .btn.btn-default
+  {
+    width:85px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+    -moz-box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+    box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+    background-color: #808080;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    height: 35px;
+  }
+  .continueShop-mobile
+  {
+    margin:8px;
+    /* position: fixed; */
+  }
+  .continueShop-mobile .btn.btn-default
+  {
+    width:85px;
+    color:white;
+    font-size: 15px;
+    line-height: 15px;
+    white-space: normal;
+    height: 35px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+    -moz-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+    box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+    background-color: #ff6600;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  .table-b-mobile
+  {
+    display: inline-flex;
+  }
+}
+</style>
+
+
+<div class="Tablebutton-mobile">
+
+      <%= form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form| %>
+<div class="table-b-mobile">
+        <div class="up-date-mobile">
+        <%= button_tag class: 'btn btn-primary', id: 'update-button', :style => "display: none" do %>
+          <%= Spree.t(:update) %>
+        <% end %>
+        </div>
+
+        <div class="check-out-mobile">
+        <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %>
+          <%= Spree.t(:checkout) %>
+        <% end %>
+        </div>
+      <% end %>
+
+      <div class="emptyCart-mobile">
+      <%= form_tag empty_cart_path, method: :put do %>
+        <%= submit_tag Spree.t(:empty_cart), class: 'btn btn-default' %>
+      <% end %>
+      </div>
+
+        <div class="continueShop-mobile">
+          <%= link_to Spree.t(:continue_shopping), products_path, id:'continue', class: 'btn btn-default' %>
+        </div>
+  </div>
+
+</div>

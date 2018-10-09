@@ -1,0 +1,140 @@
+<style>
+.Cartbuttons
+{
+  position: fixed;
+  /* border: 2px solid yellow; */
+  width:220px;
+}
+
+.out
+{
+  /* border: 2px solid red; */
+  width:220px;
+  height:40px;
+  margin-right:50px;
+}
+
+.up-date
+{
+  margin:8px;
+  /* position: sticky; */
+}
+.btn.btn-primary
+{
+  width:187px;
+  font-family: 'Open Sans', sans-serif;
+  /* padding:7px; */
+  padding: 5px 30px;
+  border: 1px solid darkgreen;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px #0000b3, inset -1px -10px 5px #1a1aff, 1px 2px 1px white;
+  background-color: blue;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.check-out
+{
+  margin:8px;
+  /* position: fixed; */
+}
+.btn.btn-lg.btn-success
+{
+  width:187px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  /* padding:7px; */
+  padding: 5px 30px;
+  border: 1px solid darkgreen;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  background-color: green;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.emptyCart
+{
+  margin:8px;
+  /* position: fixed; */
+}
+.emptyCart .btn.btn-default
+{
+  width:187px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 30px 5px 30px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px #4d4d4d, inset -1px -10px 5px #666666, 1px 2px 1px white;
+  background-color: #808080;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.continueShop
+{
+  margin:8px;
+  /* position: fixed; */
+}
+.continueShop .btn.btn-default
+{
+  width:187px;
+  color:white;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 30px 5px 30px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  background-color: #ff6600;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+</style>
+
+
+<div class="Cartbuttons">
+
+      <%= form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form| %>
+<div class="out">
+        <div class="up-date">
+        <%= button_tag class: 'btn btn-primary', id: 'update-button', :style => "display: none" do %>
+          <%= Spree.t(:update) %>
+        <% end %>
+        </div>
+</div>
+<div class="out">
+        <div class="check-out">
+        <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %>
+          <%= Spree.t(:checkout) %>
+        <% end %>
+        </div>
+      <% end %>
+</div>
+<div class="out">
+      <div class="emptyCart">
+      <%= form_tag empty_cart_path, method: :put do %>
+        <%= submit_tag Spree.t(:empty_cart), class: 'btn btn-default' %>
+      </div>
+</div>
+<!-- <% if Spree::LineItem.where(:order_id => @order.id).count == 0 %>
+  <div class="out">
+        <div class="continueShop">
+          <%= link_to Spree.t(:continue_shopping), root_path, id:'continue', class: 'btn btn-default' %>
+        </div>
+  </div>
+<% else %> -->
+  <div class="out">
+        <div class="continueShop">
+          <%= link_to Spree.t(:continue_shopping), "javascript:history.go(-2)", id:'continue', class: 'btn btn-default' %>
+        <% end %>
+        </div>
+  </div>
+<!-- <% end %> -->
+</div>

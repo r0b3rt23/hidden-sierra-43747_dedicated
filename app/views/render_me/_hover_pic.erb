@@ -1,0 +1,22 @@
+<style>
+  .CategDiv1 {
+    display: none;
+  }
+
+  div .panel-footer:hover .CategDiv1{
+    display: block;
+  }
+</style>
+
+<% @subcat_hover = Subcategory.where(:category_id => grocery_clothing.id).sort_by &:name %>
+<div class="CategDiv1">
+  <div class="ListOfOffers1">
+      <div class="SubMenu1">
+        <div class="ListB1">
+          <% @subcat_hover.each do |j| %>
+            <div><%= link_to j.name, j%></div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<style>
+
+.table-responsive {
+  width: 60%;
+}
+
+thead#cart {
+  display: none;
+}
+
+#cart-total-mobile {
+  display: none;
+}
+
+span.table_button-mob {
+  display: none;
+}
+
+@media only screen and (max-width: 360px)
+{
+  tr#cart-header {
+    display:none;
+  }
+
+  #cart-total-mobile {
+    display: block;
+  }
+
+  #cart-total-web {
+    display: none;
+  }
+
+  tr.warning.cart-total {
+    width:100%
+  }
+
+  span.table_button-mob {
+    display: block;
+  }
+}
+
+
+</style>
+
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+
+<table class="table" id="cart-detail" data-hook>
+  <thead id="cart">
+    <tr class="active" data-hook="cart_items_headers" id="cart-header">
+      <th class="cart-item-description-header" colspan="2"><center><%= Spree.t(:item) %></center></th>
+      <th class="cart-item-price-header"><center><%= Spree.t(:price) %></center></th>
+      <th class="cart-item-quantity-header"><center><%= Spree.t(:qty) %></center></th>
+      <th class="cart-item-total-header"><center><%= Spree.t(:total) %></center></th>
+      <th class="cart-item-delete-header"></th>
+    </tr>
+  </thead>
+  <tbody id="line_items" data-hook>
+    <%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+  </tbody>
+
+
+  <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+    <tr class="cart-subtotal">
+      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %></h5></td>
+      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
+      <td></td>
+    </tr>
+    <%= render "spree/orders/adjustments" %>
+  <% end %>
+
+  <tr class="warning cart-total" id="cart-total-web">
+    <td class="total-width" colspan="4" align='right'>
+      <div class="total_cart-label">
+        <%= Spree.t(:total) %><span class="lead"><%= " " %><%= order_form.object.display_total %></span>
+      </div>
+    </td>
+  </tr>
+
+  <tr class="warning cart-total" id="cart-total-mobile">
+    <td class="total-width" colspan="4" align='right'>
+      <div class="total_cart-label">
+        <%= Spree.t(:total) %>
+      </div>
+    </td>
+    <td class="lead" colspan><%= order_form.object.display_total %></td>
+
+  </tr>
+</table>
+<span class="table_button-mob"><%= render partial: 'render_me/table_button' %></span>

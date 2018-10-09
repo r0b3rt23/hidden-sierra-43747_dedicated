@@ -1,0 +1,112 @@
+<style>
+
+.home_image_mobile {
+  height: 140px;
+  width: 130px;
+}
+
+.panel {
+    margin-bottom: 10px;
+}
+
+div#image_container {
+    height: fit-content;
+}
+
+body#default.one-col div.container {
+    height: fit-content;
+    width: 95%;
+}
+
+
+
+@media only screen and (max-width: 360px)
+{
+  .mobile_home_rev {
+    display: block
+  }
+
+  .web_home_rev {
+    display: none;
+  }
+
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+    margin-left: 10% !important;
+  }
+
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+    width: 90% !important;
+    padding-left: 5%;
+  }
+
+  header#header {
+    top: 0;
+    position: fixed;
+  }
+
+  div.col-sm-12{
+    margin-top: 200px;
+  }
+
+  .home_image_mobile{
+    width: 100px;
+    height: 100px;
+  }
+
+  div.CategDiv1{
+    display: none;
+  }
+
+  div.CategDiv2 {
+    display: none;
+  }
+
+  a.linkhover {
+    color: #1c5c92 !important;
+    font-weight: normal !important;
+  }
+
+  .linkhover:active{
+    pointer-events: auto;
+  }
+
+  #image_container{
+    height: 120px;
+    overflow: hidden;
+  }
+
+  .not-image{
+    height: 100%;
+  }
+
+  #home-web {
+    width: 100%;
+  }
+
+  .alert-notice {
+    width: 98% !important;
+    margin-left: 0% !important;
+  }
+
+  .alert.alert-success {
+    width: 98% !important;
+    margin-left: 0% !important;
+  }
+
+}
+</style>
+
+<!-- <%= stylesheet_link_tag "hover_pic" %> -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<div class = "web_home_rev">
+  <%= render :partial => "render_me/home/products_active_only" %>
+  <%= render :partial => "render_me/home/services_active_only" %>
+  <%= render :partial => "render_me/home/products_notactive_only" %>
+  <%= render :partial => "render_me/home/services_notactive_only" %>
+</div>
+
+<div class = "mobile_home_rev">
+  <%= render :partial => "render_me/home/mobile_home" %>
+</div>

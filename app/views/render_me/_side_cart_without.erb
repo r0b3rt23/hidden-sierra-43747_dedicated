@@ -1,0 +1,24 @@
+<style>
+#cart_border {
+    width: 200px;
+    padding: 9px;
+    border: 2px solid green;
+    margin: 10px;
+    float: right;
+    /* margin-top: 90px; */
+}
+</style>
+
+<% @order = simple_current_order %>
+<div id="cart_border">
+<center><b><%="Your Cart"%></b></center>
+  <td><center><%= " (empty) " %></center></td>
+
+  <center><td>Sub-total: <b><%= @order.display_total.to_html %></td></b><center>
+    <%= link_to spree.root_path do %>
+      <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %>
+        <%= Spree.t(:shop_now) %>
+    <% end %>
+<% end %>
+
+</div>

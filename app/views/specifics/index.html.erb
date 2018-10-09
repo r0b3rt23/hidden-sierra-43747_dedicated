@@ -1,0 +1,167 @@
+<style>
+@media only screen and (max-width: 360px)
+{
+
+  body#default.one-col div.container div.row div#content.col-sm-12
+  {
+    margin-left: 10% !important;
+  }
+
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+    width: 90% !important;
+    padding-left: 5%;
+  }
+
+  header#header {
+    top: 0;
+    position: fixed;
+  }
+  div.col-sm-12{
+    margin-top: 160px;
+  }
+  .home_image_mobile
+  {
+    width: 100px;
+    height: 100px;
+  }
+  div.CategDiv1
+  {
+    display: none;
+  }
+  div.CategDiv2
+  {
+    display: none;
+  }
+
+  #image_container
+  {
+    height: 120px;
+    overflow: hidden;
+  }
+  .not-image
+  {
+    /* width: 100%; */
+    height: 100%;
+  }
+  .index-web {
+    display: none;
+  }
+
+  #home-web {
+    width: 100%;
+  }
+
+  center#paginate-center {
+    display: block !important;
+  }
+
+  center#paginate-center-web {
+    display: none;
+  }
+
+  .index-mobile {
+    display: block !important;
+    margin-top: 30px;
+  }
+}
+
+.index-mobile {
+  display: none;
+}
+
+center#paginate-center {
+  display: none;
+}
+
+</style>
+
+
+
+<%= render :partial => "render_me/head" %>
+
+<body class="two-col" id="home-page" data-hook="body" style="">
+
+
+    <div class="container">
+      <div class="row" data-hook="">
+
+
+        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+    <div data-hook="homepage_sidebar_navigation">
+
+<%= render :partial => "render_me/sidebar_hover" %>
+
+  </div>
+
+</aside>
+
+
+  <div id="content" class="col-sm-8 col-md-9" data-hook="">
+
+  <div data-hook="homepage_products">
+  <!-- Insert Categories here -->
+  <% if current_spree_user && current_spree_user.admin? %>
+    <%= render :partial => "render_me/admin/specifics" %>
+  <% else %>
+
+  <div class="index-web">
+  <h1>Specifics</h1>
+
+  <% @active_product_only = Category.where(:active => true) %>
+  <% @subcategories_active = Subcategory.where(:category_id => @active_product_only) %>
+  <% @specifics_active = Specific.where(:subcategory_id => @subcategories_active).page(params[:page]).per(16).order(:name) %>
+  <% @specifics_active.each do |specifics_active| %>
+  <%= link_to specifics_active do%>
+    <div class="active_img_txt_container">
+      <div class="active_prod_img">
+        <%=image_tag specifics_active.image_specific.url(:thumb), :class => "active_home_image_mobile"%>
+      </div>
+      <span class="active_prod_txt">
+        <%=truncate(specifics_active.name, length: 47)%>
+      </span>
+    </div>
+  <% end %>
+  <% end %>
+
+  </div>
+
+
+  <div class="index-mobile">
+  <h1>Specifics</h1>
+  <!-- <% @specifics_active = Specific.all.order('name ASC').page(params[:page]).per(16) %> -->
+  <% @specifics_active.each do |specifics_active| %>
+    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+      <div class="panel panel-default" id="panel-default-id">
+        <div id="image_container" class="panel-body text-center product-body">
+            <%= link_to (image_tag specifics_active.image_specific.url(:thumb), :class => "home_image_mobile"), specifics_active %>
+          <br>
+        </div>
+        <div class="panel-footer text-center">
+          <span id="web_categ_name" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <%= link_to specifics_active.name, specifics_active %>
+          </span>
+        </div>
+      </div></a>
+    </div>
+  <% end %>
+
+  </div>
+  <center id="paginate-center"><%= paginate @specifics_active, window: 1  %></center>
+  <center id="paginate-center-web"><%= paginate @specifics %></center>
+
+  <% end %>
+  </div>
+</div>
+<% if simple_current_order.item_count < 1 %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart_without" %>
+</div>
+<% else %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart" %>
+</div>
+<% end %>
+</div>
+</div>
+
+</body>

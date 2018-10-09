@@ -1,0 +1,48 @@
+
+<!-- ACTIVE PRODUCT ONLY -->
+<body class="two-col" id="home-page" data-hook="body" style="">
+
+    <div class="container">
+      <div class="row" data-hook="">
+        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+          <%= render :partial => "render_me/sidebar_hover" %>
+        </aside>
+
+
+<div id="content" class="col-sm-8 col-md-9" data-hook="">
+  <div id="home-web" data-hook="homepage_products">
+    <!-- Insert Categories here -->
+
+  <div class="home-web">
+    <% @subcat = Subcategory.where(:category_id => @category.id).page(params[:page]).per(16).order(:name) %>
+
+    <% @subcat.each do |subcat| %>
+    <%= link_to subcat do%>
+      <div class="active_img_txt_container">
+        <div class="active_prod_img">
+          <%=image_tag subcat.image_subcategory.url(:thumb), :class => "active_home_image_mobile"%>
+        </div>
+        <span class="active_prod_txt">
+          <%=truncate(subcat.name, length: 47)%>
+        </span>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+  <center id="paginate-center"><%= paginate @subcat %></center>
+
+  </div>
+</div>
+<% if simple_current_order.item_count < 1 %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart_without" %>
+</div>
+<% else %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart" %>
+</div>
+<% end %>
+</div>
+</div>
+</body>
+<!-- ACTIVE PRODUCT ONLY END-->

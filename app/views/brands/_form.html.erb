@@ -1,0 +1,33 @@
+<%= form_with(model: brand, local: true) do |form| %>
+  <% if brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+
+      <ul>
+      <% brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :brand_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_brand %>
+    <%= form.file_field :image_brand %>
+  </div>
+
+  <div class="field">
+    <%= "Specific:" %>
+    <% @specific_collections = Specific.all.sort_by &:name %>
+    <%= form.collection_select(:specific_id, @specific_collections, :id, :name, { :prompt => 'Select a Specific:', :selected => @brand.specific_id },  {:style => "width:200px"}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

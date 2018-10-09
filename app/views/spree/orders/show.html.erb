@@ -1,0 +1,47 @@
+<style>
+@media only screen and (max-width: 360px) {
+  .alert-notice {
+      width: 90%;
+      /* margin-left: 9%; */
+  }
+
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+      margin-left: 10%;
+      width: 90%;
+  }
+
+  .orderitem-list {
+    width: 100px;
+  }
+
+  tr.warning.total {
+    background-color: white;
+}
+
+
+}
+</style>
+
+<% if order_just_completed?(@order) %>
+  <%= render partial: 'spree/shared/trackers/segment/order_complete.js',
+             formats: :js,
+             locals: { order: @order } %>
+  <% content_for :google_analytics do %>
+    <%= render partial: 'spree/shared/google_purchase.js', locals: { order: @order } %>
+  <% end %>
+<% end %>
+
+<fieldset id="order_summary" data-hook>
+  <h1><%= accurate_title %></h1>
+  <% if order_just_completed?(@order) %>
+    <strong><%= "Thank you for shopping!" %></strong>
+  <% end %>
+
+  <div id="order" data-hook>
+    <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>
+
+    <br class="clear" />
+
+
+  </div>
+</fieldset>

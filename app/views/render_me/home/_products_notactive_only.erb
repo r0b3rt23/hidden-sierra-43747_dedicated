@@ -1,0 +1,61 @@
+<style>
+
+@media only screen and (max-width: 360px)
+{
+
+  .notactive_home_image_mobile{
+    width: 100px;
+    height: 100px;
+  }
+
+  #image_container{
+    height: 120px;
+    overflow: hidden;
+  }
+
+}
+</style>
+
+<!-- NOTACTIVE PRODUCTS ONLY-->
+<body class="two-col" id="home-page" data-hook="body" style="">
+  <div class="container">
+    <div class="row" data-hook="">
+      <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+</aside>
+
+
+  <div id="content" class="col-sm-8 col-md-9" data-hook="">
+
+  <div id="home-web" data-hook="homepage_products">
+    <!-- Insert Categories here -->
+  <% if current_spree_user && current_spree_user.admin? %>
+
+  <% else %>
+  <div class="home-web">
+    <div class="cat_container">
+    <% @product_notactive_only = Category.where(:cgroup => 1, :active =>false).sort_by &:sort_order %>
+    <% @product_notactive_only.each do |product_notactive_only| %>
+
+        <div class="image_text_container">
+          <div class="cimage">
+            <%= image_tag product_notactive_only.image_category.url(:thumb), :class => "notactive_home_image_mobile" %>
+          </div>
+          <span class="ctext">
+            <%= truncate(product_notactive_only.name, length: 47) %>
+          </span>
+        </div>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+  </div>
+
+    <div class="sideCart">
+
+    </div>
+
+</div>
+</div>
+</div>
+</body>
+<!-- NOTACTIVE PRODUCTS ONLY END-->

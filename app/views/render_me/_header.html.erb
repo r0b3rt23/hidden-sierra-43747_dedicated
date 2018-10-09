@@ -1,0 +1,34 @@
+<div id="spree-header">
+<header id="header" data-hook="">
+<div class="container">
+  <div class="row">
+    <figure id="logo" class="col-md-4 col-sm-3" data-hook="">
+      <a href="/"><img src="/assets/logo-64407bd31e25cbd9b1640c22db050d24ccd6e29f79628172703f9b66927f4346.jpg" alt="Logo"></a>
+    </figure>
+    <nav class="navbar col-md-8 col-sm-9" id="top-nav-bar">
+<ul id="nav-bar" class="nav navbar-nav navbar-right" data-hook="">
+<% if spree_current_user %>
+  <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
+  <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+<% else %>
+  <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li><br>
+<% end %>
+<li id="search-bar" data-hook="">
+</li>
+</ul>
+</nav>
+
+  </div>
+  <center><form class="navbar-form" action="/products" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+<div class="form-group">
+<input type="search" name="keywords" id="keywords" placeholder="Search" class="form-control">
+</div>
+<input type="submit" value="Search" class="btn btn-success" data-disable-with="Search">
+<a class="cart-info empty" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to_cart %></a>
+
+<script>Spree.fetch_cart()</script>
+
+</form></center>
+</div>
+</header>
+</div>

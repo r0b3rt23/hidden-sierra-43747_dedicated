@@ -1,0 +1,75 @@
+<%= stylesheet_link_tag 'application','https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.min.css' %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+
+<div id="dialog" title="Area of Delivery">
+	<div>Our delivery service is <b>temporarily dedicated in Naga City, Bicol, Philippines</b><br><br>
+			If your delivery is <b>within Naga City</b>, you can <b>proceed</b> with your shopping; <br>
+			Otherwise, you will be redirected to <b>"Window Shopping Mode"</b>.<br><br>
+			Enjoy Shopping!<br><br>
+			<b>Please choose the area of delivery.</b>
+			<!-- <div id="div1">
+		    <button id="b1">  Show 1st buttons in other page </button>
+		    <button id="b2">  Hide 2nd button in other page </button>
+			</div> -->
+	</div>
+</div>
+
+<script>
+
+// $(document).ready(function(){
+//     $("#b1").click(function(){
+// 				$("/products/555-tuna-caldereta").ready(function(){
+// 				$("button#add-to-cart-button").css("display", "none");
+// 				$("#dialog").dialog("close");
+// 		});
+//     });
+// });
+//
+// $(document).ready(function(){
+//   $("#b2").click(function(){
+//   $("#div1").load("");
+//         $("").ready(function(){
+//         $("#checkout-link").css("display", "none");
+// 				$("#dialog").dialog("close");
+//       });
+//   });
+// });
+
+	if (top !== self) {
+		$.ui.dialog.prototype._focusTabbable = $.noop;
+	}
+	// $('#content').click((function() {
+	$(function() {
+		$("#dialog").dialog({
+			modal: true,
+			resizable: false,
+			width: "auto",
+			buttons: [
+				{
+					text: "Within Naga City",
+					id: "WithinNaga",
+					click: function(){
+						$("#dialog").dialog("close");
+					}
+				},
+				{
+					text: "Outside Naga City",
+					id: "OutsideNaga",
+					click: function(e){
+						e.preventDefault();
+						$("button#add-to-cart-button").attr("disabled", true)
+						// $("#checkout-link").css("pointer-events", "none");
+						$("#dialog").dialog("close");
+						return true;
+					}
+				}
+			]
+		});
+	});
+
+
+</script>

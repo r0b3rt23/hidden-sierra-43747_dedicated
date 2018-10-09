@@ -1,0 +1,29 @@
+<style>
+#cart_border {
+    width: 200px;
+    padding: 9px;
+    border: 2px solid green;
+    margin: 10px;
+    float: right;
+    /* margin-top: 90px; */
+}
+</style>
+
+<% @order = simple_current_order %>
+<div id="cart_border">
+<center><b><%="Your Cart"%></b></center>
+<% @order.line_items.each do |item| %>
+  <td><center><%=link_to image_tag(item.variant.images.first.attachment.url(:mini)), spree.product_path(item.product)%></center></td>
+  <td><center><b><%=link_to item.name, spree.product_path(item.product) %></td></b><br>
+  <td>Quantity: <%= item.quantity %><%= " (" %> <i><%= item.display_amount.to_html %> </i><%= ")" %></td>
+  <!-- <td>Sub-total: <%= item.display_amount.to_html %></td> -->
+  <td><center><%= " ______________________ " %></center></td>
+<% end %>
+  <center><td>Sub-total: <b><%= @order.display_total.to_html %></td></b><center>
+    <%= link_to spree.cart_path do %>
+      <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %>
+        <%= Spree.t(:checkout) %>
+    <% end %>
+<% end %>
+
+</div>

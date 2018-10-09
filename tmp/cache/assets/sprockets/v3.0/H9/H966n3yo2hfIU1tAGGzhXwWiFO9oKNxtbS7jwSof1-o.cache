@@ -1,0 +1,50 @@
+I"$(function() {
+  var add_image_handlers;
+
+  add_image_handlers = function() {
+    ($('#main-image')).data('selectedThumb', ($('#main-image img')).attr('src'));
+    ($('ul.thumbnails li')).eq(0).addClass('selected');
+    return ($('ul.thumbnails li')).on('mouseenter', function(event) {
+      ($('#main-image')).data('selectedThumb', ($(event.currentTarget)).find('a').attr('href'));
+      ($('#main-image')).data('selectedThumbId', ($(event.currentTarget)).find('a').parent().attr('id'));
+      ($('ul.thumbnails')).find('li').removeClass('selected');
+      ($(event.currentTarget)).addClass('selected');
+      ($('#main-image img')).first().attr('src', ($(event.currentTarget)).find('a').attr('href'));
+      ($('[data-drift]')).first().attr('href', ($(event.currentTarget)).find('a').attr('href'));
+      ($('[data-drift]')).first().attr('href', ($(event.currentTarget)).find('a').data('large'));
+      return false;
+    });
+  };
+
+  window.SpreeProductHoverZoom = {
+    zoomFactor: 4,
+    handleTouch: true,
+    touchDelay: 0
+  };
+
+  $(function() {
+    var driftOptions, el_drift, galleryOpts, luminousOpts;
+    add_image_handlers();
+    el_drift = $('[data-drift]')[0];
+    driftOptions = {
+      paneContainer: $('[data-hook=product_hover_zoom]')[0],
+      zoomFactor: SpreeProductHoverZoom.zoomFactor,
+      sourceAttribute: 'href',
+      handleTouch: SpreeProductHoverZoom.handleTouch,
+      touchDelay: SpreeProductHoverZoom.touchDelay
+    };
+    if (el_drift && $(el_drift).attr('href').length > 0) {
+      new Drift(el_drift, driftOptions);
+    }
+    $('[data-luminous]').on('click', function(e) {
+      e.preventDefault();
+    });
+    galleryOpts = {
+      arrowNavigation: true
+    };
+    luminousOpts = {};
+    return new LuminousGallery($('ul.thumbnails > li > a'), galleryOpts, luminousOpts);
+  });
+
+}).call(this);
+:ET

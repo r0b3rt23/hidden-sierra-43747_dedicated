@@ -1,0 +1,56 @@
+<style>
+span.equal {
+  margin-left: 50px;
+}
+
+span.equal-sorting {
+  margin-left: 3px;
+}
+
+span.equal-active {
+  margin-left: 40px;
+}
+</style>
+
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <span class="equal"><%= form.text_field :name, id: :category_name %></span>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_category %>
+    <%= form.file_field :image_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group %>
+    <span class="equal"><%= form.text_field :cgroup %></span>
+  </div>
+
+  <div class="field">
+    <%= form.label :sorting_order %>
+    <span class="equal-sorting"><%= form.text_field :sort_order %></span>
+  </div>
+
+  <div class="field">
+    <%= form.label :active? %>
+    <span class="equal-active"><%= form.text_field :active %></span>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

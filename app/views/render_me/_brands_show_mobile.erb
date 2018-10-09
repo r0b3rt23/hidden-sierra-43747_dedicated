@@ -1,0 +1,77 @@
+<style>
+
+@media only screen and (max-width: 360px) {
+  .categ-all-mobile {
+    width: 100%;
+  }
+
+  .categ-all-mobile {
+    display: flex;
+  }
+
+  .Categ-icon {
+    width: 19%;
+    top: 0;
+    position: sticky;
+    margin-right: 5px;
+  }
+
+  .product-brand {
+    width: 80%;
+  }
+
+  .cart-item-description-brand {
+    width: 60%;
+  }
+
+  center#paginate-center {
+    margin-left: -15%;
+  }
+
+  div#content {
+    margin-bottom: 0px !important;
+  }
+
+}
+
+</style>
+
+<div class="categ-all-mobile">
+  <div class="Categ-icon">
+    <%= render :partial => "render_me/categories_icon" %>
+  </div>
+  <div class="product-brand">
+    <table class="table" id="cart-detail" data-hook>
+      <% @brands_products = Spree::Product.where(:brand_id => @brand.id).page(params[:page]).per(7) %>
+      <% @brands_products.each do |m| %>
+        <% @spree_product_variant = Spree::Variant.where(:product_id => m, :is_master => true) %>
+        <% @spree_variant_price = Spree::Price.find_by_variant_id(@spree_product_variant) %>
+        <% @spree_variant_asset = Spree::Asset.find_by_viewable_id(@spree_product_variant)%>
+        <tbody class="product-brand" id="line_items" data-hook>
+          <!-- <%= link_to spree.product_path(m) do %> -->
+            <tr class="line-item-mobile">
+              <td class="cart-item-image" data-hook="cart_item_image">
+                <%= link_to spree.product_path(m) do %>
+                  <%= image_tag @spree_variant_asset.attachment.url(:product_show), :size => "100x100" %>
+                <% end %>
+              </td>
+              <td class="cart-item-description-brand" data-hook="cart_item_description">
+              <div class="product_label">
+                <h5><%= link_to word_wrap(m.name),spree.product_path(m)  %></h5>
+              </div>
+                <div class="line-item-description" data-hook="line_item_description">
+                  <%= truncate(m.description, length: 70) %>
+                </div><br>
+
+              <span class="line_item_price">
+                <%= number_to_currency(@spree_variant_price.amount, unit: "₱")%>
+              </span>
+              </td>
+            </tr>
+          <!-- <% end %> -->
+        </tbody>
+      <% end %>
+    </table>
+    <center id="paginate-center"><%= paginate @brands_products %></center>
+    </div>
+</div>

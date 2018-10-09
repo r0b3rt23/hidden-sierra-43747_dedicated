@@ -1,0 +1,176 @@
+<style>
+@media only screen and (max-width: 360px)
+{
+
+  body#default.one-col div.container div.row div#content.col-sm-12
+  {
+    margin-left: 10% !important;
+  }
+
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+    width: 90% !important;
+    padding-left: 5%;
+  }
+
+  header#header {
+    top: 0;
+    position: fixed;
+  }
+  div.col-sm-12{
+    margin-top: 160px;
+  }
+  .home_image_mobile
+  {
+    width: 100px;
+    height: 100px;
+  }
+  div.CategDiv1
+  {
+    display: none;
+  }
+  div.CategDiv2
+  {
+    display: none;
+  }
+
+  #image_container
+  {
+    height: 120px;
+    overflow: hidden;
+  }
+  .not-image
+  {
+    /* width: 100%; */
+    height: 100%;
+  }
+  .index-mobile {
+    display: block !important;
+    margin-top: 30px;
+  }
+  .index-web {
+    display: none;
+  }
+
+  #home-web {
+    width: 100%;
+  }
+
+  center#paginate-center {
+    display: block !important;
+  }
+
+  center#paginate-center-web {
+    display: none;
+  }
+
+  #cart_border {
+    display: none;
+  }
+}
+
+.index-mobile {
+  display: none;
+}
+
+center#paginate-center {
+  display: none;
+}
+
+</style>
+
+
+
+<%= render :partial => "render_me/head" %>
+
+<body class="two-col" id="home-page" data-hook="body" style="">
+
+
+    <div class="container">
+      <div class="row" data-hook="">
+
+
+        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+    <div data-hook="homepage_sidebar_navigation">
+
+<%= render :partial => "render_me/sidebar_hover" %>
+
+  </div>
+
+</aside>
+
+
+  <div id="content" class="col-sm-8 col-md-9" data-hook="">
+
+  <div data-hook="homepage_products">
+  <!-- Insert Categories here -->
+  <% if current_spree_user && current_spree_user.admin? %>
+    <%= render :partial => "render_me/admin/subcategories" %>
+  <% else %>
+
+
+  <div class="index-web">
+  <h1>Subcategories</h1>
+
+  <% @active_product_only = Category.where(:active => true) %>
+  <% @subcategories_active = Subcategory.where(:category_id => @active_product_only).page(params[:page]).per(16).order(:name) %>
+  <% @subcategories_active.each do |subcategories_active| %>
+  <%= link_to subcategories_active do%>
+    <div class="active_img_txt_container">
+      <div class="active_prod_img">
+        <%=image_tag subcategories_active.image_subcategory.url(:thumb), :class => "active_home_image_mobile"%>
+      </div>
+      <span class="active_prod_txt">
+        <%=truncate(subcategories_active.name, length: 47)%>
+      </span>
+    </div>
+  <% end %>
+  <% end %>
+
+  </div>
+
+  <div class="index-mobile">
+  <h1>Subcategory</h1>
+  <% @active_product_only = Category.where(:active => true) %>
+  <% @subcategories_active_mob = Subcategory.where(:category_id => @active_product_only).page(params[:page]).per(16).order(:name) %>
+  <% @subcategories_active_mob.each do |subcategories_active_mob| %>
+    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+      <div class="panel panel-default" id="panel-default-id">
+        <div id="image_container" class="panel-body text-center product-body">
+          <!-- <% if subcategories_active_mob.category.name == "Grocery" || subcategories_active_mob.category.name == "Clothes" || subcategories_active_mob.category.name == "Sports" %> -->
+            <%= link_to (image_tag subcategories_active_mob.image_subcategory.url(:thumb), :class => "home_image_mobile"), subcategories_active_mob %>
+          <!-- <% else %>
+            <div class="not-image"><%= link_to (image_tag subcategories_active_mob.image_subcategory.url(:thumb), :class => "home_image_mobile"), subcategories_active_mob %></div>
+          <% end %> -->
+          <br>
+        </div>
+        <div class="panel-footer text-center">
+          <span id="web_categ_name" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <!-- <% if subcategories_active_mob.category.name == "Grocery" || subcategories_active_mob.category.name == "Clothes" || subcategories_active_mob.category.name == "Sports" %> -->
+            <%= link_to subcategories_active_mob.name, subcategories_active_mob %>
+          <!-- <% else %>
+            <%= link_to_if false, subcategories_active_mob.name, subcategories_active_mob %>
+          <% end %> -->
+          </span>
+        </div>
+      </div></a>
+    </div>
+  <% end %>
+
+  </div>
+  <center id="paginate-center"><%= paginate @subcategories_active_mob, window: 1  %></center>
+  <center id="paginate-center-web"><%= paginate @subcategories_active %></center>
+
+  <% end %>
+  </div>
+</div>
+<% if simple_current_order.item_count < 1 %>
+  <%= render :partial => "render_me/side_cart_without" %>
+<% else %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart" %>
+</div>
+<% end %>
+</div>
+</div>
+
+</body>

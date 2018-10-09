@@ -1,0 +1,248 @@
+<style>
+
+@media only screen and (max-width: 360px) {
+  .categ-all-mobile {
+    width: 100%;
+  }
+
+  .categ-brands {
+    width:90%;
+  }
+
+  .categ-all-mobile {
+    display: flex;
+  }
+
+  #brand-image {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  #brand-image-text {
+    display: flex;
+    justify-content: space-around;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .brand-text {
+    font-size: 10px;
+  }
+
+  .brands-obyo {
+    display: block;
+  }
+
+  div.all-brands {
+    vertical-align: middle;
+    display: inline-flex;
+    overflow-x: auto;
+  }
+
+  div.all-brands::-webkit-scrollbar {
+    display: none;
+  }
+
+  div.all-brands-2 {
+    vertical-align: middle;
+    display: inline-flex;
+    overflow-x: auto;
+  }
+
+  div.all-brands-2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .Categ-icon {
+    width: 19%;
+    top: 0;
+    position: sticky;
+    margin-right: 5px;
+  }
+
+  .brands_subcat {
+    width: 80%;
+  }
+
+  div#categ-brands {
+    max-width: 100%;
+  }
+
+  .brand-text {
+    line-height: normal;
+  }
+
+  /* #categ-subcateg-web {
+    display: none;
+  } */
+
+  /* #categ-subcateg-mobile {
+    display: block;
+  } */
+
+  #panel-body-mobile {
+    height: 120px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+  }
+
+  #panel-default-id {
+    height: 165px;
+  }
+
+  .subcat-text {
+    font-size: 12px;
+  }
+
+  #paginate-center {
+    margin-left: 25px;
+  }
+
+  div#content {
+    margin-bottom: 0px !important;
+  }
+
+  /* .pagination {
+  background: white;
+  cursor: default; */
+  /* self-clearing method: */ }
+  /* .pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+  .pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .pagination a:hover, .pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .pagination {
+    height: 1%; }
+  *:first-child + html .pagination {
+    overflow: hidden; } */
+
+}
+/*
+  #categ-subcateg-mobile {
+    display: none
+  } */
+/*
+  #categ-subcateg-web {
+    display: block;
+  } */
+
+</style>
+
+<body class="two-col" id="home-page" data-hook="body" style="">
+<div class="categ-all-mobile">
+  <div class="Categ-icon">
+    <%= render :partial => "render_me/categories_icon" %>
+  </div>
+
+<div class="brands_subcat">
+  <div id="categ-brands">
+
+      <!-- Insert Categories here -->
+      <% @subcategories_mob = Subcategory.where(:category_id => @category.id) %>
+      <% @subcatspec = Specific.where(:subcategory_id => @subcategories_mob) %>
+      <% @specbrand = Brand.where(:specific_id => @subcatspec).sort_by &:name  %>
+
+    <div class="all-brands">
+      <% @specbrand.each do |specbrands| %>
+          <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M') %>
+          <div class="brands-obyo">
+            <div id="brand-image">
+              <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "60x60"), specbrands%><br>
+            </div>
+            <div id="brand-image-text">
+              <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div id="categ-brands">
+    <div class="all-brands-2">
+      <% @specbrand.each do |specbrands| %>
+          <%if specbrands.name.start_with?('N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
+          <div class="brands-obyo">
+            <div id="brand-image">
+              <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "60x60"), specbrands%><br>
+            </div>
+            <div id="brand-image-text">
+              <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
+    </div>
+
+  </div><br>
+
+
+    <div id="categ-subcateg-mobile">
+
+        <!-- Insert Categories here -->
+        <% @subcategories_mob = Subcategory.where(:category_id => @category.id).page(params[:page]).per(8)%>
+        <!-- .paginate(:page => params[:page], :per_page => 8) %> -->
+
+        <h3>Subcategories</h3>
+        <% @subcategories_mob.each do |subcat| %>
+          <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product" id="icon-hover">
+            <div class="panel panel-default" id="panel-default-id">
+              <div class="panel-body text-center product-body" id="panel-body-mobile">
+                <%= link_to (image_tag subcat.image_subcategory.url(:thumb), :size => "100x100"), subcat %>
+                <br>
+              </div>
+              <div class="panel-footer text-center">
+                <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <%= link_to subcat.name, subcat, class: "subcat-text" %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+  </div>
+
+</div>
+<center id="paginate-center"><%= paginate @subcategories_mob %></center>
+</body>

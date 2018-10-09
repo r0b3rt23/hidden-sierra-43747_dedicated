@@ -1,0 +1,120 @@
+<style>
+.register_newuser
+{
+  width: 170px;
+  height: 30px;
+  padding-top: 4px;
+  padding-left: 13px;
+  border: 1px solid darkgreen;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px lightgreen, inset -1px -10px 5px darkgreen, 1px 2px 1px white;
+  background-color: green;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.register_guest
+{
+  width: 170px;
+  height: 30px;
+  padding-top: 4px;
+  padding-left: 13px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  -moz-box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  box-shadow: inset 1px 6px 12px #ff8533, inset -1px -10px 5px #e65c00, 1px 2px 1px white;
+  background-color: #ff6600;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.form-control.title
+{
+  width: 286px;
+  margin-left: 3px;
+}
+.register_newuser
+{
+  display: none;
+}
+#checkout-guest
+{
+  display: none;
+}
+#registration-label
+{
+  margin-top: 0px;
+}
+
+@media only screen and (max-width: 360px)
+{
+  body#default.one-col div.container div.row div#content.col-sm-12 {
+    /* padding-left: 0px;
+    padding-right: 0px;
+    margin-button: 50px; */
+    margin-left: 8%;
+    width: 90%;
+  }
+}
+
+</style>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+  <h3 id="registration-label"><%= Spree.t(:registration) %></h3>
+<div class="register_newuser" id="newuser_btn" onclick="show_newaccount()">
+    Create a New Account
+</div>
+<br>
+<div id="registration" data-hook>
+  <div id="account">
+    <%= render :partial => 'new_user' %>
+  </div>
+  <div class="register_guest" id="guest_btn" onclick="show_checkoutguest()">
+      Checkout as Guest
+  </div>
+  <br>
+  <% if Spree::Config[:allow_guest_checkout] %>
+    <div class="col-md-6" id="checkout-guest">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= Spree.t(:guest_user_account) %></h3>
+        </div>
+        <div id="guest_checkout" class="panel-body" data-hook>
+          <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration' } do |f| %>
+            <p>
+              <%= f.email_field :email, :class => 'form-control title', :placeholder => Spree.t(:email) %>
+            </p>
+            <p><%= f.submit Spree.t(:continue), :class => 'btn btn-lg btn-success btn-block' %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+
+function show_newaccount() {
+  if (document.getElementById("checkout-guest").style.display = "block"){
+    document.getElementById("checkout-guest").style.display = "none";
+    document.getElementById("account").style.display = "block";
+    document.getElementById("newuser_btn").style.display = "none";
+    document.getElementById("guest_btn").style.display = "block";
+  }
+  else {
+    document.getElementById("account").style.display = "block";
+  }
+}
+function show_checkoutguest() {
+  if (document.getElementById("account").style.display = "block"){
+    document.getElementById("account").style.display = "none";
+    document.getElementById("checkout-guest").style.display = "block";
+    document.getElementById("newuser_btn").style.display = "block";
+    document.getElementById("guest_btn").style.display = "none";
+  }
+  else {
+    document.getElementById("checkout-guest").style.display = "block";
+
+  }
+}
+</script>

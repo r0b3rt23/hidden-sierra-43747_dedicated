@@ -1,0 +1,116 @@
+<style>
+
+div.order_my_account-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 360px)
+{
+  div.order_my_account-mobile {
+    display: block;
+  }
+
+  div.order_my_account-web {
+    display: none;
+  }
+
+  .tr_account-order:nth-child(even) {
+    background: #F6F6F6;
+  }
+
+  .tr_account-order:nth-child(odd) {
+    background: #F5F5F5;
+  }
+
+  .order-number-mob {
+    padding-left: 5%;
+    font-size: 18px;
+    /* background-color: #f5f5f5; */
+  }
+
+  .order-date-mob {
+    padding-left: 8%;
+    font-style: italic;
+    /* background-color: #f5f5f5; */
+  }
+
+  .order-total-mob {
+    padding-left: 8%;
+    font-style: italic;
+    font-weight: bold;
+    /* background-color: #f5f5f5; */
+  }
+}
+</style>
+
+<div class="order_my_account-web">
+<h3><%= Spree.t(:my_orders) %></h3>
+ <% if @orders.present? %>
+   <table class="table table-striped order-summary">
+     <thead class="active">
+     <tr>
+       <th class="order-number"><%= Spree::Order.human_attribute_name(:number) %></th>
+       <th class="order-date"><%= Spree.t(:date) %></th>
+       <th class="order-status"><%= Spree.t(:status) %></th>
+       <th class="order-payment-state"><%= Spree.t(:payment_state) %></th>
+       <th class="order-shipment-state"><%= Spree.t(:shipment_state) %></th>
+       <th class="order-total"><%= Spree.t(:total) %></th>
+     </tr>
+     </thead>
+     <tbody>
+     <% @orders.each do |order| %>
+       <tr>
+           <td class="order-number"><%= link_to order.number, order_url(order) %></td>
+           <td class="order-date">Placed on<%= l order.completed_at.to_date %></td>
+           <td class="order-status"><%= Spree.t("order_state.#{order.state}").titleize %></td>
+           <td class="order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
+           <td class="order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
+           <td class="lead text-primary order-total"><%= order.display_total %></td>
+       </tr>
+     <% end %>
+     </tbody>
+   </table>
+ <% else %>
+   <div class="alert alert-info"><%= Spree.t(:you_have_no_orders_yet) %></div>
+ <% end %>
+ <br/>
+</div>
+
+<div class="order_my_account-mobile">
+<h3><%= Spree.t(:my_orders) %></h3>
+ <% if @orders.present? %>
+   <table class="table table-striped order-summary">
+     <!-- <thead class="active">
+     <tr>
+       <th class="order-number"><%= Spree::Order.human_attribute_name(:number) %></th>
+       <th class="order-date"><%= Spree.t(:date) %></th>
+       <th class="order-status"><%= Spree.t(:status) %></th>
+       <th class="order-payment-state"><%= Spree.t(:payment_state) %></th>
+       <th class="order-shipment-state"><%= Spree.t(:shipment_state) %></th>
+       <th class="order-total"><%= Spree.t(:total) %></th>
+     </tr>
+     </thead> -->
+     <tbody>
+     <!-- <table class="order_table"> -->
+     <% @orders.each do |order| %>
+        <%= link_to order_url(order), :style => 'color:black' do %>
+         <tr class="account-order">
+           <div class="tr_account-order">
+             <div class="order-number-mob"><%= "Order #"%><%= order.number %></div>
+             <div class="order-date-mob"><%= l order.completed_at.to_date %></div>
+             <!-- <div class="order-state-mob"><%= Spree.t("order_state.#{order.state}").titleize %></div>
+             <div class="order-payment-mob"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></div>
+             <div class="order-shipment-mob"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></div> -->
+             <div class="order-total-mob"><%= order.display_total %></div>
+           </div>
+         </tr>
+       <% end %>
+
+     <% end %>
+     </tbody>
+   </table>
+ <% else %>
+   <div class="alert alert-info"><%= Spree.t(:you_have_no_orders_yet) %></div>
+ <% end %>
+ <br/>
+</div>

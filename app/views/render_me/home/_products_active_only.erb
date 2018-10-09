@@ -1,0 +1,51 @@
+
+<!-- ACTIVE PRODUCT ONLY -->
+<body class="two-col" id="home-page" data-hook="body" style="">
+
+    <div class="container">
+      <div class="row" data-hook="">
+        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+          <%= render :partial => "render_me/sidebar_hover" %>
+        </aside>
+
+
+<div id="content" class="col-sm-8 col-md-9" data-hook="">
+  <div id="home-web" data-hook="homepage_products">
+    <!-- Insert Categories here -->
+
+    <% if current_spree_user && current_spree_user.admin? %>
+      <%= render :partial => "render_me/admin/categories" %>
+    <% else %>
+
+  <div class="home-web">
+    <% @active_product_only = Category.where(:cgroup => 1, :active => true).sort_by &:sort_order %>
+    <% @active_product_only.each do |active_product_only| %>
+    <%= link_to active_product_only do%>
+      <div class="active_img_txt_container">
+        <div class="active_prod_img">
+          <%=image_tag active_product_only.image_category.url(:thumb), :class => "active_home_image_mobile"%>
+        </div>
+        <span class="active_prod_txt">
+          <%=truncate(active_product_only.name, length: 47)%>
+        </span>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
+
+  </div>
+</div>
+<% if simple_current_order.item_count < 1 %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart_without" %>
+</div>
+<% else %>
+<div class="sideCart">
+  <%= render :partial => "render_me/side_cart" %>
+</div>
+<% end %>
+</div>
+</div>
+</body>
+<!-- ACTIVE PRODUCT ONLY END-->

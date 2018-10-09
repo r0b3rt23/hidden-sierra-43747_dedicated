@@ -1,0 +1,60 @@
+<style>
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid;
+      text-align: center;
+      padding: 8px;
+  }
+
+  tr:nth-child(odd) {
+      background-color: #dddddd;
+  }
+</style>
+
+<% @categories_admin = Category.all.sort_by &:name %>
+<b><h1>Categories Admin</h1>
+<%= link_to 'Add New Category', new_category_path %><br><br></b>
+
+<table style="width:50%;border: 2px solid">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Products/Services</th>
+      <th>Order</th>
+      <th>Status</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories_admin.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= image_tag category.image_category.url(:thumb) %></td>
+        <td><% if category.cgroup==1 %>
+              <%= "Products" %>
+            <% end %>
+
+            <% if category.cgroup==2 %>
+              <%= "Services" %>
+            <% end %>
+        </td>
+        <td><%= category.sort_order %></td>
+        <td><% if category.active? %>
+              <%= "Active" %>
+            <% else %>
+              <%= "Not Active" %>
+            <% end %>
+        </td>
+        <td style="font-style:italic"><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td style="font-style:italic"><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

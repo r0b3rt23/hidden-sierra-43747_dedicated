@@ -1,0 +1,107 @@
+<style>
+  #main-footer {
+    background-color: #111d51;
+    height: 215px;
+  }
+
+  .line_green {
+    width:100%;
+    background-color: #26b71a;
+    color: #111d51;
+    height: 15%;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 3px;
+  }
+
+  .all_footer {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+
+  .col-xs-3 {
+    /* border: 1px solid red; */
+    color: white;
+    font-size: 11px;
+    padding-top: 10px;
+  }
+
+  .backtotop{
+    background-color: #26b71a;
+    border: none;
+    padding-top: 4px;
+    cursor: pointer;
+  }
+
+@media only screen and (max-width: 360px)
+  {
+    footer#main-footer {
+      display: none;
+    }
+  }
+
+</style>
+
+<footer id="main-footer">
+  <div class="line_green">
+    <div onclick="BacktoTopFunction()" title="Back to Top" class="backtotop">Back to top</div>
+  </div>
+  <div class="all_footer">
+    <div class="col-xs-3">
+      <b>GET TO KNOW US</b>
+      <br>
+      <br>Careers
+      <br>Blog
+      <br>About RAMORES
+      <br>Press Center
+      <br>Investor Relations
+      <br>Ramores Devices
+    </div>
+
+    <div class="col-xs-3">
+      <b>MAKE MONEY WITH US</b>
+      <br>
+      <br>Sell under private brands
+      <br>Sell on Ramores
+      <br>Sell on Ramores handmade
+      <br>Sell your services on Ramores
+      <br>Sell on Ramores business
+      <br>Sell your apps on Ramores
+      <br>Become an affiliate
+      <br>Advertise your products
+      <br>Self-pulish with us
+    </div>
+
+    <div class="col-xs-3">
+      <b>RAMORES PAYMENT PRODUCT</b>
+      <br>
+      <br>Ramores rewards Visa Signature Cards
+      <br>Ramores.com store card
+      <br>Ramores.com corporate credit line
+      <br>Shop with points
+      <br>Credit care marketplace
+      <br>Reload your balance
+      <br>Ramores currency converter
+    </div>
+
+    <div class="col-xs-3">
+      <b>LET US HELP YOU</b>
+      <br>
+      <br>Your account
+      <br>Your orders
+      <br>Shipping rates and policies
+      <br>Ramores prime
+      <br>Returns and replacements
+      <br>Manage your content and devices
+      <br>Ramores assistant
+      <br>Help
+    </div>
+  </div>
+</footer>
+
+<script>
+function BacktoTopFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>

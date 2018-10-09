@@ -1,0 +1,141 @@
+<style>
+
+.Clothin
+{
+  /* border:2px solid orange; */
+  display: flex;
+  justify-content: space-around;
+  height:195px;
+}
+
+.Clothin2
+{
+  background-color: #ff751a;
+}
+.Clothin2 .clothing_categ
+{
+  width:100%;
+  text-align: center;
+  /* border:2px solid green; */
+}
+.clothing_categ
+{
+  padding:2px;
+  /* border:2px solid blue; */
+  width:50%;
+  margin:2px;
+  font-size:15px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+  .CategCloth
+  {
+    /* border:2px solid green; */
+    background-color: #ff751a;
+    padding:2px;
+  }
+.CategCloth .div:hover
+{
+  color:black;
+}
+  .CategCloth .name:hover .hoverspec
+  {
+    color:white;
+  }
+  .allspec .specifics_cloth:hover .hoverspec
+  {
+    color:#001a00;
+  }
+  .clothing_categ .name:hover .hoverspec
+  {
+    color:white;
+  }
+  .Clothin2:hover
+  {
+      background-color: #ff6600;
+      font-weight: bold;
+      /* color:#001a00; */
+      cursor: pointer;
+  }
+  .CategCloth .name:hover
+  {
+    background-color: #ff6600;
+    font-weight: bold;
+    /* color:#001a00; */
+    cursor: pointer;
+  }
+  .CategCloth .name
+  {
+    text-align: center;
+  }
+  .allspec
+  {
+      width:100%;
+      height:170px;
+      margin:7px 2px 2px 2px;
+      padding:1px;
+      /* background-color: #00e68a; */
+      border:2px solid red;
+      display: inline-block;
+      -webkit-column-count: 3; /* Chrome, Safari, Opera */
+      -moz-column-count: 3; /* Firefox */
+      column-count: 3;
+      font-size: 13px;
+      /* text-align: center; */
+  }
+  .specifics_cloth
+  {
+    padding:1px;
+  }
+  .allspec .specifics_cloth:hover
+  {
+    background-color: #ff8c1a;
+    /* font-weight: bold; */
+    /* color:#001a00; */
+    cursor: pointer;
+  }
+
+  .hoverspec:hover
+  {
+      background: transparent;
+  }
+
+</style>
+
+<div class="Clothin">
+
+      <div class="clothing_categ">
+
+        <div class="CategCloth">
+          <% Subcategory.where(:name => "Men").each do |men| %>
+          <% @clothing_men = Specific.find_by_subcategory_id(men) %>
+          <div class="name"><%=link_to men.name, men, class:'hoverspec' %></div> <!--Display MEN -->
+        <% end %>
+        </div>
+
+      <div class="allspec">
+        <% Specific.where(:subcategory_id => "32").each do |men| %>
+              <div class="specifics_cloth"><%= link_to men.name, men, class:'hoverspec' %></div>
+        <% end %>
+      </div>
+
+      </div>
+
+      <div class="clothing_categ">
+
+        <div class="CategCloth">
+          <% Subcategory.where(:name => "Women").each do |women| %>
+          <% @clothing_women = Specific.find_by_subcategory_id(women) %>
+          <div class="name"><%= link_to women.name, women, class:'hoverspec' %></div>
+          <% end %>
+        </div>
+
+      <div class="allspec">
+        <% Specific.where(:subcategory_id => "33").each do |women| %>
+              <div class="specifics_cloth"><%= link_to women.name, women, class:'hoverspec' %></div>
+        <% end %>
+      </div>
+
+      </div>
+
+</div>

@@ -1,0 +1,81 @@
+  .CategDiv1
+  {
+    display: none;
+  }
+
+.showdiv1
+{
+  display:block;
+  justify-content: space-around;
+  position: absolute;
+  left: 7%;
+  background-color: #ccffcc;
+  z-index:2;
+  -webkit-column-count: 4; /* Chrome, Safari, Opera */
+  -moz-column-count: 4; /* Firefox */
+  column-count: 4;
+  /* -webkit-column-gap: 31px; Chrome, Safari, Opera
+  -moz-column-gap: 31px;  Firefox
+  column-gap: 31px; */
+  /* margin-top:270px; */
+  /* margin: inherit; */
+  padding:2px;
+  margin-top:-20px;
+  height:238px;
+  width:748px;
+  align-items: center;
+}
+
+.CategDiv1 div
+{
+  margin:2px 2px 0px 2px;
+  font-size:13px;
+  padding:3px;
+  /* border:1px solid blue; */
+  width:150px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+
+  .CategDiv1 div:hover
+  {
+    background-color: #66ff66;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .CategDiv1 div:hover .hovers
+  {
+    color:#001a00;
+  }
+
+  .CategDiv2
+  {
+    display: none;
+  }
+
+.showdiv2
+{
+  display: inline-block;
+  justify-content: space-around;
+  position: absolute;
+  background-color: #ffe0cc;
+  z-index:2;
+  /* -webkit-column-gap: 31px;  Chrome, Safari, Opera
+  -moz-column-gap: 31px;  Firefox
+  column-gap: 31px; */
+  /* margin-top:270px; */
+  /* margin: inherit; */
+  padding:5px;
+  margin-top:-20px;
+  height:238px;
+  left: -93%;
+  width:748px;
+  align-items: center;
+}
+
+
+  .hovers:hover
+  {
+      background: transparent;
+  }

@@ -1,0 +1,85 @@
+<style>
+table, th, td {
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+
+span#shopping-cart-size{
+  font-size: 20px;
+}
+
+a#box-back{
+  background-color: "red";
+}
+
+span#trash {
+  color: grey;
+}
+
+i#prod-desc{
+  font-size: 12px;
+}
+
+table#wishlist-table {
+  margin: auto;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+
+</style>
+
+<table id="wishlist-table">
+  <tbody id="line_items">
+  <% if @wishlist.wished_products.size > 0 %>
+    <% @wishlist.wished_products.each do |wish|
+        variant = wish.variant
+        product = variant.product %>
+    <tr class="<%= cycle('', 'alt') %>">
+
+      <td>
+        <% if variant.images.length == 0 %>
+          <%= small_image(variant.product) %>
+        <% else %>
+          <%= image_tag variant.images.first.attachment.url(:small) %>
+        <% end %>
+      </td>
+      <td>
+        <h4><%= link_to product.name, product %></h4>
+        <%= variant_options variant %>
+        <i id="prod-desc"><%= truncate(product.description, :length => 80, :omission => "...") %></i><br>
+      </td>
+      <td>
+        <%= variant.in_stock? ? t(:in_stock) : t(:out_of_stock) %>
+      </td>
+      <td>
+        <%= display_price(product) %>
+      </td>
+      <td>
+        <%= form_for :order, :url => spree.populate_orders_url do |f| %>
+          <%= hidden_field_tag "variant_id", variant.id, :size => 3 %>
+          <%= hidden_field_tag "quantity", 1, :size => 3 %>
+          <%= link_to '#', :onclick => "$(this).parent().submit(); return false;", :class => "button" do%>
+            <span id="shopping-cart-size" class="glyphicon glyphicon-shopping-cart"></span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to wish, :method => :delete, :class => 'button' do%>
+            <span id="trash" class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </td>
+    </tr>
+    <% end -%>
+  <% else -%>
+    <tr>
+      <td colspan="6"><%= t(:your_wishlist_is_empty) %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>
