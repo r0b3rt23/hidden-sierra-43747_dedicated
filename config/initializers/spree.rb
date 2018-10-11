@@ -20,6 +20,16 @@ Spree.user_class = "Spree::LegacyUser"
 Spree::PermittedAttributes.user_attributes.push :first_name, :last_name
 Spree::Config.set(:products_per_page => 12)
 
+Rails.application.config.spree.payment_methods << Spree::Gateway::Dragonpay
+
+# Spree::Gateway::Dragonpay.create(
+#   name: 'Dragonpay',
+#   description: 'Dragonpay payment',
+#   active: true,
+#   environment: 'development')
+#
+# Spree::Store.first.payment_methods << payment_method
+
 #initializer 'spree.register.calculators' do |app|
 #  config = Rails.application.config
 #  config.spree.calculators.tax_rates << EveryThousand
