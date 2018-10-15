@@ -38,8 +38,6 @@ gem "spree_product_hover_zoom", :git => "git://github.com/vinzloh/spree_product_
 
 gem 'spree_reviews', github: 'spree-contrib/spree_reviews'
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: 'master'
-# gem 'dragonpay_payment'
-gem 'spree_braintree_vzero', github: 'spree-contrib/spree_braintree_vzero'
 
 gem 'thin'
 # gem 'will_paginate', '~> 3.1.0'
