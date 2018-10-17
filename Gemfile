@@ -9,8 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
-# gem 'mysql2'
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'mysql2'
+# gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -38,8 +38,6 @@ gem "spree_product_hover_zoom", :git => "git://github.com/vinzloh/spree_product_
 
 gem 'spree_reviews', github: 'spree-contrib/spree_reviews'
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: 'master'
-# gem 'dragonpay_payment'
-gem 'spree_braintree_vzero', github: 'spree-contrib/spree_braintree_vzero'
 
 gem 'thin'
 # gem 'will_paginate', '~> 3.1.0'

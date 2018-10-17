@@ -39,6 +39,9 @@
         </div>
   </div>
       <% if simple_current_order.item_count < 1 %>
+      <div class="sideCart">
+        <%= render :partial => "render_me/side_cart" %>
+      </div>
       <% else %>
         <div class="sideCart">
           <%= render :partial => "render_me/side_cart" %>

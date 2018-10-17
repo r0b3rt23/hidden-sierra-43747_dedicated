@@ -8,25 +8,13 @@ GIT
 
 GIT
   remote: https://github.com/spree-contrib/better_spree_paypal_express.git
-  revision: 962a789738b59f440bf44ea22e64b65cc2572535
+  revision: 3b95f4c2ba00a266a28fb8915b64140fb347ca31
   specs:
     spree_paypal_express (3.3.0)
       paypal-sdk-merchant
       spree_auth_devise (>= 3.1.0, < 4.0)
       spree_core (>= 3.1.0, < 4.0)
       spree_extension
-
-GIT
-  remote: https://github.com/spree-contrib/spree_braintree_vzero.git
-  revision: f3b06af912c87c55415ca73a385aaf6df7751a43
-  specs:
-    spree_braintree_vzero (3.4.0)
-      braintree (>= 2.40.0)
-      spree_backend (>= 3.1.0, < 4.0)
-      spree_core (>= 3.1.0, < 4.0)
-      spree_extension
-      spree_frontend (>= 3.1.0, < 4.0)
-      whenever
 
 GIT
   remote: https://github.com/spree-contrib/spree_reviews.git
@@ -39,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/spree-contrib/spree_wishlist.git
-  revision: 10f94f4ea80e24996253d58997e3dd8cb0bd437b
+  revision: 133d338cd108a91a72e430b647f3da596d702eef
   branch: master
   specs:
     spree_wishlist (2.2.0)
@@ -75,8 +63,8 @@ GEM
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
-    activemerchant (1.85.0)
-      activesupport (>= 4.2, < 6.x)
+    activemerchant (1.78.0)
+      activesupport (>= 3.2.14, < 6.x)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
       nokogiri (~> 1.4)
@@ -93,35 +81,33 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (5.0.0)
       activerecord (>= 4.2.8)
-    acts_as_list (0.9.16)
+    acts_as_list (0.9.11)
       activerecord (>= 3.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    autoprefixer-rails (9.1.4)
+    autoprefixer-rails (8.3.0)
       execjs
     awesome_nested_set (3.1.4)
       activerecord (>= 4.0.0, < 5.3)
-    aws-sdk (2.11.141)
-      aws-sdk-resources (= 2.11.141)
-    aws-sdk-core (2.11.141)
+    aws-sdk (2.11.34)
+      aws-sdk-resources (= 2.11.34)
+    aws-sdk-core (2.11.34)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.141)
-      aws-sdk-core (= 2.11.141)
-    aws-sigv4 (1.0.3)
-    bcrypt (3.1.12)
+    aws-sdk-resources (2.11.34)
+      aws-sdk-core (= 2.11.34)
+    aws-sigv4 (1.0.2)
+    bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    braintree (2.90.0)
-      builder (>= 2.0.0)
     builder (3.2.3)
     byebug (10.0.2)
     camertron-eprun (1.1.1)
-    cancancan (2.3.0)
-    canonical-rails (0.2.4)
+    cancancan (2.2.0)
+    canonical-rails (0.2.3)
       rails (>= 4.1, < 5.3)
     capybara (2.18.0)
       addressable
@@ -134,7 +120,6 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chronic (0.10.2)
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
     cocaine (0.5.8)
@@ -151,8 +136,8 @@ GEM
     css_parser (1.6.0)
       addressable
     daemons (1.2.6)
-    deface (1.3.2)
-      nokogiri (>= 1.6)
+    deface (1.3.0)
+      nokogiri (~> 1.6)
       polyglot
       rails (>= 4.1)
       rainbow (>= 2.1.0)
@@ -165,17 +150,17 @@ GEM
     devise-encryptable (0.2.0)
       devise (>= 2.1.0)
     erubi (1.7.1)
-    eventmachine (1.2.7)
+    eventmachine (1.2.5)
     execjs (2.7.0)
-    ffaker (2.10.0)
-    ffi (1.9.25)
-    friendly_id (5.2.4)
+    ffaker (2.9.0)
+    ffi (1.9.23)
+    friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     highline (1.6.21)
     htmlentities (4.3.4)
-    i18n (1.1.0)
+    i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -209,20 +194,21 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mime-types (3.2.2)
+    mime-types (3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2018.0812)
+    mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
-    mini_mime (1.0.1)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
-    monetize (1.9.0)
-      money (~> 6.12)
-    money (6.13.0)
-      i18n (>= 0.6.4, <= 2)
+    monetize (1.7.0)
+      money (~> 6.9)
+    money (6.11.0)
+      i18n (>= 0.6.4, < 1.1)
     multi_json (1.13.1)
-    nio4r (2.3.1)
-    nokogiri (1.8.4)
+    mysql2 (0.5.2)
+    nio4r (2.3.0)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     paperclip (5.2.1)
@@ -238,7 +224,6 @@ GEM
       xml-simple
     paypal-sdk-merchant (1.117.2)
       paypal-sdk-core (~> 0.3.0)
-    pg (1.1.3)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -249,12 +234,12 @@ GEM
     premailer-rails (1.10.2)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (3.0.3)
-    puma (3.12.0)
+    public_suffix (3.0.2)
+    puma (3.11.4)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
     rack (2.0.5)
-    rack-test (1.1.0)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
       actioncable (= 5.1.6)
@@ -294,8 +279,8 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
-    rubyzip (1.2.2)
-    sass (3.6.0)
+    rubyzip (1.2.1)
+    sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -308,7 +293,7 @@ GEM
       tilt (>= 1.1, < 3)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
-    selenium-webdriver (3.14.0)
+    selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     spree (3.4.5)
@@ -322,7 +307,7 @@ GEM
       rabl (~> 0.13.1)
       spree_core (= 3.4.5)
       versioncake (~> 3.3.0)
-    spree_auth_devise (3.4.1)
+    spree_auth_devise (3.3.3)
       devise (~> 4.4.0)
       devise-encryptable (= 0.2.0)
       spree_core (>= 3.1.0, < 4.0)
@@ -367,7 +352,7 @@ GEM
       jquery-rails (~> 4.3)
       spree_api (= 3.4.5)
       spree_core (= 3.4.5)
-    spree_gateway (3.3.3)
+    spree_gateway (3.3.2)
       spree_core (>= 3.1.0, < 4.0)
       spree_extension
     spree_sample (3.4.5)
@@ -399,16 +384,16 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    turbolinks (5.2.0)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbolinks (5.1.1)
+      turbolinks-source (~> 5.1)
+    turbolinks-source (5.1.0)
     twitter_cldr (4.4.3)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.19)
+    uglifier (4.1.9)
       execjs (>= 0.3.0, < 3)
     versioncake (3.3.0)
       actionpack (>= 3.2)
@@ -417,7 +402,7 @@ GEM
       tzinfo
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.7.0)
+    web-console (3.6.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -425,10 +410,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    whenever (0.10.0)
-      chronic (>= 0.6.3)
     xml-simple (1.1.5)
-    xpath (3.1.0)
+    xpath (3.0.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
@@ -442,15 +425,14 @@ DEPENDENCIES
   friendly_id
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mysql2
   paperclip
-  pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
   spree (~> 3.4.4)
   spree_auth_devise (~> 3.3)
-  spree_braintree_vzero!
   spree_gateway (~> 3.3)
   spree_paypal_express!
   spree_product_hover_zoom!
