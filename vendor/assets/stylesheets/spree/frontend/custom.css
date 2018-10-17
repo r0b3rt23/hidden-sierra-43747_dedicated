@@ -1,8 +1,8 @@
 #spree-header {
-    background-color: #020AB7;
+    background-color: #111d51  !important;
 }
 #spree-header #header{
-    background: #020AB7;
+    background: #111d51 !important;
 }
 
 .panel-body {
@@ -31,7 +31,12 @@ body #default .one-col div .container div .row div #content .col-sm-12 div .cont
   padding-right: 0px;
 } */
 
-
+.header-bottom
+{
+  width: 1250px;
+  height: 5px;
+  background-color: #26b71a;
+}
 
 body#default.one-col
 {
@@ -454,7 +459,7 @@ body#default.one-col div#spree-header header#header div.container div.row .login
   display: flex;
   justify-content: space-around;
   margin-top:5px;
-  width:500px !important;
+  width:850px !important;
   /* border:3px solid pink; */
 }
 
@@ -463,8 +468,11 @@ body#default.one-col div#spree-header header#header div.container div.row
   display: flex;
   justify-content: space-around;
   /* border:3px solid red; */
-  width:1250px;
-  margin-left: 1px;
+  width: 1585px  !important;
+  background-color: #26b71a;
+  height: 40px;
+  margin-bottom: 12px;
+  margin-left: -168px !important;
 }
 
 body#default.one-col div#spree-header header#header div.container center div#bar-search form.navbar-form
@@ -538,7 +546,7 @@ body#default.two-col div#spree-header header#header div.container div.row .login
   display: flex;
   justify-content: space-around;
   margin-top:5px;
-  width:500px;
+  width:650px;
   /* border:3px solid pink; */
 }
 
@@ -882,91 +890,6 @@ ul.ul_wishlist_account {
   margin-left: 8%;
 }
 /* END */
-
-/* REVISIONS */
-  /* ACTIVE ONLY */
-  .active_img_txt_container{
-    /* border: 1px solid blue; */
-    width: 24%;
-    display: inline-block;
-    top: 0px;
-    vertical-align: top;
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .service_active_img_txt_container{
-    /* border: 1px solid blue; */
-    width: 24%;
-    display: inline-block;
-    top: 0px;
-    vertical-align: top;
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .service_active_img_txt_container:hover {
-    border: 1px solid #C0C0C0;
-  }
-
-  .active_img_txt_container:hover {
-    border: 1px solid #C0C0C0;
-  }
-
-  .active_prod_img:hover {
-    opacity: 0.9;
-  }
-
-  .active_home_image_mobile{
-    height: 180px;
-    width: 180px;
-  }
-  /* END ACTIVE ONLY */
-
-  /* NOT ACTIVE ONLY */
-  .notactive_home_image_mobile{
-    height: 80px;
-  }
-
-  .notactive_home_image_mobile{
-    width: 100px;
-    height: 100px;
-    opacity: 0.8;
-      filter: alpha(opacity=50); /* For IE8 and earlier */
-  }
-
-  .cat_container {
-    /* border: 1px solid red; */
-    margin-top: -20px;
-    margin-bottom: 30px;
-  }
-
-  .image_text_container {
-    /* border: 1px solid blue; */
-    display: inline-block;
-    width: 12%;
-    top: 0px;
-    vertical-align: top;
-    text-align: center;
-  }
-
-  .cimage{
-    /* border: 1px solid green; */
-    width: 100%;
-  }
-
-  span.ctext{
-    /* border: 1px solid purple; */
-    font-size: 10px;
-    text-align: center;
-    width: 100px;
-    word-wrap: break-word;
-  }
-  /* END NOT ACTIVE ONLY */
-  .mobile_home_rev {
-    display: none;
-  }
-/* END REVISIONS */
 
 @media only screen and (max-width: 360px)
 {
@@ -1490,7 +1413,6 @@ ul.ul_wishlist_account {
   .account-my-orders {
     margin-left: 8%;
     width: 90%;
-    margin-bottom: -25px;
   }
 
 /* WISHLIST */
@@ -1518,21 +1440,5 @@ ul.ul_wishlist_account {
   table#wishlist-table-mobile {
     margin-left: 8%;
   }
-
-  figure#logo {
-    padding-left: 75px;
-  }
-
-  .alert.alert-success {
-    margin-left: 9%;
-  }
-
-
-
-  /* #spree-header #header {
-    margin-top: -20px;
-    margin-bottom: -32px;
-  } */
-
 
 }
