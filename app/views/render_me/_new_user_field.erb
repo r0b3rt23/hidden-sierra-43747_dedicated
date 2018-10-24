@@ -3,7 +3,7 @@
       /* height: 50px !important; */
   }
 </style>
-
+<center>
 <fieldset id="password-credentials">
   <div class="form-group">
     <%= f.text_field :first_name, class: 'form-control', placeholder:Spree.t(:first_name), required: true %>
@@ -22,4 +22,5 @@
     <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => Spree.t(:confirm_password) %>
   </div>
 </fieldset>
+</center>
 <div data-hook="signup_below_password_fields"></div>

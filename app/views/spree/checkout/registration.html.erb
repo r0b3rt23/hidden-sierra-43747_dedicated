@@ -14,7 +14,7 @@
   color: white;
   text-shadow: 1px 1px 1px black;
 }
-div#guest_btn.register_guest 
+.register_guest
 {
   width: 170px;
   height: 30px;
@@ -68,9 +68,6 @@ div#guest_btn.register_guest
 <div id="registration" data-hook>
   <div id="account">
     <%= render :partial => 'new_user' %>
-  </div>
-  <div class="register_guest" id="guest_btn" onclick="show_checkoutguest()">
-      Checkout as Guest
   </div>
   <br>
   <% if Spree::Config[:allow_guest_checkout] %>

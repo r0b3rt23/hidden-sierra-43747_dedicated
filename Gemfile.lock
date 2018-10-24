@@ -29,6 +29,14 @@ GIT
       whenever
 
 GIT
+  remote: https://github.com/spree-contrib/spree_mail_settings.git
+  revision: be7a9a9fa866054a81270f15e8e5fb289e80a9d7
+  specs:
+    spree_mail_settings (3.3.0)
+      spree_auth_devise (>= 3.1.0, < 4.0)
+      spree_backend (>= 3.1.0, < 4.0)
+
+GIT
   remote: https://github.com/spree-contrib/spree_reviews.git
   revision: 5e7965f18d0610f9954728e1cb03970f1d2c8fef
   specs:
@@ -221,6 +229,7 @@ GEM
     money (6.13.0)
       i18n (>= 0.6.4, <= 2)
     multi_json (1.13.1)
+    mustermann (1.0.3)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -254,6 +263,8 @@ GEM
     rabl (0.13.1)
       activesupport (>= 2.3.14)
     rack (2.0.5)
+    rack-protection (2.0.4)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -294,6 +305,7 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
+    ruby_http_client (3.3.0)
     rubyzip (1.2.2)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
@@ -311,6 +323,14 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sendgrid-ruby (5.3.0)
+      ruby_http_client (~> 3.3.0)
+      sinatra (>= 1.4.7, < 3)
+    sinatra (2.0.4)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.4)
+      tilt (~> 2.0)
     spree (3.4.5)
       spree_api (= 3.4.5)
       spree_backend (= 3.4.5)
@@ -448,10 +468,12 @@ DEPENDENCIES
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sendgrid-ruby
   spree (~> 3.4.4)
   spree_auth_devise (~> 3.3)
   spree_braintree_vzero!
   spree_gateway (~> 3.3)
+  spree_mail_settings!
   spree_paypal_express!
   spree_product_hover_zoom!
   spree_reviews!

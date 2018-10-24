@@ -31,7 +31,13 @@ body #default .one-col div .container div .row div #content .col-sm-12 div .cont
   padding-right: 0px;
 } */
 
-
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  /* line-height: 1.428571429; */
+  color: #333333;
+  background-color: #fff;
+}
 
 body#default.one-col
 {
@@ -186,6 +192,7 @@ div .panel-footer:hover .linkhover
   border: 1px solid green;
   height: 1000px;
 } */
+
 
 div .not-image {
   opacity: 0.6;
@@ -1357,7 +1364,7 @@ ul.ul_wishlist_account {
   }
   body#cart.one-col div.container
   {
-    width: 100%;
+    width: 95%;
   }
   #spree-header .navbar-form a
   {
@@ -1460,7 +1467,7 @@ ul.ul_wishlist_account {
   }
   body#product-details.one-col div.container
   {
-    width: 100% !important;
+    width: 90% !important;
   }
   body#product-details.one-col div#spree-header header#header
   {
@@ -1503,7 +1510,7 @@ ul.ul_wishlist_account {
 
   /* CHECKOUT HEADER */
   body#checkout-page.one-col div.container {
-    width: 100% !important;
+    width: 90% !important;
   }
   body#checkout-page.one-col div#spree-header header#header {
     width: 100% !important;
@@ -1549,6 +1556,7 @@ ul.ul_wishlist_account {
   body#default.one-col div.container div.row
   {
     display: inline-block;
+        /* margin-left: 0px; */
   }
   .ordernumber-label
   {
@@ -1557,9 +1565,6 @@ ul.ul_wishlist_account {
   }
 
   /* LOGIN HEADER */
-    body#login.one-col div.container {
-      width: 100% !important;
-    }
     body#login.one-col div#spree-header header#header {
       width: 100% !important;
     }
@@ -1586,6 +1591,14 @@ ul.ul_wishlist_account {
     }
 
     /* LOGIN BODY */
+    body#login.one-col div.container {
+      width: 100% !important;
+    }
+    body#login.one-col div.container div.row
+    {
+          display: inline-block;
+          margin-left: 5px;
+    }
     body#login.one-col div.container div.row div#content.col-sm-12 div.col-md-6.col-md-offset-3
     {
       /* width: 100%; */
@@ -1593,9 +1606,6 @@ ul.ul_wishlist_account {
 
 
     /* SIGNUP HEADER */
-    body#signup.one-col div.container {
-      width: 100% !important;
-    }
     body#signup.one-col div#spree-header header#header {
       width: 100% !important;
     }
@@ -1619,6 +1629,15 @@ ul.ul_wishlist_account {
     {
       width: 70%;
       margin-left: 17%;
+    }
+
+    /* SIGNUP CONTAINER */
+    body#signup.one-col div.container {
+      width: 100% !important;
+    }
+    body#signup.one-col div.container div.row{
+      display: inline-block;
+      margin-left: 5px;
     }
 
   /* JONAS */
@@ -1649,7 +1668,7 @@ ul.ul_wishlist_account {
   body#default.one-col div.container div.row div#content.col-sm-12 {
     padding-left: 0px;
     padding-right: 0px;
-    margin-button: 50px;
+    margin-bottom: 50px;
   }
 
   /* account */
@@ -1659,13 +1678,13 @@ ul.ul_wishlist_account {
   }
 
   .account-summary.well {
-    margin-left: 8%;
-    width: 90%;
+    /* margin-left: 8%; */
+    width: 85%;
   }
 
   .account-my-orders {
-    margin-left: 8%;
-    width: 90%;
+    /* margin-left: 8%; */
+    width: 85%;
     margin-bottom: -25px;
   }
 
