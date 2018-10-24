@@ -9,8 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
-gem 'mysql2'
-# gem 'pg', '>= 0.18', '< 2.0'
+# gem 'mysql2'
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -40,6 +40,7 @@ gem 'spree_reviews', github: 'spree-contrib/spree_reviews'
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: 'master'
 
 gem 'thin'
+gem 'spree_braintree_vzero', github: 'spree-contrib/spree_braintree_vzero'
 # gem 'will_paginate', '~> 3.1.0'
 # gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings'
 # Use Redis adapter to run Action Cable in production

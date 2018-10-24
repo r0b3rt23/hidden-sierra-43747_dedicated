@@ -2,7 +2,7 @@
 <header id="header" data-hook="">
 <div class="container">
   <div class="row">
-    <figure id="logo" class="col-md-4 col-sm-3" data-hook="">
+    <figure id="logo" class="col-md-3 col-sm-3 col-md-offset-1" data-hook="">
       <a href="/"><img src="/assets/logo-64407bd31e25cbd9b1640c22db050d24ccd6e29f79628172703f9b66927f4346.jpg" alt="Logo"></a>
     </figure>
     <nav class="navbar col-md-8 col-sm-9" id="top-nav-bar">
@@ -13,7 +13,7 @@
 <% else %>
   <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li><br>
 <% end %>
-<li id="search-bar" data-hook="">
+<li id="search-bar" data-hook="" style="list-style: none;">
 </li>
 </ul>
 </nav>

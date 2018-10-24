@@ -15,7 +15,10 @@ div#image_container {
 
 body#default.one-col div.container {
     height: fit-content;
-    width: 95%;
+    /* width: 95%; */
+    width: 1250px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 
@@ -29,7 +32,9 @@ body#default.one-col div.container {
   .web_home_rev {
     display: none;
   }
-
+  /* body#default.one-col div.container {
+      z-index: -10;
+  } */
   body#default.one-col div.container div.row div#content.col-sm-12 {
     margin-left: 10% !important;
   }
@@ -102,7 +107,7 @@ body#default.one-col div.container {
 
 <div class = "web_home_rev">
   <%= render :partial => "render_me/home/products_active_only" %>
-  <!-- <%= render :partial => "render_me/home/services_active_only" %> -->
+  <%= render :partial => "render_me/home/services_active_only" %>
   <%= render :partial => "render_me/home/products_notactive_only" %>
   <%= render :partial => "render_me/home/services_notactive_only" %>
 </div>

@@ -38,15 +38,13 @@
         <% end %>
         </div>
   </div>
-      <% if simple_current_order.item_count < 1 %>
+        <!-- render sidecart -->
       <div class="sideCart">
-        <%= render :partial => "render_me/side_cart" %>
-      </div>
-      <% else %>
-        <div class="sideCart">
+        <% if simple_current_order.item_count < 1 %>
+          <%= render :partial => "render_me/side_cart_without" %>
+        <% else %>
           <%= render :partial => "render_me/side_cart" %>
-        </div>
-      <% end %>
-
+        <% end %>
+      </div>
 </div>
 </body>

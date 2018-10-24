@@ -1,4 +1,22 @@
 <style>
+  .product_image_web
+  {
+    object-fit: none;
+    width: 100%;
+  }
+
+  #price-starts
+  {
+    font-size: 12px;
+  }
+
+  .price.selling.lead
+  {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1c5c92;
+  }
+
 @media only screen and (max-width: 360px) {
   div#content.col-sm-8.col-md-9 {
     width: 100%;
@@ -91,12 +109,12 @@
     <% cache(taxon.present? ? [I18n.locale, current_currency, taxon, product] : cache_key_for_product(product)) do %>
       <div class="panel-body text-center product-body">
         <%= link_to url, itemprop: "url" do %>
-          <%= product_show_image(product, itemprop: "image") %><br/>
-          <%= content_tag(:span, truncate(product.name, length: 37), class: 'info', itemprop: "name", title: product.name) %>
+          <%= product_image(product, itemprop: "image", class: 'product_image_web') %><br/>
+          <%= content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", title: product.name) %>
         <% end %>
         <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
             <% if @spree_product_variant.where(:is_master => false).count > 1 %>
-            <h5 id="price-starts"><%= "Price starts @"%></h5>
+            <div id="price-starts"><%= "Price starts @"%></div>
           <% else %>
 
           <% end %>

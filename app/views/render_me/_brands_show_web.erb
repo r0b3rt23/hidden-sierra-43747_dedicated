@@ -1,8 +1,13 @@
 <style>
-  h5#price-starts {
+  #price-starts {
     top: 95%;
+    font-size: 12px;
   }
 
+  .productshow_image_web{
+    object-fit: none;
+    width: 100%;
+  }
 
 </style>
 
@@ -33,11 +38,11 @@
                     <% @spree_variant_price = Spree::Price.find_by_variant_id(@spree_product_variant) %>
                     <% @spree_variant_asset = Spree::Asset.find_by_viewable_id(@spree_product_variant)%>
                     <% if Spree::Variant.where(:product_id => m).count > 1 %>
-                      <%= image_tag @spree_variant_asset.attachment.url(:product_show) %><br>
+                      <%= image_tag @spree_variant_asset.attachment.url(:product), class: 'productshow_image_web' %><br>
                       <%= word_wrap(m.name) %>
-                      <h5 id="price-starts"><%= "Price starts @"%></h5>
+                      <div id="price-starts"><%= "Price starts @"%></div>
                     <% else %>
-                      <%= image_tag @spree_variant_asset.attachment.url(:product_show) %><br>
+                      <%= image_tag @spree_variant_asset.attachment.url(:product), class: 'productshow_image_web' %><br>
                       <%= word_wrap(m.name) %>
                     <% end %>
                     <br>
