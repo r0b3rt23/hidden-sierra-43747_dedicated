@@ -1,8 +1,15 @@
 <style>
   div#order-placed {
+    background-color:
     padding: 9px;
     border: 1.5px solid green;
     margin-top: 10px;
+    float: center;
+    width: 50%;
+    font-size: large;
+  }
+  .delivery_datetime{
+    color: #1c5c92;
   }
 
 .btn.btn-primary
@@ -146,14 +153,6 @@
           <% end %>
         </div>
         <%= render 'spree/shared/shipment_tracking', order: order if order.shipped? %><br>
-
-        <div class="order-placed-web" id= "order-placed">
-          <center><h5><%= "Order placed: " + order.updated_at.strftime("%m-%d-%Y ") + order.updated_at.strftime("%I:%M %p") %></h5>
-          <% delivery_time = order.updated_at+99.minute %>
-          <i><%= "Expect delivery not later than" %></i><br></center>
-          <center><b><%= order.updated_at.strftime("%m-%d-%Y ") %>
-                     <%= delivery_time.strftime("%I:%M %p") %></b></center>
-        </div>
       </div>
 
     <% end %>
@@ -168,6 +167,17 @@
 
     </div>
   <% end %>
+
+  <div class="order-placed-web" id= "order-placed">
+    <br>
+    <center><h4><%= "Order placed: " + order.updated_at.strftime("(%I:%M %p)  ") + order.updated_at.strftime("%B %d, %Y") %></h4>
+          <% delivery_time = order.updated_at+99.minute %>
+          <i><b><%= "Expect delivery not later than" %></i></b><br></center>
+      <div class="delivery_datetime">
+          <center><b><%= delivery_time.strftime("(%I:%M %p)  ") %>
+                     <%= order.updated_at.strftime("%B %d, %Y") %></b></center>
+       </div>
+  </div>
 
   <br>
   <div class="order-placed-mobile" id= "order-placed">
@@ -225,7 +235,7 @@
 
       <tr class="warning total">
           <center><div class="continueShop">
-            <%= link_to Spree.t(:continue_shopping), products_path, id:'continue', class: 'btn btn-default' %>
+            <%= link_to Spree.t(:continue_shopping), root_path, id:'continue', class: 'btn btn-default' %>
           </div></center>
       </tr>
   </tfoot>

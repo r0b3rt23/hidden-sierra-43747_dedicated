@@ -1,3 +1,10 @@
+<style>
+.locality{
+  display: none;
+}
+
+</style>
+
 <div class="address vcard">
   <div class="fn"><%= address.full_name %></div>
   <% unless address.company.blank? %>
@@ -21,8 +28,8 @@
       <% if Spree::Config[:address_requires_state] %>
         <span class="region"><%= address.state_text %></span>
       <% end %>
-      <span class="postal-code"><%= address.zipcode %></span>
       <div class="country-name"><%= address.country.try(:name) %></div>
+      <span class="postal-code"><%= address.zipcode %></span>
     </div>
   </div>
   <% unless address.phone.blank? %>
