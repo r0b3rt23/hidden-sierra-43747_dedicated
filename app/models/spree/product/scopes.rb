@@ -75,56 +75,56 @@ module Spree
     #   vs.
     #
     #   SELECT COUNT(*) ...
-    add_search_scope :in_taxon do |taxon|
-      includes(:classifications).
-        where('spree_products_taxons.taxon_id' => taxon.self_and_descendants.pluck(:id)).
-        order('spree_products_taxons.position ASC')
-    end
-
-    # This scope selects products in all taxons AND all its descendants
-    # If you need products only within one taxon use
+    # add_search_scope :in_taxon do |taxon|
+    #   includes(:classifications).
+    #     where('spree_products_taxons.taxon_id' => taxon.self_and_descendants.pluck(:id)).
+    #     order('spree_products_taxons.position ASC')
+    # end
     #
-    #   Spree::Product.taxons_id_eq([x,y])
-    add_search_scope :in_taxons do |*taxons|
-      taxons = get_taxons(taxons)
-      taxons.first ? prepare_taxon_conditions(taxons) : where(nil)
-    end
-
-    # a scope that finds all products having property specified by name, object or id
-    add_search_scope :with_property do |property|
-      joins(:properties).where(property_conditions(property))
-    end
-
-    # a simple test for product with a certain property-value pairing
-    # note that it can test for properties with NULL values, but not for absent values
-    add_search_scope :with_property_value do |property, value|
-      joins(:properties).
-        where("#{ProductProperty.table_name}.value = ?", value).
-        where(property_conditions(property))
-    end
-
-    add_search_scope :with_option do |option|
-      option_types = OptionType.table_name
-      conditions = case option
-                   when String     then { "#{option_types}.name" => option }
-                   when OptionType then { "#{option_types}.id" => option.id }
-                   else { "#{option_types}.id" => option.to_i }
-      end
-
-      joins(:option_types).where(conditions)
-    end
-
-    add_search_scope :with_option_value do |option, value|
-      option_values = OptionValue.table_name
-      option_type_id = case option
-                       when String then OptionType.find_by(name: option) || option.to_i
-                       when OptionType then option.id
-                       else option.to_i
-      end
-
-      conditions = "#{option_values}.name = ? AND #{option_values}.option_type_id = ?", value, option_type_id
-      group('spree_products.id').joins(variants_including_master: :option_values).where(conditions)
-    end
+    # # This scope selects products in all taxons AND all its descendants
+    # # If you need products only within one taxon use
+    # #
+    # #   Spree::Product.taxons_id_eq([x,y])
+    # add_search_scope :in_taxons do |*taxons|
+    #   taxons = get_taxons(taxons)
+    #   taxons.first ? prepare_taxon_conditions(taxons) : where(nil)
+    # end
+    #
+    # # a scope that finds all products having property specified by name, object or id
+    # add_search_scope :with_property do |property|
+    #   joins(:properties).where(property_conditions(property))
+    # end
+    #
+    # # a simple test for product with a certain property-value pairing
+    # # note that it can test for properties with NULL values, but not for absent values
+    # add_search_scope :with_property_value do |property, value|
+    #   joins(:properties).
+    #     where("#{ProductProperty.table_name}.value = ?", value).
+    #     where(property_conditions(property))
+    # end
+    #
+    # add_search_scope :with_option do |option|
+    #   option_types = OptionType.table_name
+    #   conditions = case option
+    #                when String     then { "#{option_types}.name" => option }
+    #                when OptionType then { "#{option_types}.id" => option.id }
+    #                else { "#{option_types}.id" => option.to_i }
+    #   end
+    #
+    #   joins(:option_types).where(conditions)
+    # end
+    #
+    # add_search_scope :with_option_value do |option, value|
+    #   option_values = OptionValue.table_name
+    #   option_type_id = case option
+    #                    when String then OptionType.find_by(name: option) || option.to_i
+    #                    when OptionType then option.id
+    #                    else option.to_i
+    #   end
+    #
+    #   conditions = "#{option_values}.name = ? AND #{option_values}.option_type_id = ?", value, option_type_id
+    #   group('spree_products.id').joins(variants_including_master: :option_values).where(conditions)
+    # end
 
     # Finds all products which have either:
     # 1) have an option value with the name matching the one given
