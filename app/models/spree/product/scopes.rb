@@ -141,14 +141,14 @@ module Spree
     end
 
     # Finds all products that have a name or meta_keywords containing the given words.
-    add_search_scope :in_name_or_keywords do |words|
-      like_any([:name, :meta_keywords], prepare_words(words))
-    end
+    # add_search_scope :in_name_or_keywords do |words|
+    #   like_any([:name, :meta_keywords], prepare_words(words))
+    # end
 
     # Finds all products that have a name, description, meta_description or meta_keywords containing the given keywords.
-    add_search_scope :in_name_or_description do |words|
-      like_any([:name, :meta_keywords], prepare_words(words))
-    end
+    # add_search_scope :in_name_or_description do |words|
+    #   like_any([:name, :meta_keywords], prepare_words(words))
+    # end
 
     # Finds all products that have the ids matching the given collection of ids.
     # Alternatively, you could use find(collection_of_ids), but that would raise an exception if one product couldn't be found
