@@ -136,9 +136,9 @@ module Spree
     # end
 
     # Finds all products that have a name containing the given words.
-    add_search_scope :in_name do |words|
-      like_any([:name], prepare_words(words))
-    end
+    # add_search_scope :in_name do |words|
+    #   like_any([:name], prepare_words(words))
+    # end
 
     # Finds all products that have a name or meta_keywords containing the given words.
     # add_search_scope :in_name_or_keywords do |words|
