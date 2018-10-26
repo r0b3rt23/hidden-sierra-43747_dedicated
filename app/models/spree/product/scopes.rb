@@ -164,51 +164,51 @@ module Spree
     #
     # joins: "LEFT OUTER JOIN (SELECT line_items.variant_id as vid, COUNT(*) as cnt FROM line_items GROUP BY line_items.variant_id) AS popularity_count ON variants.id = vid",
     # order: 'COALESCE(cnt, 0) DESC'
-    add_search_scope :descend_by_popularity do
-      joins(:master).
-        order(%Q{
-           COALESCE((
-             SELECT
-               COUNT(#{LineItem.quoted_table_name}.id)
-             FROM
-               #{LineItem.quoted_table_name}
-             JOIN
-               #{Variant.quoted_table_name} AS popular_variants
-             ON
-               popular_variants.id = #{LineItem.quoted_table_name}.variant_id
-             WHERE
-               popular_variants.product_id = #{Product.quoted_table_name}.id
-           ), 0) DESC
-        })
-    end
-
-    add_search_scope :not_deleted do
-      where("#{Product.quoted_table_name}.deleted_at IS NULL or #{Product.quoted_table_name}.deleted_at >= ?", Time.zone.now)
-    end
-
-    def self.not_discontinued(only_not_discontinued = true)
-      if only_not_discontinued != '0' && only_not_discontinued
-        where("#{Product.quoted_table_name}.discontinue_on IS NULL or #{Product.quoted_table_name}.discontinue_on >= ?", Time.zone.now)
-      else
-        all
-      end
-    end
-    search_scopes << :not_discontinued
-    # Can't use add_search_scope for this as it needs a default argument
-    def self.available(available_on = nil, _currency = nil)
-      available_on ||= Time.current
-      not_discontinued.joins(master: :prices).where("#{Product.quoted_table_name}.available_on <= ?", available_on)
-    end
-    search_scopes << :available
-
-    def self.active(currency = nil)
-      available(nil, currency)
-    end
-    search_scopes << :active
-
-    add_search_scope :taxons_name_eq do |name|
-      group('spree_products.id').joins(:taxons).where(Taxon.arel_table[:name].eq(name))
-    end
+    # add_search_scope :descend_by_popularity do
+    #   joins(:master).
+    #     order(%Q{
+    #        COALESCE((
+    #          SELECT
+    #            COUNT(#{LineItem.quoted_table_name}.id)
+    #          FROM
+    #            #{LineItem.quoted_table_name}
+    #          JOIN
+    #            #{Variant.quoted_table_name} AS popular_variants
+    #          ON
+    #            popular_variants.id = #{LineItem.quoted_table_name}.variant_id
+    #          WHERE
+    #            popular_variants.product_id = #{Product.quoted_table_name}.id
+    #        ), 0) DESC
+    #     })
+    # end
+    #
+    # add_search_scope :not_deleted do
+    #   where("#{Product.quoted_table_name}.deleted_at IS NULL or #{Product.quoted_table_name}.deleted_at >= ?", Time.zone.now)
+    # end
+    #
+    # def self.not_discontinued(only_not_discontinued = true)
+    #   if only_not_discontinued != '0' && only_not_discontinued
+    #     where("#{Product.quoted_table_name}.discontinue_on IS NULL or #{Product.quoted_table_name}.discontinue_on >= ?", Time.zone.now)
+    #   else
+    #     all
+    #   end
+    # end
+    # search_scopes << :not_discontinued
+    # # Can't use add_search_scope for this as it needs a default argument
+    # def self.available(available_on = nil, _currency = nil)
+    #   available_on ||= Time.current
+    #   not_discontinued.joins(master: :prices).where("#{Product.quoted_table_name}.available_on <= ?", available_on)
+    # end
+    # search_scopes << :available
+    #
+    # def self.active(currency = nil)
+    #   available(nil, currency)
+    # end
+    # search_scopes << :active
+    #
+    # add_search_scope :taxons_name_eq do |name|
+    #   group('spree_products.id').joins(:taxons).where(Taxon.arel_table[:name].eq(name))
+    # end
 
     def self.distinct_by_product_ids(sort_order = nil)
       sort_column = sort_order.split(' ').first
