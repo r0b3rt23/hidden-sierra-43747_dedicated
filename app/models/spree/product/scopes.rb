@@ -129,11 +129,11 @@ module Spree
     # Finds all products which have either:
     # 1) have an option value with the name matching the one given
     # 2) have a product property with a value matching the one given
-    add_search_scope :with do |value|
-      includes(variants_including_master: :option_values).
-        includes(:product_properties).
-        where("#{OptionValue.table_name}.name = ? OR #{ProductProperty.table_name}.value = ?", value, value)
-    end
+    # add_search_scope :with do |value|
+    #   includes(variants_including_master: :option_values).
+    #     includes(:product_properties).
+    #     where("#{OptionValue.table_name}.name = ? OR #{ProductProperty.table_name}.value = ?", value, value)
+    # end
 
     # Finds all products that have a name containing the given words.
     add_search_scope :in_name do |words|
