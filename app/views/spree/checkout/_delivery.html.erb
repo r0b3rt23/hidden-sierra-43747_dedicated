@@ -75,7 +75,7 @@
                   <td class="item-qty"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus"  data-field="quant[3]" id="<%=item.id%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus"  data-field="quant[3]" id="<%=item.variant.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
@@ -129,7 +129,7 @@
                   <td class="item-qty"><%= quantity %></td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" data-field="quant[3]" id="<%=item.id%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" data-field="quant[3]" id="<%=item.variant.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
@@ -158,8 +158,8 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $(divName).val();
-    $(divName).val(0)
+  var quan = $("#item_quantity"+divName).val();
+    $("#item_quantity"+divName).val(0)
     //   document.getElementsByClassName("btn btn-primary")[0].click();
   console.log(divName);
   console.log(quan);

@@ -152,9 +152,9 @@ module Spree
 
     # Finds all products that have the ids matching the given collection of ids.
     # Alternatively, you could use find(collection_of_ids), but that would raise an exception if one product couldn't be found
-    add_search_scope :with_ids do |*ids|
-      where(id: ids)
-    end
+    # add_search_scope :with_ids do |*ids|
+    #   where(id: ids)
+    # end
 
     # Sorts products from most popular (popularity is extracted from how many
     # times use has put product in cart, not completed orders)
