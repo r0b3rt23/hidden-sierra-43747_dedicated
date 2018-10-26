@@ -150,7 +150,7 @@
   <span class="lead text-primary cart-item-price" data-hook="cart_item_price" id="line_item_price_web">
     <%= line_item.single_money.to_html %>
   </span>
-    <div id="icons-input">
+    <!-- <div id="icons-input"> -->
     <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id%>">
       <span class="glyphicon glyphicon-trash"></span>
     </button>
@@ -210,10 +210,11 @@
   // for mobile
 
     function removeFunction1(item) {
-      var divName = $(item).attr("id");
-      var quan = $("#line_item_quantity1"+divName).val();
-        $('#line_item_quantity1'+divName).val(0)
-          document.getElementsByClassName("btn btn-primary")[0].click();
+      console.log(item)
+      // var divName = $(item).attr("id");
+      // var quan = $("#line_item_quantity1"+divName).val();
+      //   $('#line_item_quantity1'+divName).val(0)
+      //     document.getElementsByClassName("btn btn-primary")[0].click();
     }
 
 
