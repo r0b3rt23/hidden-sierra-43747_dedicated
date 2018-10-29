@@ -50,7 +50,7 @@
             <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
           </h4> -->
 
-          <table class="table stock-contents" data-hook="stock-contents">
+          <table id="myTable" class="table stock-contents" data-hook="stock-contents">
             <colgroup>
               <col style="width: 10%;" />
               <col style="width: 60%;" />
@@ -158,11 +158,7 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  // var quan = $(divName).val();
-    $(divName).val(0)
-
-      document.getElementsByClassName("btn btn-primary")[0].click();
-
+  document.getElementById("myTable").deleteRow(divName);
   console.log(divName);
 }
 </script>
