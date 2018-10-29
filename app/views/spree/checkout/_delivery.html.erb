@@ -158,7 +158,7 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var i = r.parentNode.parentNode.rowIndex;
+  var i = item.parentNode.parentNode.rowIndex;
   document.getElementById("myTable").deleteRow(i);
   console.log(divName);
 }
