@@ -211,7 +211,7 @@
 
     function removeFunction1(item) {
       var divName = $(item).attr("id");
-      var quan = $(divName).val();
+      var quan = $("#line_item_quantity1"+divName).val();
         // $('#line_item_quantity1'+divName).val(0)
         //   document.getElementsByClassName("btn btn-primary")[0].click();
       console.log(divName);

@@ -78,6 +78,7 @@
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
+                          <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
                   </td>
                 </tr>
               <% end %>
@@ -132,6 +133,7 @@
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
+                          <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
                   </td>
                 </tr>
               <% end %>
@@ -158,7 +160,7 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $(divName).val();
+  var quan = $("#line_item_quantity1"+divName).val();
   // $('#line_item_quantity1'+divName).val(0)
   //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
