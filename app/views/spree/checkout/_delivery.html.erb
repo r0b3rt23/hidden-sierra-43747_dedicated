@@ -158,13 +158,13 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  // var quan = $("#line_item_quantity1"+divName).val();
-  $('#line_item_quantity1'+divName).val(0)
-    document.getElementsByClassName("btn btn-primary")[0].click();
+  var quan = $("#line_item_quantity1"+divName).val();
+  // $('#line_item_quantity1'+divName).val(0)
+  //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
   //   document.getElementById("myTable").deleteRow(i);
   console.log(divName);
-  // console.log(quan);
+  console.log(quan);
 }
 </script>
 
