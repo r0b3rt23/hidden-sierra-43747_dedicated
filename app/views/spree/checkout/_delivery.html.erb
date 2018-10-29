@@ -159,6 +159,7 @@
 function deleteFunction(item) {
   var divName = $(item).attr("id");
   $('#line_item_quantity'+divName).val(0)
+    document.getElementsByClassName("btn btn-link")[0];
   var i = item.parentNode.parentNode.rowIndex;
   document.getElementById("myTable").deleteRow(i);
   console.log(divName);
