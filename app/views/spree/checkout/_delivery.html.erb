@@ -75,7 +75,7 @@
                   <td class="item-qty"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
@@ -158,7 +158,7 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $("#line_item_quantity1"+divName).val();
+  var quan = $("quantity"+divName).val();
   // $('#line_item_quantity1'+divName).val(0)
   //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
