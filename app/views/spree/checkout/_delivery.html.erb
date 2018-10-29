@@ -68,14 +68,14 @@
               </tr>
             </thead>
             <tbody>
-              <% ship_form.object.manifest.each do |item| %>
+              <% ship_form.object.manifest.each do |item , line_item| %>
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(item.variant) %></td>
                   <td class="item-name"><%= item.variant.name %></td>
                   <td class="item-qty"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" id="<%=item.LineItem%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" id="<%=line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
