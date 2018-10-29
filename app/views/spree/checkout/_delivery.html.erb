@@ -38,17 +38,17 @@
 }
 </style>
 <div class="panel panel-default" id='shipping_method' data-hook>
-  <div class="panel-heading">
+  <!-- <div class="panel-heading">
     <h3 class="panel-title"><%= Spree.t(:delivery) %></h3>
-  </div>
+  </div> -->
   <div class="panel-body" data-hook="shipping_method_inner">
     <div id="methods">
       <%= form.fields_for :shipments do |ship_form| %>
         <div class="shipment">
-          <h4 class="stock-location" data-hook="stock-location">
+          <!-- <h4 class="stock-location" data-hook="stock-location">
             <%= Spree.t(:package_from) %>
             <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
-          </h4>
+          </h4> -->
 
           <table class="table stock-contents" data-hook="stock-contents">
             <colgroup>
@@ -129,7 +129,7 @@
                   <td class="item-qty"><%= quantity %></td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" id="<%=item.variant.id%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" id="<%=variant.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
@@ -159,8 +159,9 @@
 function deleteFunction(item) {
   var divName = $(item).attr("id");
   // var quan = $(divName).val();
-    $(divName).val(0)
+    $("#item.quantity"+divName).val(0)
     //   document.getElementsByClassName("btn btn-primary")[0].click();
+
   console.log(divName);
 }
 </script>
