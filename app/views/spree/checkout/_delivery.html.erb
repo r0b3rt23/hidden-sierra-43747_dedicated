@@ -75,8 +75,9 @@
                   <td class="item-qty"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
-                    <%= delete_button_to "Delete", post_comment_path(@post, comment), {data: { confirm: "Are you sure?" }} %>
-                      <span class="glyphicon glyphicon-trash"></span>
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" id="<%=item.variant.id%>">
+                          <span class="glyphicon glyphicon-trash"></span>
+                      </button>
                   </td>
                 </tr>
               <% end %>
@@ -128,8 +129,9 @@
                   <td class="item-qty"><%= quantity %></td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
-                      <%= delete_button_to "Delete", post_comment_path(@post, comment), {data: { confirm: "Are you sure?" }} %>
-                        <span class="glyphicon glyphicon-trash"></span>
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" data-type="plus" id="<%=variant.id%>">
+                          <span class="glyphicon glyphicon-trash"></span>
+                      </button>
                   </td>
                 </tr>
               <% end %>
@@ -153,7 +155,7 @@
   <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
 
-<!-- <script>
+<script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
   // var quan = $(divName).val();
@@ -163,6 +165,6 @@ function deleteFunction(item) {
 
   console.log(divName);
 }
-</script> -->
+</script>
 
 <%= javascript_include_tag 'spree/frontend/checkout/shipment' %>
