@@ -155,6 +155,12 @@
   <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
 
+<div class="up-date" style="display:none;">
+<%= button_tag class: 'btn btn-primary', id: 'update-button', :style => "display: none" do %>
+  <%= Spree.t(:update) %>
+<% end %>
+</div>
+
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
