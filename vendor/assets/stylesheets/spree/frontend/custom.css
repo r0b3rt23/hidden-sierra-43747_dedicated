@@ -10,7 +10,7 @@
   padding-top: 8px;
 }
 
-.navbar-form .form-group{
+form.navbar-form div.form-group{
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
@@ -20,6 +20,7 @@
 
 .navbar-form input#btn-id.btn.btn-success{
   height: inherit;
+  width: 10%;
 }
 
 /* body #default .one-col div .container div .row div #content .col-sm-12 div .container
@@ -131,7 +132,7 @@ input #keywords .form-control {
   width: 600px;
 }
 
-.navbar-form .form-control {
+div#bar-search.bar-search-class form.navbar-form div.form-group .form-control {
     display: inline-block;
     width: 90%;
     height: inherit;
@@ -469,13 +470,13 @@ body#default.one-col div#spree-header header#header div.container center div#bar
   display: flex-start;
 }
 
-body#default.one-col div#spree-header header#header div#bar-search.bar-search-class form.navbar-form div.form-group input#keywords.form-control
+/* body#default.one-col div#spree-header header#header div#bar-search.bar-search-class form.navbar-form div.form-group input#keywords.form-control
 {
   display: inline-block;
-  width: 90%;
+  width: 85%;
   height: inherit;
   vertical-align: middle;
-}
+} */
 body#default.one-col div#spree-header
 {
   margin-left: auto;
