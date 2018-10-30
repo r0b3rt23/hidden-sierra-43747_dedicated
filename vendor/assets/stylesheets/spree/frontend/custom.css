@@ -134,7 +134,7 @@ input #keywords .form-control {
 
 div#bar-search.bar-search-class form.navbar-form div.form-group .form-control {
     display: inline-block;
-    width: 90%;
+    width: 85%;
     height: inherit;
     vertical-align: middle;
 }
