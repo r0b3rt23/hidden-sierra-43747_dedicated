@@ -18,7 +18,7 @@
     height: 45px;
 }
 
-.navbar-form button#btn-id.btn.btn-success{
+.navbar-form input#btn-id.btn.btn-success{
   height: inherit;
 }
 
