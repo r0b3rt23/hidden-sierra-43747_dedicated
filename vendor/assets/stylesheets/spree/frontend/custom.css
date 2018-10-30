@@ -469,7 +469,14 @@ body#default.one-col div#spree-header header#header div.container center div#bar
   display: flex-start;
 }
 
-body#default.one-col div#spree-header header#header
+body#default.one-col div#spree-header header#header div#bar-search.bar-search-class form.navbar-form div.form-group input#keywords.form-control
+{
+  display: inline-block;
+  width: 90%;
+  height: inherit;
+  vertical-align: middle;
+}
+body#default.one-col div#spree-header
 {
   margin-left: auto;
   margin-right: auto;
