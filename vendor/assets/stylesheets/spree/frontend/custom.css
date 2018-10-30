@@ -10,6 +10,18 @@
   padding-top: 8px;
 }
 
+.navbar-form .form-group{
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 550px;
+    height: 50px;
+}
+
+.navbar-form .input#btn-id.btn.btn-success{
+  height: 10%;
+}
+
 /* body #default .one-col div .container div .row div #content .col-sm-12 div .container
 {
   margin-left: 0px;
@@ -122,6 +134,7 @@ input #keywords .form-control {
 .navbar-form .form-control {
     display: inline-block;
     width: inherit;
+    height: inherit;
     vertical-align: middle;
 }
 
@@ -132,10 +145,10 @@ input #keywords .form-control {
 
 #spree-header .navbar-form a {
   color: yellow;
-  font-size: 20px;
+  font-size: 25px;
   /* height: 0px; */
   position: relative;
-  top: 5px;
+  top: 10px;
 }
 
 a:hover {
