@@ -3,6 +3,7 @@
   <div class="form-group">
   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: "form-control" %>
   <%= submit_tag Spree.t(:search), name: nil, class: "btn btn-success", id: "btn-id" %>
+  <span class="glyphicon glyphicon-search"></span>
   </div>
   <!-- <%= link_to_cart %> -->
   <a class="cart-info empty" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
