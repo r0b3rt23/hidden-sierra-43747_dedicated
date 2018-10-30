@@ -15,11 +15,11 @@
     margin-bottom: 0;
     vertical-align: middle;
     width: 50%;
-    height: 50px;
+    height: 45px;
 }
 
-.navbar-form input#btn-id.btn.btn-success{
-  height: 10%;
+.navbar-form button#btn-id.btn.btn-success{
+  height: inherit;
 }
 
 /* body #default .one-col div .container div .row div #content .col-sm-12 div .container

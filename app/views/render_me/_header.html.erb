@@ -22,7 +22,9 @@
   <center><form class="navbar-form" action="/products" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
 <div class="form-group">
 <input type="search" name="keywords" id="keywords" placeholder="Search" class="form-control">
-<input type="submit" value="Search" class="btn btn-success" data-disable-with="Search">
+<button type="submit" class="btn btn-success" data-disable-with="Search">
+  <span class="glyphicon glyphicon-trash"></span>
+</button>
 </div>
 <a class="cart-info empty" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to_cart %></a>
 
