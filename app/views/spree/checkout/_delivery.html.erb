@@ -156,14 +156,14 @@
 </div>
 
 <div class="up-date">
-<%= button_tag class: 'btn btn-primary', id: 'update-button' do %>
+<%= button_tag class: 'btn btn-primary', id: 'update-button', :style => "width:23%" do %>
   <%= Spree.t(:update) %>
 <% end %>
 </div>
 
 <script>
 function deleteFunction(item) {
-  // var qty1 = <%=item.line_item.id%>;
+  // var qty1 = <%=item.line_item.id%>
   var divName = $(item).attr("id");
   var quan = $("#quantity1"+divName).val();
   // $('#quantity1'+divName).val(0)
