@@ -1154,6 +1154,9 @@ ul.ul_wishlist_account {
     height: auto;
     overflow: auto;
   }
+  #spree-header #logo{
+    display: none;
+  }
   nav#breadcrumbs.col-md-12
   {
     display: none;
