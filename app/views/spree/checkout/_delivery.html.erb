@@ -72,7 +72,7 @@
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(item.variant) %></td>
                   <td class="item-name"><%= item.variant.name %></td>
-                  <td class="item-qty"><%= item.quantity %></td>
+                  <td class="item-qty" id="quantity1"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
@@ -155,17 +155,11 @@
   <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
 
-<div class="up-date" style="display:none;">
-<%= button_tag class: 'btn btn-primary', id: 'update-button', :style => "display: none" do %>
-  <%= Spree.t(:update) %>
-<% end %>
-</div>
-
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $("#line_item_quantity"+divName).val();
-  $('#line_item_quantity'+divName).val(0)
+  var quan = $("#quantity1"+divName).val();
+  $('#quantity1'+divName).val(0)
     document.getElementsByClassName("btn btn-primary")[0].click();
   var i = item.parentNode.parentNode.rowIndex;
     document.getElementById("myTable").deleteRow(i);
