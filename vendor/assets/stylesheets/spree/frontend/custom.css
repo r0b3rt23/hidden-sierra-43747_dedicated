@@ -146,10 +146,10 @@ div#bar-search.bar-search-class form.navbar-form div.form-group .form-control {
 
 #spree-header .navbar-form a {
   color: yellow;
-  font-size: 25px;
+  /* font-size: 25px; */
   /* height: 0px; */
   position: relative;
-  top: 5px;
+  /* top: 5px; */
 }
 
 a:hover {
