@@ -16,6 +16,7 @@ form.navbar-form div.form-group{
     vertical-align: middle;
     width: 50%;
     height: 45px;
+    margin-left: 3%;
 }
 
 .navbar-form input#btn-id.btn.btn-success{
