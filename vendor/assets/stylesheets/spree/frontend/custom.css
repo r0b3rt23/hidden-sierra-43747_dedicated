@@ -4,7 +4,9 @@
 #spree-header #header{
     background: #111d51;
 }
-
+.badge-info {
+  background-color: #3a87ad;
+}
 .panel-body {
   padding: 0px;
   padding-top: 8px;
