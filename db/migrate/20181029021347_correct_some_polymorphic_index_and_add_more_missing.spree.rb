@@ -36,8 +36,8 @@ class CorrectSomePolymorphicIndexAndAddMoreMissing < ActiveRecord::Migration[4.2
     add_index :spree_shipments, :address_id
     add_index :spree_shipping_methods, :deleted_at
     add_index :spree_shipping_methods, :tax_category_id
-    add_index :spree_shipping_rates, :selected
     add_index :spree_shipping_rates, :tax_rate_id
+    add_index :spree_shipping_rates, :selected
     add_index :spree_state_changes, [:stateful_id, :stateful_type]
     add_index :spree_state_changes, :user_id
     add_index :spree_stock_items, :backorderable

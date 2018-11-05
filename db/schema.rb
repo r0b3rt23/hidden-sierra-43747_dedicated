@@ -813,10 +813,10 @@ ActiveRecord::Schema.define(version: 20180716040141) do
     t.datetime "updated_at", null: false
     t.integer "tax_rate_id"
     t.index ["selected"], name: "index_spree_shipping_rates_on_selected"
-    t.index ["shipping_method_id"], name: "index_spree_shipping_rates_on_shipping_method_id"
-    t.index ["tax_rate_id"], name: "index_spree_shipping_rates_on_tax_rate_id"
     t.index ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true
     t.index ["shipment_id"], name: "index_spree_shipping_rates_on_shipment_id"
+    t.index ["shipping_method_id"], name: "index_spree_shipping_rates_on_shipping_method_id"
+    t.index ["tax_rate_id"], name: "index_spree_shipping_rates_on_tax_rate_id"
   end
 
   create_table "spree_state_changes", id: :serial, force: :cascade do |t|
