@@ -4,7 +4,7 @@
   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: "form-control" %>
 <%= submit_tag Spree.t(:search), name: nil, class: "btn btn-success", id: "btn-id" %>
   </div>
-  <!-- <%= link_to_cart %> -->
+  <%= link_to_cart %>
   <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px">
     <!-- <%= item.quantity %><%= " (" %> <i><%= item.display_amount.to_html %> </i><%= ")" %> -->
   </a>
