@@ -1395,12 +1395,12 @@ ul.ul_wishlist_account {
   }
   form.navbar-form input#btn-id
   {
-    width: 38%;
-    height: 5.5% !important;
+    width: 25% !important;
+    height: 100% !important;
   }
   input#keywords.form-control
   {
-    width: 100%;
+    width: 70% !important;
   }
 
   /* HOME */
@@ -1584,7 +1584,7 @@ ul.ul_wishlist_account {
   }
   div .form-group
   {
-    width: 286px;
+    width: 100% !important;
     margin-left: 3px;
   }
 
