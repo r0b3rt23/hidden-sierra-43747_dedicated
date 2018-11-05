@@ -8,7 +8,7 @@
   <!-- <%= link_to_cart %> -->
   <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px"></a>
 
-  <span class="total">Total: <b><%= @order.item_total %></b></span>
+  <span class="total">Total: <b><%= @order.item_count %></b></span>
 
   <script>Spree.fetch_cart()</script>
 <% end %>
