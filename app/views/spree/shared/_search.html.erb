@@ -1,3 +1,4 @@
+<% @order = simple_current_order %>
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%= form_tag spree.products_path, method: :get, class: "navbar-form" do %>
   <div class="form-group">
@@ -5,8 +6,8 @@
 <%= submit_tag Spree.t(:search), name: nil, class: "btn btn-success", id: "btn-id" %>
   </div>
   <!-- <%= link_to_cart %> -->
-  <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px"></a>
+  <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px">
+    <center><td>Sub-total: <b><%= @order.display_total.to_html %></td></b><center>
+  </a>
   <script>Spree.fetch_cart()</script>
 <% end %>
-<% @order = simple_current_order %>
-<center><td>Sub-total: <b><%= @order.display_total.to_html %></td></b><center>
