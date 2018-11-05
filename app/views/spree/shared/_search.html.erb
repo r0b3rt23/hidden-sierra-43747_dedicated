@@ -6,5 +6,7 @@
   </div>
   <!-- <%= link_to_cart %> -->
   <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px"></a>
+  <!-- <%= item.quantity %><%= " (" %> <i><%= item.display_amount.to_html %> </i><%= ")" %> -->
+  <%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %>
   <script>Spree.fetch_cart()</script>
 <% end %>
