@@ -1741,9 +1741,9 @@ ul.ul_wishlist_account {
     bottom: -5px;
   }
 
-  /* input#btn-id {
-    height: 5.5% !important;
-  } */
+  input#btn-id {
+    /* height: 5.5% !important; */
+  }
 
   body#default.one-col div.container div.row div#content.col-sm-12 {
     padding-left: 0px;
