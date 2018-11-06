@@ -7,6 +7,10 @@
 .badge-info {
   background-color: #3a87ad;
 }
+.method_label{
+  font-size: 20px;
+  color:#e67e22;
+}
 .panel-body {
   padding: 0px;
   padding-top: 8px;
