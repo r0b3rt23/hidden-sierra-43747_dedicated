@@ -29,7 +29,7 @@ form.navbar-form div.form-group{
 }
 
 .navbar-form input#btn-id.btn.btn-success{
-  height: inherit;
+  height: inherit !important;
   width: 10%;
 }
 
