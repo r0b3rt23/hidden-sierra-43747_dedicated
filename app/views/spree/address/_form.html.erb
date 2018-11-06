@@ -30,9 +30,9 @@
     <%= form.text_field :address2, class: 'form-control' %>
   </p> -->
 
-  <p class="form-group" id=<%="#{address_id}city" %>>
+  <!-- <p class="form-group" id=<%="#{address_id}city" %>>
    <%= form.hidden_field :city, class: 'form-control', required: false, :value => "1" %>
- </p>
+ </p> -->
 
   <% if Spree::Config[:address_requires_state] %>
     <p class="form-group" id=<%="#{address_id}state" %>>
