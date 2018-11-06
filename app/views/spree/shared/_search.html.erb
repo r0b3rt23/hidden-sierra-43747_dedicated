@@ -8,7 +8,7 @@
   <!-- <%= link_to_cart %> -->
   <a class="cart-info empty" href="/cart"><img src="/assets/cart.png" alt="HTML5 Icon" width="60px">
     <% if @order.item_count != 0 %>
-      <span class="total">Qty: <b>(<%= @order.item_count %>)</b></span>
+      <span class="total">(Qty: <b><%= @order.item_count %></b>) <b><%= @order.display_total %></b></span>
     <% end %>
   </a>
 
