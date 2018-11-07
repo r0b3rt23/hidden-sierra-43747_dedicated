@@ -73,10 +73,10 @@
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(item.variant) %></td>
                   <td class="item-name"><%= item.variant.name %></td>
-                  <td class="item-qty" id="<%=item.line_item.id%>"><%= item.quantity %></td>
+                  <td class="item-qty" id="qty<%=item.line_item.id%>"><%= item.quantity %></td>
                   <td class="item-price"><%= display_price(item.variant) %></td>
                   <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" id="Quantity + <%=item.line_item.id%>">
+                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" id="<%=item.line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
@@ -127,7 +127,7 @@
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(variant) %></td>
                   <td class="item-name"><%= variant.name %></td>
-                  <td class="item-qty"><%= quantity %></td>
+                  <td class="item-qty" id="qty<%=item.line_item.id%>"><%= quantity %></td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
@@ -160,7 +160,7 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $(divName).val();
+  var quan = $('#qty'+divName).val();
   // $('#line_item_quantity1'+divName).val(0)
   //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
