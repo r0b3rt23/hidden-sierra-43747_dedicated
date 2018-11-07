@@ -1,41 +1,125 @@
 <style>
-@media only screen and (max-width: 360px), (max-width: 420px)
-{
-  .item-name
-  {
-    width: 180px;
+
+  .line-item-description {
+    font-style: italic;
   }
-  .item-qty
-  {
-    width: 30px;
+
+  div#icons-input{
+    display:flex;
   }
-  .item-price
-  {
-    width: 60px;
-    text-align: right;
+
+  #product-mul-prize {
+    vertical-align: middle;
   }
-  .item-name_header
-  {
-    width: 125px;
-    margin-left: 100px;
+
+  span.glyphicon.glyphicon-trash {
+    color: #B2BABB;
   }
-  .item-qty_header
-  {
-    width: 50px;
+
+  td.cart-item-image {
+    width: 5%;
   }
-  .item-price_header
-  {
-    width: 50px;
+
+  td.cart-item-description {
+    width:80%;
   }
-  /* .active
+
+  .input-group {
+    margin-left: 60%;
+  }
+
+  div.product_label {
+    font-size: 18px;
+  }
+
+  .line_item_price {
+    display: none;
+  }
+
+  input.form-control.line_item_quantity {
+    text-align: center;
+  }
+
+  .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group
   {
-    background-color: #f5f5f5;
+    height: 34px;
+  }
+
+  .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group
+  {
+    height: 34px;
+  }
+
+  /* tr.line-item-mobile {
+    display: none;
   } */
-  .table>thead>tr>td.active, .table>thead>tr>th.active, .table>thead>tr.active>td, .table>thead>tr.active>th, .table>tbody>tr>td.active, .table>tbody>tr>th.active, .table>tbody>tr.active>td, .table>tbody>tr.active>th, .table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>tfoot>tr.active>td, .table>tfoot>tr.active>th
-  {
-    background-color: white;
-  }
-}
+
+  @media only screen and (max-width: 360px), (max-width: 420px)
+    {
+    .btn {
+      padding: 6px 1px;
+      height: 27px !important;
+      width: 27px;
+      }
+
+    .form-control.line_item_quantity {
+      height: 27px;
+      width: 100%;
+     }
+
+     tr.line-item-web {
+       display: none;
+     }
+
+     tr.line-item-mobile {
+       display: block !important;
+       width: 100%;
+     }
+
+     td.cart-item-image {
+       width:40%;
+       text-align: center;
+     }
+
+     td.cart-item-description {
+       width:60%;
+     }
+
+     div.product_label {
+       font-size: 14px;
+       font-weight:600;
+     }
+
+     #product-mul-prize{
+       display: none;
+     }
+
+     div.input-group {
+       margin-left: 30% !important;
+       /* z-index: -1; */
+       /* width: 100px; */
+     }
+
+     #line_item_price_web {
+       display: none;
+     }
+
+     .line_item_price {
+       display: block;
+     }
+
+     span.line_item_price {
+       font-size: 18px;
+       color: #E67E22;
+       font-weight:normal;
+     }
+
+     .cart-pic-size {
+       height: 80px;
+       /* width: 100px; */
+     }
+    }
+
 </style>
 
 <div class="panel panel-default" id='shipping_method' data-hook>
@@ -43,105 +127,64 @@
     <h3 class="panel-title"><%= Spree.t(:delivery) %></h3>
   </div> -->
   <div class="panel-body" data-hook="shipping_method_inner">
-    <div id="methods">
-      <%= form.fields_for :shipments do |ship_form| %>
-        <div class="shipment">
-          <!-- <h4 class="stock-location" data-hook="stock-location">
-            <%= Spree.t(:package_from) %>
-            <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
-          </h4> -->
+  <% variant = line_item.variant %>
 
-          <table id="myTable" class="table stock-contents" data-hook="stock-contents">
-            <colgroup>
-              <col style="width: 10%;" />
-              <col style="width: 60%;" />
-              <col style="width: 10%;" />
-              <col style="width: 15%;" />
-              <col style="width: 5%;" />
-            </colgroup>
-            <thead>
-              <tr class="active">
-                <th></th>
-                <th class="item-name_header"><%= Spree.t(:item) %></th>
-                <th class="item-qty_header"><%= Spree.t(:qty) %></th>
-                <th class="item-price_header"><%= Spree.t(:price) %></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% ship_form.object.manifest.each do |item , line_item| %>
-                <tr class="stock-item">
-                  <td class="item-image"><%= mini_image(item.variant) %></td>
-                  <td class="item-name"><%= item.variant.name %></td>
-                  <td class="item-qty" id="<%=item.line_item.id%>"><%= item.quantity %></td>
-                  <td class="item-price"><%= display_price(item.variant) %></td>
-                  <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)" id="<%=item.line_item.id%>">
-                          <span class="glyphicon glyphicon-trash"></span>
-                      </button>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-
-          <h4 class="stock-shipping-method-title"><%= Spree.t(:shipping_method) %></h4>
-          <ul class="list-group shipping-methods">
-            <% ship_form.object.shipping_rates.reverse_each do |rate| %>
-              <li class="list-group-item shipping-method">
-                <label class="method_label">
-                  <%= ship_form.radio_button :selected_shipping_rate_id, rate.id, data: { behavior: 'shipping-method-selector', cost: rate.display_cost } %>
-                  <span class="rate-name"><%= rate.name %></span>
-                  <% if rate.name == "Delivered" %>
-                    <span class="badge badge-info" id="delivery-fee-msg"><%= "*Delivery fee: ₱70 for the first 1000 and additional ₱25 per succeeding thousand" %></span>
-                  <% end %>
-                </label>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <% if @differentiator.try(:missing?) %>
-        <div class="shipment unshippable">
-          <h3 class="stock-location" data-hook="stock-location">
-            <%= Spree.t(:unshippable_items) %>
-          </h3>
-          <table class="table stock-contents" data-hook="stock-missing">
-            <colgroup>
-              <col style="width: 10%;" />
-              <col style="width: 60%;" />
-              <col style="width: 10%;" />
-              <col style="width: 15%;" />
-              <col style="width: 5%;" />
-            </colgroup>
-            <thead>
-              <th></th>
-              <th align='left'><%= Spree.t(:item) %></th>
-              <th><%= Spree.t(:qty) %></th>
-              <th><%= Spree.t(:price) %></th>
-              <th></th>
-            </thead>
-            <tbody>
-              <% @differentiator.missing.each do |variant, quantity| %>
-                <tr class="stock-item">
-                  <td class="item-image"><%= mini_image(variant) %></td>
-                  <td class="item-name"><%= variant.name %></td>
-                  <td class="item-qty"><%= quantity %></td>
-                  <td class="item-price"><%= display_price(variant) %></td>
-                  <td>
-                      <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
-                          <span class="glyphicon glyphicon-trash"></span>
-                      </button>
-                  </td>
-                  <%= item_form_mobile.text_field :quantity, class: "form-control item_quantity", size:5, id: "item_quantity1" + item.line_item.id.to_s %>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      <% end %>
+  <tr class="line-item-mobile">
+    <%= order_form.fields_for :line_items, line_item do |item_form_mobile| %>
+    <td class="cart-item-image" data-hook="cart_item_image">
+        <%= link_to image_tag(variant.images.first.attachment.url(:product_show), :class => "cart-pic-size"), variant.product %>
+    </td>
+    <td class="cart-item-description" data-hook="cart_item_description">
+    <div class="product_label">
+      <%= link_to line_item.name, product_path(variant.product) %>
     </div>
+
+      <% if line_item.insufficient_stock? %>
+        <span class="out-of-stock">
+          <%= Spree.t(:out_of_stock) %>&nbsp;&nbsp;
+        </span>
+      <% end %>
+      <div class="line-item-description" data-hook="line_item_description">
+        <%= line_item_description_text(line_item.description) %>
+      </div><br>
+
+    <span class="line_item_price">
+      <%= line_item.single_money.to_html %>
+    </span>
+
+    <span class="lead text-primary cart-item-price" data-hook="cart_item_price" id="line_item_price_web">
+      <%= line_item.single_money.to_html %>
+    </span>
+      <!-- <div id="icons-input"> -->
+      <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id%>">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+
+      <div class="input-group">
+
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number" onclick="minusFunction1(this)"  data-type="minus" data-field="quant[2]" id="<%=line_item.id%>">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+      </span>
+
+      <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
+
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-success btn-number" onclick="plusFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id + 1%>">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </span>
+      </div>
+    </td>
+
+    <td class="lead text-primary cart-item-total" data-hook="cart_item_total" id="product-mul-prize">
+      <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
+    </td>
+
+
+  </tr>
+  <% end %>
     <% if Spree::Config[:shipping_instructions] %>
       <p id="minstrs" data-hook>
         <h4><%= Spree.t(:shipping_instructions) %></h4>
