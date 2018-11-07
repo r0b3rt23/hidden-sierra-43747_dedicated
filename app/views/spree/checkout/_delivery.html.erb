@@ -122,95 +122,115 @@
 
 </style>
 
-<div class="panel panel-default" id='shipping_method' data-hook>
-  <!-- <div class="panel-heading">
-    <h3 class="panel-title"><%= Spree.t(:delivery) %></h3>
-  </div> -->
-  <div class="panel-body" data-hook="shipping_method_inner">
-  <% variant = line_item.variant %>
+<% variant = line_item.variant %>
 
-  <tr class="line-item-mobile">
-    <%= order_form.fields_for :line_items, line_item do |item_form_mobile| %>
-    <td class="cart-item-image" data-hook="cart_item_image">
-        <%= link_to image_tag(variant.images.first.attachment.url(:product_show), :class => "cart-pic-size"), variant.product %>
-    </td>
-    <td class="cart-item-description" data-hook="cart_item_description">
-    <div class="product_label">
-      <%= link_to line_item.name, product_path(variant.product) %>
-    </div>
-
-      <% if line_item.insufficient_stock? %>
-        <span class="out-of-stock">
-          <%= Spree.t(:out_of_stock) %>&nbsp;&nbsp;
-        </span>
-      <% end %>
-      <div class="line-item-description" data-hook="line_item_description">
-        <%= line_item_description_text(line_item.description) %>
-      </div><br>
-
-    <span class="line_item_price">
-      <%= line_item.single_money.to_html %>
-    </span>
-
-    <span class="lead text-primary cart-item-price" data-hook="cart_item_price" id="line_item_price_web">
-      <%= line_item.single_money.to_html %>
-    </span>
-      <!-- <div id="icons-input"> -->
-      <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id%>">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
-
-      <div class="input-group">
-
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-danger btn-number" onclick="minusFunction1(this)"  data-type="minus" data-field="quant[2]" id="<%=line_item.id%>">
-          <span class="glyphicon glyphicon-minus"></span>
-        </button>
-      </span>
-
-      <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
-
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-success btn-number" onclick="plusFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id + 1%>">
-          <span class="glyphicon glyphicon-plus"></span>
-        </button>
-      </span>
-      </div>
-    </td>
-
-    <td class="lead text-primary cart-item-total" data-hook="cart_item_total" id="product-mul-prize">
-      <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
-    </td>
-
-
-  </tr>
-  <% end %>
-    <% if Spree::Config[:shipping_instructions] %>
-      <p id="minstrs" data-hook>
-        <h4><%= Spree.t(:shipping_instructions) %></h4>
-        <%= form.text_area :special_instructions, cols: 40, rows: 4, class: "form-control" %>
-      </p>
-    <% end %>
+<tr class="line-item-mobile">
+  <%= order_form.fields_for :line_items, line_item do |item_form_mobile| %>
+  <td class="cart-item-image" data-hook="cart_item_image">
+      <%= link_to image_tag(variant.images.first.attachment.url(:product_show), :class => "cart-pic-size"), variant.product %>
+  </td>
+  <td class="cart-item-description" data-hook="cart_item_description">
+  <div class="product_label">
+    <%= link_to line_item.name, product_path(variant.product) %>
   </div>
-</div>
 
-<br />
+    <% if line_item.insufficient_stock? %>
+      <span class="out-of-stock">
+        <%= Spree.t(:out_of_stock) %>&nbsp;&nbsp;
+      </span>
+    <% end %>
+    <div class="line-item-description" data-hook="line_item_description">
+      <%= line_item_description_text(line_item.description) %>
+    </div><br>
 
-<div class="well form-buttons" data-hook="buttons" >
-  <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
-</div>
+  <span class="line_item_price">
+    <%= line_item.single_money.to_html %>
+  </span>
+
+  <span class="lead text-primary cart-item-price" data-hook="cart_item_price" id="line_item_price_web">
+    <%= line_item.single_money.to_html %>
+  </span>
+    <!-- <div id="icons-input"> -->
+    <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id%>">
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+
+    <div class="input-group">
+
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-danger btn-number" onclick="minusFunction1(this)"  data-type="minus" data-field="quant[2]" id="<%=line_item.id%>">
+        <span class="glyphicon glyphicon-minus"></span>
+      </button>
+    </span>
+
+    <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
+
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-success btn-number" onclick="plusFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id + 1%>">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </span>
+    </div>
+  </td>
+
+  <td class="lead text-primary cart-item-total" data-hook="cart_item_total" id="product-mul-prize">
+    <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
+  </td>
+
+
+</tr>
+<% end %>
+
 
 <script>
-function deleteFunction(item) {
-  var divName = $(item).attr("id");
-  var quan = $(divName).val();
-  // $('#line_item_quantity1'+divName).val(0)
-  //   document.getElementsByClassName("btn btn-primary")[0].click();
-  // var i = item.parentNode.parentNode.rowIndex;
-  //   document.getElementById("myTable").deleteRow(i);
-  console.log(divName);
-  console.log(quan);
-}
-</script>
 
-<%= javascript_include_tag 'spree/frontend/checkout/shipment' %>
+  function removeFunction(item) {
+    console.log(item)
+    var divName = $(item).attr("id");
+    var quan = $("#line_item_quantity"+divName).val();
+      $('#line_item_quantity'+divName).val(0)
+        document.getElementsByClassName("btn btn-primary")[0].click();
+  }
+
+
+  function minusFunction(item) {
+    var divName = $(item).attr("id");
+    var quan = $("#line_item_quantity"+divName).val();
+      $('#line_item_quantity'+divName).val(+quan-1)
+        document.getElementsByClassName("btn btn-primary")[0].click();
+  }
+
+  function plusFunction(item) {
+   var divName = parseInt($(item).attr("id")) - 1;
+   var quan = $("#line_item_quantity"+divName).val();
+    $('#line_item_quantity'+divName).val(+quan+1)
+      document.getElementsByClassName("btn btn-primary")[0].click();
+  }
+
+  // for mobile
+
+    function removeFunction1(item) {
+      var divName = $(item).attr("id");
+      var quan = $("#line_item_quantity1");
+      //   $('#line_item_quantity1'+divName).val(0)
+      //     document.getElementsByClassName("btn btn-primary")[0].click();
+      console.log(divName);
+      console.log(quan);
+    }
+
+
+    function minusFunction1(item) {
+      var divName = $(item).attr("id");
+      var quan = $("#line_item_quantity1"+divName).val();
+        $('#line_item_quantity1'+divName).val(+quan-1)
+          document.getElementsByClassName("btn btn-primary")[0].click();
+    }
+
+    function plusFunction1(item) {
+     var divName = parseInt($(item).attr("id")) - 1;
+     var quan = $("#line_item_quantity1"+divName).val();
+      $('#line_item_quantity1'+divName).val(+quan+1)
+        document.getElementsByClassName("btn btn-primary")[0].click();
+    }
+
+</script>
