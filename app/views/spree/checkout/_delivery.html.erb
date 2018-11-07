@@ -157,7 +157,6 @@
   <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
 
-<% variant = line_item.variant %>
 
 <tr class="line-item-mobile">
   <%= order_form.fields_for :line_items, line_item do |item_form_mobile| %>
@@ -212,9 +211,7 @@
     <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
   </td>
 
-
 </tr>
-<% end %>
 
 <script>
 function deleteFunction(item) {
