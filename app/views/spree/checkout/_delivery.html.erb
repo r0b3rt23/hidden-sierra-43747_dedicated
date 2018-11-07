@@ -127,15 +127,14 @@
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(variant) %></td>
                   <td class="item-name"><%= variant.name %></td>
-                  <td class="item-qty"><%= quantity %>
-                    <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "item_quantity1" + item.line_item.id.to_s %>
-                  </td>
+                  <td class="item-qty"><%= quantity %></td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
                           <span class="glyphicon glyphicon-trash"></span>
                       </button>
                   </td>
+                  <%= item_form_mobile.text_field :quantity, class: "form-control item_quantity", size:5, id: "item_quantity1" + item.line_item.id.to_s %>
                 </tr>
               <% end %>
             </tbody>
