@@ -127,7 +127,9 @@
                 <tr class="stock-item">
                   <td class="item-image"><%= mini_image(variant) %></td>
                   <td class="item-name"><%= variant.name %></td>
-                  <td class="item-qty"><%= quantity %></td>
+                  <td class="item-qty"><%= quantity %>
+                    <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "item_quantity1" + item.line_item.id.to_s %>
+                  </td>
                   <td class="item-price"><%= display_price(variant) %></td>
                   <td>
                       <button type="button" class="btn btn-link" onclick="deleteFunction(this)"  data-type="plus" data-field="quant[2]" id="<%=item.line_item.id%>">
@@ -159,14 +161,13 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  var quan = $("#qty1").val();
-  var s = $(item).attr("class");
+  var quan = $('#item_quantity1'+divName).val();
   // $('#line_item_quantity1'+divName).val(0)
   //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
   //   document.getElementById("myTable").deleteRow(i);
   console.log(divName);
-  console.log(s);
+  console.log(quan);
 }
 </script>
 
