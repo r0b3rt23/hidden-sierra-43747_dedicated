@@ -44,7 +44,6 @@
   </div> -->
   <div class="panel-body" data-hook="shipping_method_inner">
     <div id="methods">
-      <% variant = line_item.variant %>
       <%= form.fields_for :shipments do |ship_form| %>
         <div class="shipment">
           <!-- <h4 class="stock-location" data-hook="stock-location">
@@ -160,13 +159,13 @@
 <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
-  // var quan = $("#line_item_quantity1"+divName).val();
+  var quan = $("#item-qty").val();
   // $('#line_item_quantity1'+divName).val(0)
   //   document.getElementsByClassName("btn btn-primary")[0].click();
   // var i = item.parentNode.parentNode.rowIndex;
   //   document.getElementById("myTable").deleteRow(i);
   console.log(divName);
-  // console.log(quan);
+  console.log(quan);
 }
 </script>
 
