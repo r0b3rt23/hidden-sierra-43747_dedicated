@@ -156,7 +156,20 @@
 <div class="well form-buttons" data-hook="buttons" >
   <%= submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
+<script>
+function deleteFunction(item) {
+  var divName = $(item).attr("id");
+  var quan = $('#line_item_quantity1'+divName).val();
+  // $('#line_item_quantity1'+divName).val(0)
+  //   document.getElementsByClassName("btn btn-primary")[0].click();
+  // var i = item.parentNode.parentNode.rowIndex;
+  //   document.getElementById("myTable").deleteRow(i);
+  console.log(divName);
+  console.log(quan);
+}
+</script>
 
+<%= javascript_include_tag 'spree/frontend/checkout/shipment' %>
 
 <tr class="line-item-mobile">
   <%= order_form.fields_for :line_items, line_item do |item_form_mobile| %>
@@ -212,18 +225,3 @@
   </td>
 
 </tr>
-
-<script>
-function deleteFunction(item) {
-  var divName = $(item).attr("id");
-  var quan = $('#line_item_quantity1'+divName).val();
-  // $('#line_item_quantity1'+divName).val(0)
-  //   document.getElementsByClassName("btn btn-primary")[0].click();
-  // var i = item.parentNode.parentNode.rowIndex;
-  //   document.getElementById("myTable").deleteRow(i);
-  console.log(divName);
-  console.log(quan);
-}
-</script>
-
-<%= javascript_include_tag 'spree/frontend/checkout/shipment' %>
