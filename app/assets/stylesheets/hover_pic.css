@@ -42,13 +42,11 @@
     background-color: #66ff66;
     font-weight: bold;
     cursor: pointer;
-    display: none;
   }
 
   .CategDiv1 div:hover .hovers
   {
     color:#001a00;
-    display: none;
   }
 
   .CategDiv2
@@ -80,5 +78,4 @@
   .hovers:hover
   {
       background: transparent;
-      display: none;
   }
