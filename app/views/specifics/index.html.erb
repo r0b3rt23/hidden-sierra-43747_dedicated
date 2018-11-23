@@ -130,7 +130,7 @@ center#paginate-center {
   <h1>Specifics</h1>
   <!-- <% @specifics_active = Specific.all.order('name ASC').page(params[:page]).per(16) %> -->
   <% @specifics_active.each do |specifics_active| %>
-    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemtype="https://schema.org/Product">
       <div class="panel panel-default" id="panel-default-id">
         <div id="image_container" class="panel-body text-center product-body">
             <%= link_to (image_tag specifics_active.image_specific.url(:thumb), :class => "home_image_mobile"), specifics_active %>

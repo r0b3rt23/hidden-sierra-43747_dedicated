@@ -132,14 +132,14 @@ center#paginate-center {
   <h1>Brands</h1>
   <!-- <% @brands_active = Brand.all.order('name ASC').page(params[:page]).per(16) %> -->
   <% @brands_active.each do |brands_active| %>
-    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemtype="https://schema.org/Product">
       <div class="panel panel-default" id="panel-default-id">
         <div id="image_container" class="panel-body text-center product-body">
             <%= link_to (image_tag brands_active.image_brand.url(:thumb), :class => "home_image_mobile"), brands_active %>
           <br>
         </div>
         <div class="panel-footer text-center">
-          <span id="web_categ_name" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span id="web_categ_name" itemprop="offers" itemtype="https://schema.org/Offer">
             <%= link_to brands_active.name, brands_active %>
           </span>
         </div>
