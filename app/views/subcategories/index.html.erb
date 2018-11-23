@@ -133,7 +133,7 @@ center#paginate-center {
   <% @active_product_only = Category.where(:active => true) %>
   <% @subcategories_active_mob = Subcategory.where(:category_id => @active_product_only).page(params[:page]).per(16).order(:name) %>
   <% @subcategories_active_mob.each do |subcategories_active_mob| %>
-    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemtype="https://schema.org/Product">
+    <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
       <div class="panel panel-default" id="panel-default-id">
         <div id="image_container" class="panel-body text-center product-body">
           <!-- <% if subcategories_active_mob.category.name == "Grocery" || subcategories_active_mob.category.name == "Clothes" || subcategories_active_mob.category.name == "Sports" %> -->

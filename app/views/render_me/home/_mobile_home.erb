@@ -41,7 +41,7 @@
             <br>
           </div>
           <div class="panel-footer text-center">
-            <span id="web_categ_name" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <span id="web_categ_name" itemprop="offers"  itemtype="https://schema.org/Offer">
               <%= link_to truncate(all_active_cat.name, length: 47), all_active_cat, :class => 'linkhover' %>
             </span>
           </div>
@@ -56,7 +56,7 @@
 
 
     <% @all_notactive_cat.each do |all_notactive_cat| %>
-      <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemtype="https://schema.org/Product">
+      <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item"  itemtype="https://schema.org/Product">
         <div class="panel panel-default" id="panel-default-id">
           <div id="image_container" class="panel-body text-center product-body">
              <div class="not-image"><%= image_tag all_notactive_cat.image_category.url(:thumb), :class => "home_image_mobile" %> </div>
@@ -64,7 +64,7 @@
           </div>
 
           <div id = "notactive" class="panel-footer text-center">
-            <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <span itemprop="offers" itemtype="https://schema.org/Offer">
               <%= truncate(all_notactive_cat.name, length: 47) %>
             </span>
           </div>
