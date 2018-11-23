@@ -284,7 +284,7 @@ i#price_start {
 }
 
 .product-hover-zoom {
-  position: static !important;
+  /* position: static !important; */
 }
 
 /* body#cart.one-col div.container div.row
@@ -815,11 +815,11 @@ div#login-col-md-6 {
 }
 
 div.product-hover-zoom {
-  height: 150px;
+  /* height: 150px; */
 }
 
 div.product-hover-zoom {
-  position: static !important;
+  /* position: static !important; */
 }
 
 div#price-brand {
