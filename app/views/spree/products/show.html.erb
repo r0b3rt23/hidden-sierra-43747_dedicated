@@ -1,0 +1,111 @@
+<style>
+.btn-success {
+  height: 34px;
+  margin-left: -3px;
+}
+
+.btn-danger {
+  height: 34px;
+}
+
+.input-group .form-control {
+  text-align: center;
+}
+
+.star-rating-control {
+  height: 18px;
+}
+
+#wishlist-form {
+  /* text-align: right;
+  padding-right: 20%; */
+}
+
+@media only screen and (max-width: 360px), (max-width: 420px) {
+  div.input-group {
+      margin-left: 15% !important;
+      margin-right: 10%;
+  }
+
+  /* zoom image */
+
+  /* wishlist */
+  #wishlist-form {
+    text-align: center;
+    padding-right: 0px
+  }
+}
+
+</style>
+
+<% @body_id = 'product-details' %>
+
+<%= render partial: 'spree/shared/trackers/segment/product_viewed.js',
+            formats: :js,
+            locals: { product: @product } %>
+
+<% cache cache_key_for_product do %>
+  <div data-hook="product_show" class="row" itemtype="https://schema.org/Product">
+    <div class="col-md-4 col-sm-5" data-hook="product_left_part">
+      <div data-hook="product_left_part_wrap">
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" class="panel panel-default" data-hook>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render partial: 'render_thumbnails' %>
+          </div>
+        </div>
+
+        <div data-hook="product_properties_custom">
+          <%= render partial: 'properties' %>
+        </div>
+        <div class="custom-review">
+          <%= render partial: 'spree/shared/reviews' %>
+        </div>
+
+        <div data-hook="promotions">
+          <%= render partial: 'promotions' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 col-sm-7" data-hook="product_right_part">
+      <div data-hook="product_right_part_wrap">
+        <div id="product-description" data-hook="product_description">
+
+          <div class="productDescript">
+
+                <div class="TitleDescript">
+                    <h3 class="product-title" itemprop="name"><%= @product.name %></h3>
+
+                    <div class="well" itemprop="description" data-hook="description">
+                      <%= product_description(@product) %>
+                    </div>
+                </div>
+
+                <div class="imageDeliver">
+                  <%= image_tag "deliver.png", class:"imgDeliver" %>
+                </div>
+
+                <!-- render sidecart -->
+            <div class="sideCart">
+                <% if simple_current_order.item_count < 1 %>
+                  <%= render :partial => "render_me/side_cart_without" %>
+                <% else %>
+                  <%= render :partial => "render_me/side_cart" %>
+                <% end %>
+            </div>
+
+          </div>
+
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
+          </div>
+          <div id="review-mobile-form" data-hook="add-reviews-mobile">
+            <%= render partial: 'cart_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
