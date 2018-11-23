@@ -50,8 +50,7 @@
       <div data-hook="product_left_part_wrap">
         <div id="product-images" data-hook="product_images">
           <div id="main-image" class="panel panel-default" data-hook>
-            <div class="panel-body text-center">
-            </div>
+              <%= product_image(@product, itemprop: "image") %>
           </div>
           <div id="thumbnails" data-hook>
             <%= render partial: 'render_thumbnails' %>
