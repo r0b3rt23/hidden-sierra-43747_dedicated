@@ -1218,6 +1218,10 @@ ul.ul_wishlist_account {
   div#review-mobile-form
   {
     display: block;
+    font-size: 20px;
+  }
+  div#product-description{
+
   }
   div.custom-review
   {
