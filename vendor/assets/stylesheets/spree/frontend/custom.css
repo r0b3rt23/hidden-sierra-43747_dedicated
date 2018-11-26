@@ -1658,6 +1658,9 @@ ul.ul_wishlist_account {
   body#default.one-col div.container div.row
   {
     display: inline-block;
+    width: 98% !important;
+    margin-left: 0px;
+    margin-right: 0px;
         /* margin-left: 0px; */
   }
   .ordernumber-label
@@ -1769,6 +1772,8 @@ ul.ul_wishlist_account {
   }
 
   body#default.one-col div.container div.row div#content.col-sm-12 {
+    margin-left: 2% !important;
+    width: 98% !important;
     padding-left: 0px;
     padding-right: 0px;
     margin-bottom: 50px;
