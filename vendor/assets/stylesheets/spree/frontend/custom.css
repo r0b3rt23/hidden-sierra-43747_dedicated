@@ -28,7 +28,11 @@ form.navbar-form div.form-group{
     height: 45px;
     margin-left: 3%;
 }
-
+span.glyphicon.glyphicon-trash
+{
+  color: gray;
+  font-size: 24px;
+}
 .navbar-form input#btn-id.btn.btn-success{
   height: inherit !important;
   width: 10%;
@@ -1251,7 +1255,7 @@ ul.ul_wishlist_account {
   }
   div.line-item-description
   {
-    font-size: 11px;
+    font-size: 15px;
     white-space: normal;
   }
   span.line_item_price
@@ -1262,7 +1266,7 @@ ul.ul_wishlist_account {
   }
   span.glyphicon.glyphicon-trash
   {
-    font-size: 15px;
+    font-size: 26px;
     color: #B2BABB;
   }
   .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
