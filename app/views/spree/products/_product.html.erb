@@ -1,0 +1,179 @@
+<style>
+
+  .product_image_web
+  {
+    object-fit: none;
+    width: 100%;
+  }
+
+  #price-starts
+  {
+    font-size: 12px;
+  }
+
+  .price.selling.lead
+  {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1c5c92;
+  }
+
+@media only screen and (max-width: 360px), (max-width: 420px) {
+  div#content.col-sm-8.col-md-9 {
+    width: 100%;
+  }
+
+  .info {
+    color: #1c5c92;
+    text-decoration: none;
+  }
+
+  .line-item-description {
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  body#default.two-col div.container div.row div#content.col-sm-8.col-md-9 div.container div.row div#content.col-sm-8.col-md-9 {
+      margin-left: 0%;
+      width: 95%;
+      margin-bottom: 40px;
+  }
+
+  tr.line-item-mobile {
+    border-bottom: 1.5px solid #ddd;
+  }
+
+  div.center-icon {
+    text-align: center;
+    word-spacing: -5px;
+    padding-left: 0px;
+    word-wrap: break-word;
+  }
+
+  td.cart-item-description {
+    width: 180px;
+  }
+
+  div#cartcontainer {
+    display: block !important;
+  }
+
+  div#web_products_container {
+    display: none;
+  }
+    div.product_price{
+      text-align: center;
+      /* border: 1px solid black; */
+      /* background-color: lightblue; */
+      /* padding-top: 0px; */
+      /* padding-right: 0px; */
+      /* padding-bottom: 0px; */
+      /* padding-left: 0px; */
+      height: 66px;
+      width: 149px;
+      margin-left: auto;
+      margin-right: auto;
+  /* border-width: 5px; */
+      }
+    div.product_name {
+      text-align: center;
+      /* border: 1px solid black; */
+      /* border-width: 5px; */
+      /* background-color: lightblue; */
+      /*padding-top: 0px;
+      padding-right: 5px;
+      padding-bottom: 0px;
+      padding-left: 5px;*/
+      height: 47px;
+      width: 158px;
+      margin: 0px;
+    }
+    div.panel_product{
+      height: 216px;
+      width: 107%;
+      /*background-color: lightblue;*/
+    }
+    div.product_picture{
+
+      /*border: 3px solid #73AD21;*/
+      /* border-width: 5px; */
+      /* background-color: #1d8fb3;*/
+      /* padding-top: 0px; */
+      /* padding-right: 0px; */
+      /* padding-bottom: 0px; */
+      /* padding-left: 5px; */
+      height: 100px;
+      width: 157px;
+      vertical-align: middle;
+      /* padding-left: 0px; */
+      /* padding-right: 0px; */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      /* margin: 0px; */
+    }
+
+    .brand-pic-size{
+    object-fit: cover;
+
+
+    }
+
+
+}
+
+  div#cartcontainer {
+    display: none;
+  }
+</style>
+
+<% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
+
+<div id="cartcontainer" class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+    <div class="panel_product">
+          <div class="product_picture">
+                <%= link_to product_show_image(product, itemprop: "image", :size => "brand-pic-size"), url %>
+          </div>
+          <div class="product_name">
+                <%= link_to content_tag(:span, truncate(product.name, length: 37), class: 'info', itemprop: "name", title: product.name), url %>
+          </div>
+          <div class="product_price">
+                <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
+                    <% if @spree_product_variant.where(:is_master => false).count > 1 %>
+                        <%= "Price starts @ "%><span class="line_item_price"><%= display_price(product) %></span>
+                    <% else %>
+                        <span class="line_item_price"><%= display_price(product) %></span>
+                    <% end %>
+          </div>
+    </div>
+</div>
+
+<div id="web_products_container">
+<div id="product_<%= product.id %>" class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+  <div class="panel panel-default" id="panel-product-id">
+    <% cache(taxon.present? ? [I18n.locale, current_currency, taxon, product] : cache_key_for_product(product)) do %>
+      <div class="panel-body text-center product-body">
+        <%= link_to url, itemprop: "url" do %>
+          <%= product_image(product, itemprop: "image", class: 'product_image_web') %><br/>
+          <%= content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", title: product.name) %>
+        <% end %>
+        <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
+            <% if @spree_product_variant.where(:is_master => false).count > 1 %>
+            <div id="price-starts"><%= "Price starts @"%></div>
+          <% else %>
+
+          <% end %>
+        <br/>
+      </div>
+      <div class="panel-footer text-center">
+        <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span class="price selling lead" itemprop="price" content="<%= product.price_in(current_currency).amount.to_d %>">
+            <%= display_price(product) %>
+          </span>
+          <span itemprop="priceCurrency" content="<%= current_currency %>"></span>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
