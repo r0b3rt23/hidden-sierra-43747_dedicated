@@ -172,10 +172,6 @@
                       </div>
                   </div>
 
-                  <div class="imageDeliver">
-                    <%= image_tag "deliver.png", class:"imgDeliver" %>
-                  </div>
-
                   <!-- render sidecart -->
               <div class="sideCart">
                   <% if simple_current_order.item_count < 1 %>
@@ -185,6 +181,10 @@
                   <% end %>
               </div>
 
+            </div>
+
+            <div class="imageDeliver">
+                <%= image_tag "deliver.png", class:"imgDeliver" %>
             </div>
             <div data-hook="product_properties_custom">
               <%= render partial: 'properties' %>
