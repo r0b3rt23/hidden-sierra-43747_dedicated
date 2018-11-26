@@ -16,9 +16,10 @@
   padding-top: 8px;
 }
 .total{
-  color: yellow;
+  color: #E67E22;
   font-size: 16px;
 }
+
 form.navbar-form div.form-group{
     display: inline-block;
     margin-bottom: 0;
@@ -1320,7 +1321,7 @@ ul.ul_wishlist_account {
     margin-bottom: 0;
     font-size: 23px;
     font-weight: bolder;
-    color: #E67E22;
+    /* color: #E67E22; */
     margin-top: 1px;
   }
   div.alert.alert-info
