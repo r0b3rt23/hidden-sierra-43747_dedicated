@@ -1267,7 +1267,7 @@ ul.ul_wishlist_account {
   span.glyphicon.glyphicon-trash
   {
     font-size: 26px;
-    color: #B2BABB;
+    color: #1c5c92;
   }
   .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
   {
@@ -1368,8 +1368,8 @@ ul.ul_wishlist_account {
   }
   div.total_cart-label
   {
-    padding-left: 20%;
-    font-size: 18px;
+    /* padding-left: 20%; */
+    font-size: 25px;
     margin-top: 4px;
     margin-bottom: 4px;
     font-weight: bold;
