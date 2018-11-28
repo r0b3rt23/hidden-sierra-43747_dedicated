@@ -28,7 +28,7 @@
   {
     width: 50px;
   }
-  .item-image, .item-image_header, .item-image_col{
+  .item-image{
     display: none;
   }
   /* .active
@@ -57,7 +57,7 @@
 
           <table id="myTable" class="table stock-contents" data-hook="stock-contents">
             <colgroup>
-              <col class="item-image_col" style="width: 10%;" />
+              <col style="width: 10%;" />
               <col style="width: 60%;" />
               <col style="width: 10%;" />
               <col style="width: 15%;" />
@@ -65,7 +65,7 @@
             </colgroup>
             <thead>
               <tr class="active">
-                <th class="item-image_header"></th>
+                <th></th>
                 <th class="item-name_header"><%= Spree.t(:item) %></th>
                 <th class="item-qty_header"><%= Spree.t(:qty) %></th>
                 <th class="item-price_header"><%= Spree.t(:price) %></th>
