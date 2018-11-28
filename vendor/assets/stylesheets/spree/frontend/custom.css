@@ -1626,7 +1626,7 @@ ul.ul_wishlist_account {
 
   /* CHECKOUT HEADER */
   body#checkout-page.one-col div.container {
-    width: 90% !important;
+    width: 100% !important;
   }
   body#checkout-page.one-col div#spree-header header#header {
     width: 100% !important;
@@ -1653,8 +1653,9 @@ ul.ul_wishlist_account {
   #checkout_panel-body
   {
     padding: 10px !important;
-    margin-left: 8px;
+    /* margin-left: 8px; */
     font-size: 20px;
+    color: #1c5c92;
   }
   #save_continue-btn
   {
