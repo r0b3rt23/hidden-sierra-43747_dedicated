@@ -1621,7 +1621,7 @@ ul.ul_wishlist_account {
   div .form-group
   {
     width: 100% !important;
-    margin-left: 3px;
+    /* margin-left: 3px; */
   }
 
   /* CHECKOUT HEADER */
