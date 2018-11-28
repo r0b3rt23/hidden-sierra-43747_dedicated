@@ -28,6 +28,12 @@
   {
     width: 50px;
   }
+  .item-image{
+    display: none;
+  }
+  .item-image_header{
+    display: none;
+  }
   /* .active
   {
     background-color: #f5f5f5;
@@ -62,7 +68,7 @@
             </colgroup>
             <thead>
               <tr class="active">
-                <th></th>
+                <th class="item-image_header"></th>
                 <th class="item-name_header"><%= Spree.t(:item) %></th>
                 <th class="item-qty_header"><%= Spree.t(:qty) %></th>
                 <th class="item-price_header"><%= Spree.t(:price) %></th>
