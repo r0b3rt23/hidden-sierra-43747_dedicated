@@ -1255,7 +1255,7 @@ ul.ul_wishlist_account {
   }
   div.line-item-description
   {
-    font-size: 15px;
+    font-size: 16px;
     white-space: normal;
   }
   span.line_item_price
@@ -1303,12 +1303,12 @@ ul.ul_wishlist_account {
   }
   span.glyphicon.glyphicon-minus
   {
-    font-size: 10px;
+    font-size: 15px;
     vertical-align: 4px;
   }
   span.glyphicon.glyphicon-plus
   {
-    font-size: 10px;
+    font-size: 15px;
     vertical-align: 4px;
   }
   table
