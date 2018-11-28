@@ -1668,6 +1668,7 @@ ul.ul_wishlist_account {
   #delivery-fee-msg
   {
     white-space: normal;
+    font-size: 18px;
   }
 
   /* ORDER COMPLETE */
