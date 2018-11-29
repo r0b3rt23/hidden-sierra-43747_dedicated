@@ -4,6 +4,10 @@
 #spree-header #header{
     background: #111d51;
 }
+#spree-header #logo img{
+  max-width: 120%;
+  max-height: 60px;
+}
 .badge-info {
   background-color: #3a87ad;
 }
