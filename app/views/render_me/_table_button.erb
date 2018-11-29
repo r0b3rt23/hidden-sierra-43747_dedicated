@@ -140,7 +140,8 @@
       </div>
 
         <div class="continueShop-mobile">
-          <%= link_to Spree.t(:continue_shopping), products_path, id:'continue', class: 'btn btn-default' %>
+          <% @subgro = "https://damp-sierra-90994.herokuapp.com/categories/grocery" %>
+          <%= link_to Spree.t(:continue_shopping), @subgro, id:'continue', class: 'btn btn-default' %>
         </div>
   </div>
 
