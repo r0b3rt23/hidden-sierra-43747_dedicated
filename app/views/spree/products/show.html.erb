@@ -30,6 +30,10 @@
 #product-price div span.lead.price.selling{
   font-size: 35px;
 }
+.brandsize{
+  width: 20px;
+  height: 20px;
+}
 
 @media only screen and (max-width: 360px), (max-width: 420px) {
   div.input-group {
@@ -70,7 +74,7 @@
           <div id="product-images" data-hook="product_images">
             <div id="main-image" class="panel panel-default" data-hook>
               <div class="panel-body text-center">
-                <%= product_image(@product, itemprop: "image") %>
+                <%= product_image(@product, itemprop: "image", :class => "brandsize") %>
               </div>
             </div>
             <div id="thumbnails" data-hook>
