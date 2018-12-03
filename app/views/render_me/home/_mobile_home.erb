@@ -1,14 +1,18 @@
 
+
+
+
+
 <body class="two-col" id="home-page" data-hook="body" style="">
 
     <div class="container">
       <div class="row" data-hook="">
 
 
-        <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
+        <!-- <aside id="sidebar" class="col-sm-4 col-md-3" data-hook="">
     <!-- <div data-hook="homepage_sidebar_navigation"> -->
 
-<%= render :partial => "render_me/sidebar_hover" %>
+
 
 
 
@@ -34,14 +38,14 @@
     <% @all_notactive_cat = Category.where(:active => false).sort_by &:sort_order %>
 
     <% @all_active_cat.each do |all_active_cat| %>
-      <div id="productHover" class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemtype="https://schema.org/Product">
+      <div id="productHover" class="col-md-3 col-sm-4 col-xs-4 product-list-item categories_3div" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
         <div class="panel panel-default" id="panel-default-id">
           <div id="image_container" class="panel-body text-center product-body">
-            <%= link_to (image_tag all_active_cat.image_category.url(:thumb), :class => "home_image_mobile"), all_active_cat %>
+            <%= link_to (image_tag all_active_cat.image_category.url(:thumb), :class => ".home_image_mobile_3rd"), all_active_cat %>
             <br>
           </div>
           <div class="panel-footer text-center">
-            <span id="web_categ_name" itemprop="offers"  itemtype="https://schema.org/Offer">
+            <span id="web_categ_name" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <%= link_to truncate(all_active_cat.name, length: 47), all_active_cat, :class => 'linkhover' %>
             </span>
           </div>
@@ -55,22 +59,7 @@
     <% end %>
 
 
-    <% @all_notactive_cat.each do |all_notactive_cat| %>
-      <div class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item"  itemtype="https://schema.org/Product">
-        <div class="panel panel-default" id="panel-default-id">
-          <div id="image_container" class="panel-body text-center product-body">
-             <div class="not-image"><%= image_tag all_notactive_cat.image_category.url(:thumb), :class => "home_image_mobile" %> </div>
-            <br>
-          </div>
 
-          <div id = "notactive" class="panel-footer text-center">
-            <span itemprop="offers" itemtype="https://schema.org/Offer">
-              <%= truncate(all_notactive_cat.name, length: 47) %>
-            </span>
-          </div>
-        </div></a>
-      </div>
-    <% end %>
   </div>
 
 
