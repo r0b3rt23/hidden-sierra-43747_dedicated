@@ -1664,7 +1664,9 @@ ul.ul_wishlist_account {
   body#default.one-col div.container div.row
   {
     display: inline-block;
-        /* margin-left: 0px; */
+    width: 98% !important;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .ordernumber-label
   {
