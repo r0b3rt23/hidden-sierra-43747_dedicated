@@ -1205,7 +1205,7 @@ ul.ul_wishlist_account {
   *
   {
     height: auto;
-    /* overflow: auto; */
+    overflow: auto;
   }
   #spree-header #logo{
     display: none;
