@@ -4,10 +4,7 @@
   .categ-all-mobile {
     width: 100%;
   }
-  .row {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+
   .categ-all-mobile {
     display: flex;
   }
@@ -38,11 +35,8 @@
 
   #center_panel {
     text-align: center;
-    height: 180px;
-    width: 117px;
-    padding-left: 2px;
-    padding-right: 2px;
-    border-style: ridge;
+    height: 170px;
+    width: 170px;
     /* border-style: solid;
     border-color: green; */
   }
@@ -50,29 +44,18 @@
   .image_size{
   object-fit: cover;
 
-
   }
 
   div.product_picture{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 90px;
-    overflow: hidden;
-
   }
 
   img {
-    margin-left: -20px;
     vertical-align: middle;
-    width: 140px;
-    height: 105px;
-    /* margin-left: -10px; */
-  }
-  .panel_brand_show{
-    margin-left: 2px;
-  }
-
+    margin-left: -10px;
+}
 }
 
 </style>
@@ -81,13 +64,13 @@
 
   <div class="product-brand">
 
-    <div class="panel_brand_show">
+    <div class="panel_product">
       <% @brands_products = Spree::Product.where(:brand_id => @brand.id).page(params[:page]).per(10) %>
       <% @brands_products.each do |m| %>
           <% @spree_product_variant = Spree::Variant.where(:product_id => m, :is_master => true) %>
           <% @spree_variant_price = Spree::Price.find_by_variant_id(@spree_product_variant) %>
           <% @spree_variant_asset = Spree::Asset.find_by_viewable_id(@spree_product_variant)%>
-          <div id="center_panel" class="col-md-3 col-sm-4 col-xs-4   product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+          <div id="center_panel" class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
                 <div class="product_picture">
                     <%= link_to spree.product_path(m) do %>
                       <%= image_tag @spree_variant_asset.attachment.url(:product_show), :size => "image_size" %>
