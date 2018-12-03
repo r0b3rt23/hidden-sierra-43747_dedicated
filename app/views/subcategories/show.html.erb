@@ -1,0 +1,30 @@
+<style>
+
+div.show-mobile-1 {
+  display: none;
+}
+
+@media only screen and (max-width: 360px), (max-width: 420px) {
+  div.show_web {
+    display: none;
+  }
+
+  div.show-mobile-1 {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+</style>
+
+
+<%= render :partial => "render_me/head" %>
+
+<div class="show-mobile-1">
+  <%= render :partial => "render_me/subcategories_show_mobile" %>
+</div>
+
+<div class="show_web">
+  <%= render :partial => "render_me/subcategories_show_web" %>
+</div>
