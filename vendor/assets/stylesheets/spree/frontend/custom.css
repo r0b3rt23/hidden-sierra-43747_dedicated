@@ -4,10 +4,6 @@
 #spree-header #header{
     background: #111d51;
 }
-#spree-header #logo img{
-  max-width: 120%;
-  max-height: 60px;
-}
 .badge-info {
   background-color: #3a87ad;
 }
@@ -17,13 +13,12 @@
 }
 .panel-body {
   padding: 0px;
-  padding-top: 8px;
+  padding-top: 0px;
 }
 .total{
   color: yellow;
   font-size: 16px;
 }
-
 form.navbar-form div.form-group{
     display: inline-block;
     margin-bottom: 0;
@@ -32,11 +27,7 @@ form.navbar-form div.form-group{
     height: 45px;
     margin-left: 3%;
 }
-span.glyphicon.glyphicon-trash
-{
-  color: gray;
-  font-size: 24px;
-}
+
 .navbar-form input#btn-id.btn.btn-success{
   height: inherit !important;
   width: 10%;
@@ -798,8 +789,12 @@ div#ListA-id {
   pointer-events: none;
 }
 
-div#panel-default-id {
-  border-color: white;
+  div#panel-default-id {
+    /* border-color: #def; */
+    height: 200px;
+    border-style: groove;
+    border-width: 2px;
+    margin-bottom: 4px;
 }
 
 div#panel-default-id:hover {
@@ -850,14 +845,13 @@ h5#price-starts{
 }
 .TitleDescript
 {
-  width:100%;
-  font-size: 18px;
+  width:70%;
 }
 
 .imageDeliver
 {
   /* border:2px solid blue; */
-  width:50%;
+  width:28%;
 }
 
 .imgDeliver
@@ -1077,6 +1071,7 @@ ul.ul_wishlist_account {
   /* END NOT ACTIVE ONLY */
   .mobile_home_rev {
     display: none;
+
   }
 
   /* Login web*/
@@ -1210,7 +1205,7 @@ ul.ul_wishlist_account {
   *
   {
     height: auto;
-    overflow: auto;
+    /* overflow: auto; */
   }
   #spree-header #logo{
     display: none;
@@ -1227,10 +1222,6 @@ ul.ul_wishlist_account {
   div#review-mobile-form
   {
     display: block;
-    font-size: 20px;
-  }
-  div#product-description{
-
   }
   div.custom-review
   {
@@ -1259,7 +1250,7 @@ ul.ul_wishlist_account {
   }
   div.line-item-description
   {
-    font-size: 16px;
+    font-size: 11px;
     white-space: normal;
   }
   span.line_item_price
@@ -1270,8 +1261,8 @@ ul.ul_wishlist_account {
   }
   span.glyphicon.glyphicon-trash
   {
-    font-size: 26px;
-    color: #1c5c92;
+    font-size: 15px;
+    color: #B2BABB;
   }
   .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
   {
@@ -1307,12 +1298,12 @@ ul.ul_wishlist_account {
   }
   span.glyphicon.glyphicon-minus
   {
-    font-size: 15px;
+    font-size: 10px;
     vertical-align: 4px;
   }
   span.glyphicon.glyphicon-plus
   {
-    font-size: 15px;
+    font-size: 10px;
     vertical-align: 4px;
   }
   table
@@ -1334,7 +1325,7 @@ ul.ul_wishlist_account {
     margin-bottom: 0;
     font-size: 23px;
     font-weight: bolder;
-    /* color: #E67E22; */
+    color: #E67E22;
     margin-top: 1px;
   }
   div.alert.alert-info
@@ -1372,8 +1363,8 @@ ul.ul_wishlist_account {
   }
   div.total_cart-label
   {
-    /* padding-left: 20%; */
-    font-size: 25px;
+    padding-left: 20%;
+    font-size: 18px;
     margin-top: 4px;
     margin-bottom: 4px;
     font-weight: bold;
@@ -1447,6 +1438,8 @@ ul.ul_wishlist_account {
   #h1_categ
   {
     height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   /* HOME NO CART */
   body#default.one-col div.container div.row div#content.col-sm-10.col-md-18
@@ -1582,12 +1575,7 @@ ul.ul_wishlist_account {
   }
   body#product-details.one-col div.container
   {
-    width: 100% !important;
-  }
-  body#product-details.one-col div.container div.row
-  {
-    margin-left: -5px;
-    margin-right: 0px;
+    width: 90% !important;
   }
   body#product-details.one-col div#spree-header header#header
   {
@@ -1625,12 +1613,12 @@ ul.ul_wishlist_account {
   div .form-group
   {
     width: 100% !important;
-    /* margin-left: 3px; */
+    margin-left: 3px;
   }
 
   /* CHECKOUT HEADER */
   body#checkout-page.one-col div.container {
-    width: 98% !important;
+    width: 90% !important;
   }
   body#checkout-page.one-col div#spree-header header#header {
     width: 100% !important;
@@ -1657,9 +1645,7 @@ ul.ul_wishlist_account {
   #checkout_panel-body
   {
     padding: 10px !important;
-    /* margin-left: 8px; */
-    font-size: 20px;
-    color: #1c5c92;
+    margin-left: 8px;
   }
   #save_continue-btn
   {
@@ -1672,16 +1658,12 @@ ul.ul_wishlist_account {
   #delivery-fee-msg
   {
     white-space: normal;
-    font-size: 16px;
   }
 
   /* ORDER COMPLETE */
   body#default.one-col div.container div.row
   {
     display: inline-block;
-    width: 98% !important;
-    margin-left: 0px;
-    margin-right: 0px;
         /* margin-left: 0px; */
   }
   .ordernumber-label
@@ -1793,8 +1775,6 @@ ul.ul_wishlist_account {
   }
 
   body#default.one-col div.container div.row div#content.col-sm-12 {
-    margin-left: 2% !important;
-    width: 98% !important;
     padding-left: 0px;
     padding-right: 0px;
     margin-bottom: 50px;
