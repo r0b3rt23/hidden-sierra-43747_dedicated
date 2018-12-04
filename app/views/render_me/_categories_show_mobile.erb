@@ -213,7 +213,7 @@
 <body class="two-col" id="home-page" data-hook="body" style="">
 <div class="categ-all-mobile">
 
-<button id="left_chevron" onclick="myFunction()">&#10094;</button>
+<button id="left_chevron" onclick="myFunction(100, 0)">&#10094;</button>
 
 <div class="brands_subcat">
   <div id="categ-brands">
@@ -270,13 +270,13 @@
       </div>
 
   </div>
-  <button id="right_chevron" onclick="myFunction()">&#10094;</button>
+  <button id="right_chevron" onclick="myFunction(-100, 0)">&#10095;</button>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
 <script>
-function myFunction() {
+function myFunction(x, y) {
     var elmnt = document.getElementById("mySlides");
-    elmnt.scrollBy(300, 300);
+    elmnt.scrollBy(x, y);
 }
 // var slideIndex = 1;
 // showDivs(slideIndex);
