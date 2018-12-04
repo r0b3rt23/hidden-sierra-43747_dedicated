@@ -222,9 +222,9 @@
       <% @subcategories_mob = Subcategory.where(:category_id => @category.id) %>
       <% @subcatspec = Specific.where(:subcategory_id => @subcategories_mob) %>
       <% @specbrand = Brand.where(:specific_id => @subcatspec).sort_by &:name  %>
-
+    <div class="mySlides">
     <div class="all-brands">
-      <div class="mySlides">
+
       <% @specbrand.each do |specbrands| %>
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
           <div class="brands-obyo">
