@@ -1751,6 +1751,7 @@ ul.ul_wishlist_account {
   /* JONAS */
   div.panel-footer.text-center {
     font-size: 12px;
+    height: 70px;
   }
 
   body#default.one-col div.container div.row div#content.col-sm-8.col-md-9 {
