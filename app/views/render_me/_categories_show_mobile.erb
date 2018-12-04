@@ -202,6 +202,7 @@
 
 
 <div class="brands_subcat">
+    <span class="glyphicon glyphicon-chevron-left"></span>
   <div id="categ-brands">
 
       <!-- Insert Categories here -->
@@ -210,7 +211,7 @@
       <% @specbrand = Brand.where(:specific_id => @subcatspec).sort_by &:name  %>
 
     <div class="all-brands">
-      <span class="glyphicon glyphicon-chevron-left"></span>
+
       <% @specbrand.each do |specbrands| %>
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
           <div class="brands-obyo">
@@ -223,9 +224,9 @@
           </div>
           <% end %>
       <% end %>
-      <span class="glyphicon glyphicon-chevron-right"></span>
     </div>
   </div>
+    <span class="glyphicon glyphicon-chevron-right"></span>
 <br>
 
 
