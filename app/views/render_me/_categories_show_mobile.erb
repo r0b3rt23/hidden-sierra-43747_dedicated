@@ -269,7 +269,7 @@
       </div>
 
   </div>
-  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="plusDivs(1)"></span>
+  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="plusDivs(4)"></span>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
 <script>
@@ -283,7 +283,7 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 2}
+  if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
      x[i].style.display = "none";
