@@ -192,18 +192,16 @@
 
 
 <div class="brands_subcat">
+  <span class="glyphicon glyphicon-chevron-left"></span>
   <div id="categ-brands">
 
       <!-- Insert Categories here -->
       <% @subcatspec = Specific.where(:subcategory_id => @subcategory.id) %>
       <% @specbrand = Brand.where(:specific_id => @subcatspec).sort_by &:name  %>
-<span class="glyphicon glyphicon-chevron-left"></span>
+
     <div class="all-brands">
-
       <% @specbrand.each do |specbrands| %>
-
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
-
           <div class="brands-obyo">
             <div id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
@@ -215,10 +213,9 @@
           </div>
           <% end %>
       <% end %>
-
     </div>
-    <span class="glyphicon glyphicon-chevron-right"></span>
   </div>
+    <span class="glyphicon glyphicon-chevron-right"></span>
 <br>
 
         <!-- Insert Categories here -->
