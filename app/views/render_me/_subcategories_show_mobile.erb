@@ -207,6 +207,7 @@
           <div class="brands-obyo">
             <div id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
+              <span class="glyphicon glyphicon-chevron-right"></span>
             </div>
             <div id="brand-image-text">
               <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
@@ -214,7 +215,7 @@
           </div>
           <% end %>
       <% end %>
-      <span class="glyphicon glyphicon-chevron-right"></span>
+
     </div>
   </div>
 <br>
