@@ -791,7 +791,7 @@ div#ListA-id {
 
   div#panel-default-id {
     /* border-color: #def; */
-    height: 200px;
+    height: 230px;
     border-style: groove;
     border-width: 2px;
     margin-bottom: 4px;
@@ -1750,11 +1750,10 @@ ul.ul_wishlist_account {
     .pagination-sm > li > a{
       padding: 8px 14px;
       font-size: 16px;
-      line-height: 1.5;
     }
   /* JONAS */
   div.panel-footer.text-center {
-    font-size: 20px;
+    font-size: 18px;
     height: 70px !important;
   }
 
