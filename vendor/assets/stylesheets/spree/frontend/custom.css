@@ -274,7 +274,7 @@ div.panel.panel-default {
 } */
 
 div.panel-footer.text-center {
-  height: 70px;
+  height: 40px;
   background-color: transparent;
   border-color: transparent;
 }
@@ -1750,8 +1750,8 @@ ul.ul_wishlist_account {
 
   /* JONAS */
   div.panel-footer.text-center {
-    font-size: 22px;
-    height: 70px;
+    font-size: 20px;
+    height: 70px !important;
   }
 
   body#default.one-col div.container div.row div#content.col-sm-8.col-md-9 {
