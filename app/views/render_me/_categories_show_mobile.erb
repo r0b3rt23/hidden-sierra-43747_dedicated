@@ -227,15 +227,17 @@
       <% @specbrand.each do |specbrands| %>
 
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
-          <div class="mySlides">
+
           <div class="brands-obyo">
+            <div class="mySlides">
             <div id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
+            </div>
             </div>
             <div id="brand-image-text">
               <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
             </div>
-          </div>
+
             </div>
           <% end %>
       <% end %>
