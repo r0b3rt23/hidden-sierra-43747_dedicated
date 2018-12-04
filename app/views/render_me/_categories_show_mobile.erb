@@ -213,8 +213,8 @@
 <body class="two-col" id="home-page" data-hook="body" style="">
 <div class="categ-all-mobile">
 
+<span id="left_chevron" class="glyphicon glyphicon-chevron-left" onclick="plusDivs(-1)"></span>
 
-<span id="left_chevron" class="glyphicon glyphicon-chevron-left"></span>
 <div class="brands_subcat">
   <div id="categ-brands">
 
@@ -227,7 +227,7 @@
       <% @specbrand.each do |specbrands| %>
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
           <div class="brands-obyo">
-            <div id="brand-image">
+            <div class="mySlides" id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
             </div>
             <div id="brand-image-text">
@@ -266,7 +266,26 @@
       </div>
 
   </div>
-  <span id="right_chevron" class="glyphicon glyphicon-chevron-right"></span>
+  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="plusDivs(1)"></span>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
 </body>
