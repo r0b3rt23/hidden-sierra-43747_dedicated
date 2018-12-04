@@ -270,26 +270,29 @@
       </div>
 
   </div>
-  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="plusDivs(4)"></span>
+  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="scrollWin(100, 0)"></span>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
+function scrollWin(x, y) {
+    window.scrollBy(x, y);
 }
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     // x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
+// var slideIndex = 1;
+// showDivs(slideIndex);
+//
+// function plusDivs(n) {
+//   showDivs(slideIndex += n);
+// }
+//
+// function showDivs(n) {
+//   var i;
+//   var x = document.getElementsByClassName("mySlides");
+//   if (n > x.length) {slideIndex = 1}
+//   if (n < 1) {slideIndex = x.length}
+//   for (i = 0; i < x.length; i++) {
+//      // x[i].style.display = "none";
+//   }
+//   x[slideIndex-1].style.display = "block";
+// }
 </script>
 </body>
