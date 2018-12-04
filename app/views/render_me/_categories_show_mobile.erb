@@ -229,7 +229,7 @@
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
 
           <div class="brands-obyo">
-            <div class="mySlides">
+            <div id="mySlides">
             <div id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
             </div>
@@ -270,12 +270,13 @@
       </div>
 
   </div>
-  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="scrollWin(100, 0)"></span>
+  <span id="right_chevron" class="glyphicon glyphicon-chevron-right" onclick="myFunction()"></span>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
 <script>
-function scrollWin(x, y) {
-    window.scrollBy(x, y);
+function myFunction() {
+    var elmnt = document.getElementById("mySlides");
+    elmnt.scrollLeft = 50;
 }
 // var slideIndex = 1;
 // showDivs(slideIndex);
