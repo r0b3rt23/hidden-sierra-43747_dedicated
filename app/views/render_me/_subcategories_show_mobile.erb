@@ -20,31 +20,32 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    padding-left: 5px;
+    width: 93px;
+    height: 70px;
     object-fit: cover;
   }
 
   #brand-image-text {
     display: flex;
     justify-content: space-around;
-    width: 80px;
-    height: 35px;
+    /* width: 80px;
+    height: 35px; */
     text-align: center;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin-top: 10%;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 13%;
   }
 
   .brand-text {
-    font-size: 10px;
+    font-size: 16px;
   }
 
   .brands-obyo {
     display: block;
     border-style: groove;
-    width: 87px;
-    height: 129px;
+    width: 100px;
+    height: 145px;
   }
 
   div.all-brands {
@@ -108,7 +109,7 @@
   }
 
   .subcat-text {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   #paginate-center {
@@ -127,69 +128,29 @@
     padding-left: 2px;
     padding-right: 2px;
   }
-
-  /* .pagination {
-  background: white;
-  cursor: default; */
-  /* self-clearing method: */
-  /* .pagination a, .pagination span, .pagination em {
-    padding: 0.2em 0.5em;
-    display: block;
-    float: left;
-    margin-right: 1px; }
-  .pagination .disabled {
-    color: #999999;
-    border: 1px solid #dddddd; }
-  .pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background: #2e6ab1;
-    color: white;
-    border: 1px solid #2e6ab1; }
-  .pagination a {
-    text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5; }
-    .pagination a:hover, .pagination a:focus {
-      color: #000033;
-      border-color: #000033; }
-  .pagination .page_info {
-    background: #2e6ab1;
-    color: white;
-    padding: 0.4em 0.6em;
-    width: 22em;
-    margin-bottom: 0.3em;
-    text-align: center; }
-    .pagination .page_info b {
-      color: #000033;
-      background: #6aa6ed;
-      padding: 0.1em 0.25em; }
-  .pagination:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .pagination {
-    height: 1%; }
-  *:first-child + html .pagination {
-    overflow: hidden; } */
+  #left_chevron{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    color: #111d51;
+    font-size: 30px;
+  }
+  #right_chevron{
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    color: #111d51;
+    font-size: 30px;
+  }
 
 }
-/*
-  #categ-subcateg-mobile {
-    display: none
-  } */
-/*
-  #categ-subcateg-web {
-    display: block;
-  } */
 
 </style>
 
 <body class="two-col" id="home-page" data-hook="body" style="">
 <div class="categ-all-mobile">
 
+<button id="left_chevron" onclick="myFunction(-300, 0)">&#10094;</button>
 
 <div class="brands_subcat">
   <div id="categ-brands">
@@ -197,22 +158,22 @@
       <!-- Insert Categories here -->
       <% @subcatspec = Specific.where(:subcategory_id => @subcategory.id) %>
       <% @specbrand = Brand.where(:specific_id => @subcatspec).sort_by &:name  %>
-
-    <div class="all-brands">
-      <% @specbrand.each do |specbrands| %>
-          <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
-          <div class="brands-obyo">
-            <div id="brand-image">
-              <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
-
+    <div id="mySlides">
+      <div class="all-brands">
+        <% @specbrand.each do |specbrands| %>
+            <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
+            <div class="brands-obyo">
+              <div id="brand-image">
+                <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
+              </div>
+              <div id="brand-image-text">
+                <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
+              </div>
             </div>
-            <div id="brand-image-text">
-              <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
-            </div>
-          </div>
-          <% end %>
-      <% end %>
+            <% end %>
+        <% end %>
     </div>
+  </div>
   </div>
 <br>
 
@@ -238,7 +199,13 @@
         <% end %>
 
   </div>
-
+<button id="right_chevron" onclick="myFunction(300, 0)">&#10095;</button>
 </div>
 <center id="paginate-center"><%= paginate @specifics_mob %></center>
+<script>
+function myFunction(x, y) {
+    var elmnt = document.getElementById("mySlides");
+    elmnt.scrollBy(x, y);
+}
+</script>
 </body>
