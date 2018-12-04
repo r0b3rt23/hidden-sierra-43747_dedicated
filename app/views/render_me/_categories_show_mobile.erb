@@ -226,6 +226,7 @@
     <div class="all-brands">
       <% @specbrand.each do |specbrands| %>
           <%if specbrands.name.start_with?('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z') %>
+            <div class="mySlides">
           <div class="brands-obyo">
             <div id="brand-image">
               <%= link_to (image_tag specbrands.image_brand.url(:thumb), :size => "80x50"), specbrands%><br>
@@ -233,6 +234,7 @@
             <div id="brand-image-text">
               <%= link_to truncate(specbrands.name, length: 28), specbrands, :class => "brand-text" %>
             </div>
+          </div>
           </div>
           <% end %>
       <% end %>
@@ -279,7 +281,7 @@ function plusDivs(n) {
 
 function showDivs(n) {
   var i;
-  var x = document.getElementsByClassName("brands-obyo");
+  var x = document.getElementsByClassName("mySlides");
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
