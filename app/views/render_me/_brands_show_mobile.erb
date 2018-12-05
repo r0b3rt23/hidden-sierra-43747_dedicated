@@ -107,7 +107,7 @@
                     <%= link_to word_wrap(truncate(m.name, length: 28)),spree.product_path(m)  %>
                 </div>
                 <div class="product_price">
-                  <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
+                  <% @spree_product_variant = Spree::Variant.where(:product_id => m) %>
                       <% if @spree_product_variant.where(:is_master => false).count > 1 %>
                           <span class="starts_at"><%= "Price starts @ "%></span>
                       <% else %>
