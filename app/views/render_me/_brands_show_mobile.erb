@@ -121,7 +121,7 @@
                       <% if @spree_product_variant.where(:is_master => false).count > 1 %>
                           <span class="starts_at"><%= "Price starts @ "%></span>
                       <% else %>
-                          &ensp;
+                          <span class="starts_at"> </span>
                       <% end %>
                     <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                 </div>
