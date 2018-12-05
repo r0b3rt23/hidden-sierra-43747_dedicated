@@ -120,10 +120,11 @@
                   <% @spree_product_variant = Spree::Variant.where(:product_id => m) %>
                       <% if @spree_product_variant.where(:is_master => false).count > 1 %>
                           <span class="starts_at"><%= "Price starts @ "%></span>
+                          <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                       <% else %>
-                          <span class="starts_at"> &nbsp;&nbsp;&nbsp;&nbsp; </span>
+                          <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                       <% end %>
-                    <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
+
                 </div>
           </div>
 
