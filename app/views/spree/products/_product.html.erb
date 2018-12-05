@@ -22,6 +22,11 @@
   div#content.col-sm-8.col-md-9 {
     width: 100%;
   }
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+  }
 
   .info {
     color: #1c5c92;
@@ -35,13 +40,12 @@
 
   body#default.two-col div.container div.row div#content.col-sm-8.col-md-9 div.container div.row div#content.col-sm-8.col-md-9 {
       margin-left: 0%;
-      width: 95%;
+      width: 100%;
       margin-bottom: 40px;
   }
   body#default.two-col div.container div.row div#content.col-sm-8.col-md-9 div.container div.row{
-    width: 98%;
-    margin: 2px;
-
+    width: 100%;
+    margin: 0px;
   }
 
   tr.line-item-mobile {
@@ -61,6 +65,8 @@
 
   div#cartcontainer_rev{
     display: block !important;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   div#web_products_container {
@@ -68,40 +74,71 @@
   }
     div.product_price{
       text-align: center;
-      height: 15%;
-      width: 100%;
+      height: auto;
+      width: auto;
       margin-left: auto;
       margin-right: auto;
       }
     div.product_name {
       text-align: center;
       width: 100%;
+      height: 40px;
       margin-left: auto;
       margin-right: auto;
     }
     div.panel_product{
-      height: 35%;
-      border-style: groove;
+        /* height: 30%;
+        border-style: groove;
+        overflow: visible; */
+
+        height: 35%;
+        border-style: groove;
+        overflow: visible;
     }
     div.product_picture{
       height: 55%;
       width: 100%;
       margin-left: -30% ;
     }
-    .brand-pic-size{
+    /* .brand-pic-size{
     object-fit: cover;
-    }
+    } */
 
-    #cartcontainer_rev{
+    /* #cartcontainer_rev{
       padding-left: 0%;
       padding-right: 0%;
       margin-left: 0%;
-      }
+      } */
 
       .product_picture1{
-        height: 55%;
+        height: 50%;
         width: 100%;
-        margin-left: -40%;
+      /* margin-left: 0%; */
+        margin-top: 5px;
+        /* margin-left: 0%; */
+      }
+      img {
+        /* vertical-align: middle;
+        object-fit: cover;
+        object-position: 50% 0;
+        height: 100%;
+        width: 100%; */
+
+        /* display: block;
+        width: 100%;
+        position: absolute;
+        object-fit: none;
+        height: 50%; */
+
+        display: block;
+        width: 95%;
+        position: absolute;
+        object-fit: none;
+        height: 50%;
+        /* clip: rect(20px,60px,200px,0px); */
+        /* margin-top: 2px; */
+        /* margin-bottom: 9px; */
+        /* margin: 0px; */
       }
 }
 
@@ -116,11 +153,15 @@
   <div id="cartcontainer_rev" class="col-md-3 col-sm-4 col-xs-4 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
     <div class="panel_product">
           <div class="product_picture1">
-                <%= link_to home_display_image(product, itemprop: "image", :size => "brand-pic-size"), url %>
+                <%= link_to home_display_image(product, itemprop: "image", :size => "130x130"), url %>
           </div>
+
+
           <div class="product_name">
-                <%= link_to content_tag(:span, truncate(product.name, length: 37), class: 'info', itemprop: "name", title: product.name), url %>
+                <%= link_to content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", title: product.name), url %>
           </div>
+
+
           <div class="product_price">
                 <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
                     <% if @spree_product_variant.where(:is_master => false).count > 1 %>
@@ -129,6 +170,8 @@
                         <span class="line_item_price"><%= display_price(product) %></span>
                     <% end %>
           </div>
+
+
     </div>
 </div>
 
