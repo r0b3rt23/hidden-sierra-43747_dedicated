@@ -122,6 +122,7 @@
                           <span class="starts_at"><%= "Price starts @ "%></span>
                           <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                       <% else %>
+                          <br>
                           <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                       <% end %>
 
