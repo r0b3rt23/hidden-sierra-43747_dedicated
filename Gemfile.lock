@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/vinzloh/spree_product_hover_zoom.git
-  revision: 95dbba4860436716e3c6624d29aa7dba75fdace3
-  specs:
-    spree_product_hover_zoom (1.0.3)
-      spree_core (~> 3.2)
-      spree_frontend (~> 3.2)
-
-GIT
   remote: https://github.com/spree-contrib/better_spree_paypal_express.git
   revision: 962a789738b59f440bf44ea22e64b65cc2572535
   specs:
@@ -475,7 +467,6 @@ DEPENDENCIES
   spree_gateway (~> 3.3)
   spree_mail_settings!
   spree_paypal_express!
-  spree_product_hover_zoom!
   spree_reviews!
   spree_wishlist!
   spring
@@ -487,4 +478,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
