@@ -104,7 +104,7 @@
                     <% end %>
                 </div>
                 <div class="product_name">
-                    <%= link_to word_wrap(truncate(m.name, length: 32)),spree.product_path(m)  %>
+                    <%= link_to word_wrap(truncate(m.name, length: 38)),spree.product_path(m)  %>
                 </div>
                 <div class="product_price">
                     <%= number_to_currency(@spree_variant_price.amount, unit: "₱")%>
