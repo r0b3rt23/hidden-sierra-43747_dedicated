@@ -30,6 +30,10 @@
 #product-price div span.lead.price.selling{
   font-size: 35px;
 }
+#product_size img{
+  width: 110%;
+  margin-left: -7%;
+}
 
 @media only screen and (max-width: 360px), (max-width: 420px) {
   div.input-group {
@@ -52,6 +56,9 @@
   .mobile_product_show{
     display:contents;
   }
+  #product_size img{
+    width: 100%;
+  }
 }
 
 </style>
@@ -69,8 +76,8 @@
         <div data-hook="product_left_part_wrap">
           <div id="product-images" data-hook="product_images">
             <div id="main-image" class="panel panel-default" data-hook>
-              <div class="panel-body text-center">
-                <%= product_image(@product, itemprop: "image") %>
+              <div id="product_size" class="panel-body text-center">
+                <%= large_image(@product, itemprop: "image") %>
               </div>
             </div>
             <div id="thumbnails" data-hook>
@@ -137,8 +144,8 @@
         <div data-hook="product_left_part_wrap">
           <div id="product-images" data-hook="product_images">
             <div id="main-image" class="panel panel-default" data-hook>
-              <div class="panel-body text-center">
-                <%= product_image(@product, itemprop: "image") %>
+              <div id="product_size" class="panel-body text-center">
+                <%= large_image(@product, itemprop: "image") %>
               </div>
             </div>
             <div id="thumbnails" data-hook>

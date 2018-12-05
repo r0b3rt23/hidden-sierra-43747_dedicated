@@ -12,9 +12,6 @@
 
 
 //= require_tree .
-//= require drift.min
-//= require luminous
-//= require spree/frontend/spree_product_hover_zoom
 //= require spree/frontend/spree_paypal_express
 //= require spree/frontend/spree_wishlist
 //= require spree/frontend/spree_reviews
