@@ -87,11 +87,6 @@
     color: initial;
     font-weight: normal;
   }
-  .line_price{
-    font-size: 26px;
-    color: #E67E22;
-    font-weight: bolder;
-  }
 
 }
 
@@ -123,7 +118,7 @@
                       <% else %>
                           <br>
                       <% end %>
-                    <span class="line_price"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
+                    <%= number_to_currency(@spree_variant_price.amount, unit: "₱")%>
                 </div>
           </div>
 
