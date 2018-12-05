@@ -166,11 +166,9 @@
           <div class="product_price">
                 <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
                     <% if @spree_product_variant.where(:is_master => false).count > 1 %>
-                        <span class="line_item_price"><%= display_price(product) %></span>
-                        <br><span class="starts_at"><%= "Price starts @ "%></span>
-                    <% else %>
-                        <span class="line_item_price"><%= display_price(product) %></span>
+                        <span class="starts_at"><%= "Price starts @ "%></span>
                     <% end %>
+                    <span class="line_item_price"><%= display_price(product) %></span>
           </div>
 
 
