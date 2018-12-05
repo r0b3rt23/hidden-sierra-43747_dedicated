@@ -845,7 +845,8 @@ h5#price-starts{
 }
 .TitleDescript
 {
-  width:70%;
+  width:100%;
+  font-size: 16px;
 }
 
 .imageDeliver
@@ -1222,6 +1223,7 @@ ul.ul_wishlist_account {
   div#review-mobile-form
   {
     display: block;
+    font-size: 16px;
   }
   div.custom-review
   {
