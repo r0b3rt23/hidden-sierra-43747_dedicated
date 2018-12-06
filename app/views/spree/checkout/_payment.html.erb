@@ -1,4 +1,15 @@
 <style>
+.cardIcon{
+  width: 40px;
+}
+.soonIcon{
+  width: 150px;
+  display: block;
+  margin-left: 30px;
+}
+#cardLabel{
+  font-weight: bold;
+}
   @media only screen and (max-width: 360px), (max-width: 420px) {
     h3 {
       font-size: 29px;
@@ -66,6 +77,12 @@
           </label>
         </li>
       <% end %>
+      <li class="list-group-item" id="cardLabel">
+        <%= image_tag "soon.png", class: "soonIcon"%>
+        <input type="radio" disabled="disabled"> Credit Card
+        <%= image_tag "mastercard.png", class: "cardIcon"%>
+        <%= image_tag "visa.png", class: "cardIcon"%>
+      </li>
     </ul>
 
     <ul class="nav" id="payment-methods" data-hook>
