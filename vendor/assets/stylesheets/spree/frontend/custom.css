@@ -1268,8 +1268,8 @@ ul.ul_wishlist_account {
   }
   span.glyphicon.glyphicon-trash
   {
-    font-size: 15px;
-    color: #B2BABB;
+    font-size: 28px;
+    color: darkslategrey;
   }
   .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
   {
