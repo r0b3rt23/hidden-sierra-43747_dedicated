@@ -1620,7 +1620,7 @@ ul.ul_wishlist_account {
   div .form-group
   {
     width: 100% !important;
-    margin-left: 3px;
+    margin-left: 0px;
   }
 
   /* CHECKOUT HEADER */
@@ -1652,7 +1652,7 @@ ul.ul_wishlist_account {
   #checkout_panel-body
   {
     padding: 10px !important;
-    margin-left: 8px;
+    /* margin-left: 8px; */
   }
   #save_continue-btn
   {
