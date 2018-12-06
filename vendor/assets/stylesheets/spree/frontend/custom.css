@@ -1660,11 +1660,12 @@ ul.ul_wishlist_account {
   }
   #savecontinue-btn
   {
-    width: 66% !important;
+    width: 100% !important;
   }
   #delivery-fee-msg
   {
     white-space: normal;
+    font-size: 16px;
   }
 
   /* ORDER COMPLETE */
