@@ -212,13 +212,21 @@
       </div>
 
   </div>
-  <button id="right_chevron" onclick="myFunction(300, 0)">&#10095;</button>
+  <button id="right_chevron">&#10095;</button>
 </div>
 <center id="paginate-center"><%= paginate @subcategories_mob %></center>
 <script>
+$(document).ready(function(){
+    $("#right_chevron").on('click', function () {
+        var elmnt = document.getElementById("mySlides");
+        elmnt.scrollBy(300, 0);
+    });
+});
+
 function myFunction(x, y) {
     var elmnt = document.getElementById("mySlides");
-    elmnt.scrollTo(x, y);
+    elmnt.scrollBy(x, y);
 }
+
 </script>
 </body>
