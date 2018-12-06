@@ -158,7 +158,7 @@
 <body class="two-col" id="home-page" data-hook="body" style="">
 <div class="categ-all-mobile">
 
-<button id="left_chevron" onclick="myFunction(-300, 0)">&#10094;</button>
+<button id="left_chevron">&#10094;</button>
 
 <div class="brands_subcat">
   <div id="categ-brands">
@@ -221,12 +221,16 @@ $(document).ready(function(){
         var elmnt = document.getElementById("mySlides");
         elmnt.scrollBy(300, 0);
     });
+    $("#left_chevron").on('click', function () {
+        var elmnt = document.getElementById("mySlides");
+        elmnt.scrollBy(-300, 0);
+    });
 });
 
-function myFunction(x, y) {
-    var elmnt = document.getElementById("mySlides");
-    elmnt.scrollBy(x, y);
-}
+// function myFunction(x, y) {
+//     var elmnt = document.getElementById("mySlides");
+//     elmnt.scrollBy(x, y);
+// }
 
 </script>
 </body>
