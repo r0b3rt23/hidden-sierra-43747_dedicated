@@ -1625,7 +1625,7 @@ ul.ul_wishlist_account {
 
   /* CHECKOUT HEADER */
   body#checkout-page.one-col div.container {
-    width: 90% !important;
+    width: 98% !important;
   }
   body#checkout-page.one-col div#spree-header header#header {
     width: 100% !important;
