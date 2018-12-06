@@ -4,10 +4,6 @@
 #spree-header #header{
     background: #111d51;
 }
-#spree-header #logo img{
-  max-width: 125%;
-    max-height: 60px;
-}
 .badge-info {
   background-color: #3a87ad;
 }
@@ -22,6 +18,11 @@
 .total{
   color: yellow;
   font-size: 16px;
+}
+form.navbar-form
+{
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 form.navbar-form div.form-group{
     display: inline-block;
