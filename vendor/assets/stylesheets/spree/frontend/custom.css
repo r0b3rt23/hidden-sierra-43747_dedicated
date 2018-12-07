@@ -1800,12 +1800,13 @@ ul.ul_wishlist_account {
 
   .account-summary.well {
     /* margin-left: 8%; */
-    width: 85%;
+    width: 92%;
+    font-size: 20px;
   }
 
   .account-my-orders {
-    /* margin-left: 8%; */
-    width: 85%;
+    width: 92%;
+    font-size: 18px;
     margin-bottom: -25px;
   }
 
