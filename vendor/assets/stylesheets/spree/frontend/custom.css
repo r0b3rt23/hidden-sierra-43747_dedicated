@@ -1274,7 +1274,7 @@ ul.ul_wishlist_account {
   .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
   {
     padding: 0px;
-    float: left;
+    /* float: left; */
     padding-right: 1%;
     border: 0;
   }
