@@ -977,12 +977,12 @@ div.panel.panel-default:hover {
 }
 
 .account-summary.well {
-  margin-left: 8%;
+  /* margin-left: 8%; */
   width: 50%;
 }
 
 .account-my-orders {
-  margin-left: 8%;
+  /* margin-left: 8%; */
   width: 50%;
 }
 
@@ -1804,12 +1804,12 @@ ul.ul_wishlist_account {
 
   .account-summary.well {
     /* margin-left: 8%; */
-    width: 92%;
+    width: 100%;
     font-size: 20px;
   }
 
   .account-my-orders {
-    width: 92%;
+    width: 100%;
     font-size: 18px;
     margin-bottom: -25px;
   }
