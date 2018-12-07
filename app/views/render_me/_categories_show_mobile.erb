@@ -219,11 +219,11 @@
 $(document).ready(function(){
     $("#right_chevron").on('click', function () {
         var elmnt = document.getElementById("mySlides");
-        elmnt.scrollBy(300, 0);
+        elmnt.scrollLeft += 50;
     });
     $("#left_chevron").on('click', function () {
         var elmnt = document.getElementById("mySlides");
-        elmnt.scrollBy(-300, 0);
+        elmnt.scrollLeft += 50;
     });
 });
 
