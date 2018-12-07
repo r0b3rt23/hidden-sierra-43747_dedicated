@@ -1712,8 +1712,10 @@ ul.ul_wishlist_account {
     }
     body#login.one-col div.container div.row
     {
-          display: inline-block;
-          margin-left: 5px;
+          /* display: inline-block;
+          margin-left: 5px; */
+        margin-left: 0px;
+        margin-right: 0px;
     }
     body#login.one-col div.container div.row div#content.col-sm-12 div.col-md-6.col-md-offset-3
     {
