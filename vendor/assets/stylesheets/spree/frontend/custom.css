@@ -1407,7 +1407,7 @@ ul.ul_wishlist_account {
   }
   body#default.one-col div.container
   {
-    width: 100% !important;
+    width: 98% !important;
     z-index: -10;
   }
   form.navbar-form
