@@ -279,7 +279,7 @@ div.panel.panel-default {
 } */
 
 div.panel-footer.text-center {
-  height: 50px;
+  height: 50px !important;
   background-color: transparent;
   border-color: transparent;
 }
