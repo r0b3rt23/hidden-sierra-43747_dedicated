@@ -184,7 +184,7 @@
       <div class="panel-body text-center product-body">
         <%= link_to url, itemprop: "url" do %>
           <%= product_image(product, itemprop: "image", class: 'product_image_web') %><br/>
-          <%= content_tag(:span, truncate(product.name, length: 28), class: 'info', itemprop: "name", title: product.name) %>
+          <%= content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", title: product.name) %>
         <% end %>
         <% @spree_product_variant = Spree::Variant.where(:product_id => product.id) %>
             <% if @spree_product_variant.where(:is_master => false).count > 1 %>
