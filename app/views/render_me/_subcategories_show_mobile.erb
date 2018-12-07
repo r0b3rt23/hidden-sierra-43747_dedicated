@@ -151,7 +151,7 @@
 <body class="two-col" id="home-page" data-hook="body" style="">
 <div class="categ-all-mobile">
 
-<button id="left_chevron" onclick="myFunction(-300, 0)">&#10094;</button>
+<button id="left_chevron" onclick="myFunction(-300)">&#10094;</button>
 
 <div class="brands_subcat">
   <div id="categ-brands">
@@ -200,13 +200,13 @@
         <% end %>
 
   </div>
-<button id="right_chevron" onclick="myFunction(300, 0)">&#10095;</button>
+<button id="right_chevron" onclick="myFunction(300)">&#10095;</button>
 </div>
 <center id="paginate-center"><%= paginate @specifics_mob %></center>
 <script>
-function myFunction(x, y) {
+function myFunction(x) {
     var elmnt = document.getElementById("mySlides");
-    elmnt.scrollLeft += 50;
+    elmnt.scrollLeft += x;
 }
 </script>
 </body>
