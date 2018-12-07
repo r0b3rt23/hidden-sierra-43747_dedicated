@@ -1502,7 +1502,7 @@ ul.ul_wishlist_account {
   }
   input.btn.btn-success
   {
-    width: 46% !important;
+    /* width: 46% !important; */
     height: 10% !important;
   }
   .navbar-form .form-control
@@ -1752,8 +1752,8 @@ ul.ul_wishlist_account {
       width: 100% !important;
     }
     body#signup.one-col div.container div.row{
-      display: inline-block;
-      margin-left: 5px;
+      /* display: inline-block;
+      margin-left: 5px; */
     }
     .pagination-sm > li > a{
       padding: 8px 14px;
