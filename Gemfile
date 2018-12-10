@@ -42,6 +42,7 @@ gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: 'master'
 
 gem 'thin'
 gem 'spree_braintree_vzero', github: 'spree-contrib/spree_braintree_vzero'
+
 # gem 'will_paginate', '~> 3.1.0'
 # gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings'
 # Use Redis adapter to run Action Cable in production
