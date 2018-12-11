@@ -1,6 +1,10 @@
 #spree-header {
     background-color: #111d51;
 }
+#spree-header #logo img{
+    max-width: 115%;
+    max-height: 0px;
+}
 #spree-header #header{
     background: #111d51;
 }
