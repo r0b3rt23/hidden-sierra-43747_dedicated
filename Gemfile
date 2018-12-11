@@ -36,7 +36,7 @@ gem 'spree_gateway', '~> 3.3'
 gem 'aws-sdk', '~> 2'
 gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
 # gem "spree_product_hover_zoom", :git => "git://github.com/vinzloh/spree_product_hover_zoom.git"
-gem 'spree-adyen', github: 'spree/spree-adyen'
+# gem 'spree-adyen', github: 'spree/spree-adyen'
 
 gem 'spree_reviews', github: 'spree-contrib/spree_reviews'
 gem 'spree_wishlist', github: 'spree-contrib/spree_wishlist', branch: 'master'
