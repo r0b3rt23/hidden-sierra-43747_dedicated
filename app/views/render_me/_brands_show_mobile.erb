@@ -39,7 +39,7 @@
   #center_panel {
     text-align: center;
     height: 230px;
-    width: 118px;
+    width: 33%;
     padding-left: 2px;
     padding-right: 2px;
     border-style: ridge;
@@ -123,9 +123,9 @@
                       <% else %>
                           <br>
                       <% end %>
-
+                      <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
                 </div>
-                <span class="line_price_1"><%= number_to_currency(@spree_variant_price.amount, unit: "₱")%></span>
+
           </div>
 
       <% end %>
