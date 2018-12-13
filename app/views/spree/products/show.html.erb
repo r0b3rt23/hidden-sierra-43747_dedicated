@@ -90,13 +90,13 @@
   </div>
 <% end %>
 <script>
-if (document.body.offsetWidth <= 420) {
+if (document.body.offsetWidth <= 360) {
    $('#mobile_show_qty').show();
-   $('#web_show_qty').hide();
+   $('#web_show_qty').remove();
     // $('.web_product_show_qty').empty();
  } else {
    $('#web_show_qty').show();
-   $('#mobile_show_qty').hide();
+   $('#mobile_show_qty').remove();
    // $('.mobile_product_show_qty').empty();
  }
 </script>
