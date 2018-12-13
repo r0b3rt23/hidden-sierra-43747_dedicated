@@ -182,7 +182,7 @@
   <%= submit_tag Spree.t(:continue), class: 'btn btn-lg btn-success', id: 'savecontinue-btn' %>
 </div>
 
-<script>
+<!-- <script>
 function deleteFunction(item) {
   var divName = $(item).attr("id");
   var quan = $("demo"+divName).val();
@@ -194,6 +194,6 @@ function deleteFunction(item) {
   console.log(divName);
   console.log(quan);
 }
-</script>
+</script> -->
 
 <%= javascript_include_tag 'spree/frontend/checkout/shipment' %>
