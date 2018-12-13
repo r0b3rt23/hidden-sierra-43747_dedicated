@@ -86,9 +86,7 @@
   </div>
 <% end %>
 <script>
-if (document.body.offsetWidth <= 420) {
-   $('.product_show_qty').append('<%=j render "render_me/product_show_mobile_qty" %>');
- } else {
+
    $('.product_show_qty').append('<%=j render "render_me/product_show_web_qty" %>');
- }
+ 
 </script>
