@@ -1587,8 +1587,6 @@ ul.ul_wishlist_account {
   body#product-details.one-col div.container
   {
     width: 98% !important;
-    padding-left: 15px;
-    padding-right: 15px;
   }
   body#product-details.one-col div#spree-header header#header
   {
