@@ -21,9 +21,9 @@
   /* text-align: right;
   padding-right: 20%; */
 }
-/* .mobile_product_show{
+.mobile_product_show{
   display: none;
-} */
+}
 
 #product-price h6.product-section-title{
   font-size: 20px;
@@ -51,12 +51,12 @@
     text-align: center;
     padding-right: 0px
   }
-  /* .web_product_show{
+  .web_product_show{
     display: none;
   }
   .mobile_product_show{
     display:contents;
-  } */
+  }
   #product_size img{
     width: 100%;
   }
@@ -92,8 +92,9 @@
               <%= render partial: 'render_thumbnails' %>
             </div>
           </div>
-          <div id="cart-form" data-hook="cart_form">
-            <%= render partial: 'cart_form' %>
+
+          <div data-hook="product_properties_custom">
+            <%= render partial: 'properties' %>
           </div>
           <div class="custom-review">
             <%= render partial: 'spree/shared/reviews' %>
@@ -119,6 +120,10 @@
                       </div>
                   </div>
 
+                  <div class="imageDeliver">
+                    <%= image_tag "deliver.png", class:"imgDeliver" %>
+                  </div>
+
                   <!-- render sidecart -->
               <div class="sideCart">
                   <% if simple_current_order.item_count < 1 %>
@@ -130,11 +135,8 @@
 
             </div>
 
-            <!-- <div class="imageDeliver">
-                <%= image_tag "deliver.png", class:"imgDeliver" %>
-            </div> -->
-            <div data-hook="product_properties_custom">
-              <%= render partial: 'properties' %>
+            <div id="cart-form" data-hook="cart_form">
+              <%= render partial: 'cart_form' %>
             </div>
             <div id="review-mobile-form" data-hook="add-reviews-mobile">
               <%= render partial: 'cart_form' %>
