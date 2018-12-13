@@ -161,14 +161,14 @@
     <%= line_item.single_money.to_html %>
   </span>
     <!-- <div id="icons-input"> -->
-    <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[1]" id="<%=line_item.id%>">
+    <button type="button" class="btn btn-link" onclick="removeFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id%>">
       <span class="glyphicon glyphicon-trash"></span>
     </button>
 
     <div class="input-group">
 
     <span class="input-group-btn">
-      <button type="button" class="btn btn-danger btn-number" onclick="minusFunction1(this)"  data-type="minus" data-field="quant[1]" id="<%=line_item.id%>">
+      <button type="button" class="btn btn-danger btn-number" onclick="minusFunction1(this)"  data-type="minus" data-field="quant[2]" id="<%=line_item.id%>">
         <span class="glyphicon glyphicon-minus"></span>
       </button>
     </span>
@@ -176,7 +176,7 @@
     <%= item_form_mobile.text_field :quantity, class: "form-control line_item_quantity", size:5, id: "line_item_quantity1" + line_item.id.to_s %>
 
     <span class="input-group-btn">
-      <button type="button" class="btn btn-success btn-number" onclick="plusFunction1(this)" data-type="plus" data-field="quant[1]" id="<%=line_item.id + 1%>">
+      <button type="button" class="btn btn-success btn-number" onclick="plusFunction1(this)" data-type="plus" data-field="quant[2]" id="<%=line_item.id + 1%>">
         <span class="glyphicon glyphicon-plus"></span>
       </button>
     </span>
