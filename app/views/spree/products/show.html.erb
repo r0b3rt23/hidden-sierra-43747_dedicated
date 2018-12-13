@@ -79,16 +79,16 @@
             locals: { product: @product } %>
 
 <% cache cache_key_for_product do %>
-  <div data-hook="product_show" class="row" itemtype="https://schema.org/Product">
+  <div id="product_show_qty" data-hook="product_show" class="row" itemtype="https://schema.org/Product">
 
   </div>
 <% end %>
 <script>
 if (document.body.offsetWidth <= 420) {
-   $('.product_show').append('<%=j render "render_me/product_show_mobile_qty" %>');
+   $('#product_show_qty').append('<%=j render "render_me/product_show_mobile_qty" %>');
     // $('.web_product_show_qty').empty();
  } else {
-   $('.product_show').append('<%=j render "render_me/product_show_web_qty" %>');
+   $('#product_show_qty').append('<%=j render "render_me/product_show_web_qty" %>');
    // $('.mobile_product_show_qty').empty();
  }
 </script>
