@@ -21,9 +21,9 @@
   /* text-align: right;
   padding-right: 20%; */
 }
-.mobile_product_show{
+/* .mobile_product_show{
   display: none;
-}
+} */
 
 #product-price h6.product-section-title{
   font-size: 20px;
@@ -51,12 +51,12 @@
     text-align: center;
     padding-right: 0px
   }
-  .web_product_show{
+  /* .web_product_show{
     display: none;
   }
   .mobile_product_show{
     display:contents;
-  }
+  } */
   #product_size img{
     width: 100%;
   }
@@ -80,23 +80,67 @@
 
 <% cache cache_key_for_product do %>
   <div data-hook="product_show" class="row" itemtype="https://schema.org/Product">
-    <div id="web_show_qty">
-        <%= render :partial => "render_me/product_show_web_qty" %>
-    </div>
-    <!-- <div id="mobile_show_qty">
-        <%= render :partial => "render_me/product_show_mobile_qty" %>
-    </div> -->
+      <div class="col-md-4 col-sm-5" data-hook="product_left_part">
+        <div data-hook="product_left_part_wrap">
+          <div id="product-images" data-hook="product_images">
+            <div id="main-image" class="panel panel-default" data-hook>
+              <div id="product_size" class="panel-body text-center">
+                <%= large_image(@product, itemprop: "image") %>
+              </div>
+            </div>
+            <div id="thumbnails" data-hook>
+              <%= render partial: 'render_thumbnails' %>
+            </div>
+          </div>
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
+          </div>
+          <div class="custom-review">
+            <%= render partial: 'spree/shared/reviews' %>
+          </div>
 
+          <div data-hook="promotions">
+            <%= render partial: 'promotions' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 col-sm-7" data-hook="product_right_part">
+        <div data-hook="product_right_part_wrap">
+          <div id="product-description" data-hook="product_description">
+
+            <div class="productDescript">
+
+                  <div class="TitleDescript">
+                      <h3 class="product-title" itemprop="name"><%= @product.name %></h3>
+
+                      <div class="well" itemprop="description" data-hook="description">
+                        <%= product_description(@product) %>
+                      </div>
+                  </div>
+
+                  <!-- render sidecart -->
+              <div class="sideCart">
+                  <% if simple_current_order.item_count < 1 %>
+                    <%= render :partial => "render_me/side_cart_without" %>
+                  <% else %>
+                    <%= render :partial => "render_me/side_cart" %>
+                  <% end %>
+              </div>
+
+            </div>
+
+            <!-- <div class="imageDeliver">
+                <%= image_tag "deliver.png", class:"imgDeliver" %>
+            </div> -->
+            <div data-hook="product_properties_custom">
+              <%= render partial: 'properties' %>
+            </div>
+            <div id="review-mobile-form" data-hook="add-reviews-mobile">
+              <%= render partial: 'cart_form' %>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 <% end %>
-<!-- <script>
-if (document.body.offsetWidth <= 360) {
-   $('#mobile_show_qty').show();
-   $('#web_show_qty').remove();
-    // $('.web_product_show_qty').empty();
- } else {
-   $('#web_show_qty').show();
-   $('#mobile_show_qty').remove();
-   // $('.mobile_product_show_qty').empty();
- }
-</script> -->
