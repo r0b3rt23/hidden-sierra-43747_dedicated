@@ -9,7 +9,7 @@
   <div class="row" id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 
         <% if @product.price_in(current_currency) && !@product.price.nil? %>
-          <div data-hook="product_price" class="col-md-4">
+          <div data-hook="product_price" class="col-md-9">
             <div id="product-price">
               <h6 class="product-section-title"><%= Spree.t(:price) %></h6>
               <div>
