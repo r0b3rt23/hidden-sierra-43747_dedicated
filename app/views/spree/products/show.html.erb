@@ -80,13 +80,20 @@
 
 <% cache cache_key_for_product do %>
   <div data-hook="product_show" class="row" itemtype="https://schema.org/Product">
-    <div class="product_show_qty">
+    <div class="web_product_show_qty">
+
+    </div>
+    <div class="mobile_product_show_qty">
 
     </div>
   </div>
 <% end %>
 <script>
-
-   $('.product_show_qty').append('<%=j render "render_me/product_show_web_qty" %>');
- 
+if (document.body.offsetWidth <= 420) {
+   $('.mobile_product_show_qty').append('<%=j render "render_me/product_show_mobile_qty" %>');
+    $('.web_product_show_qty').empty();
+ } else {
+   $('.web_product_show_qty').append('<%=j render "render_me/product_show_web_qty" %>');
+   $('.mobile_product_show_qty').empty();
+ }
 </script>
