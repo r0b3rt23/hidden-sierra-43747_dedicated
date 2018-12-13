@@ -85,10 +85,10 @@
 <% end %>
 <script>
 if (document.body.offsetWidth <= 420) {
-   $('#product_show_qty').html('<%=j render "render_me/product_show_mobile_qty" %>');
+   $('#product_show_qty').empty().append('<%=j render "render_me/product_show_mobile_qty" %>');
     // $('.web_product_show_qty').empty();
  } else {
-   $('#product_show_qty').html('<%=j render "render_me/product_show_web_qty" %>');
+   $('#product_show_qty').empty().append('<%=j render "render_me/product_show_web_qty" %>');
    // $('.mobile_product_show_qty').empty();
  }
 </script>
