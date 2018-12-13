@@ -92,9 +92,8 @@
               <%= render partial: 'render_thumbnails' %>
             </div>
           </div>
-
-          <div data-hook="product_properties_custom">
-            <%= render partial: 'properties' %>
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
           </div>
           <div class="custom-review">
             <%= render partial: 'spree/shared/reviews' %>
@@ -120,10 +119,6 @@
                       </div>
                   </div>
 
-                  <div class="imageDeliver">
-                    <%= image_tag "deliver.png", class:"imgDeliver" %>
-                  </div>
-
                   <!-- render sidecart -->
               <div class="sideCart">
                   <% if simple_current_order.item_count < 1 %>
@@ -135,8 +130,11 @@
 
             </div>
 
-            <div id="cart-form" data-hook="cart_form">
-              <%= render partial: 'cart_form' %>
+            <div class="imageDeliver">
+                <%= image_tag "deliver.png", class:"imgDeliver" %>
+            </div>
+            <div data-hook="product_properties_custom">
+              <%= render partial: 'properties' %>
             </div>
             <div id="review-mobile-form" data-hook="add-reviews-mobile">
               <%= render partial: 'cart_form' %>
