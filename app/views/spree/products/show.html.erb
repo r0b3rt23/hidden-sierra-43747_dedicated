@@ -31,6 +31,9 @@
   width: 110%;
   margin-left: -7%;
 }
+.table{
+  width: 35%;
+}
 
 @media only screen and (max-width: 360px), (max-width: 420px) {
   div.input-group {
@@ -63,6 +66,9 @@
     margin-bottom: 20px;
     padding-left: 0;
     font-size: 18px;
+  }
+  .imageDeliver{
+    display: none;
   }
 }
 
@@ -104,7 +110,14 @@
       <div class="col-md-8 col-sm-7" data-hook="product_right_part">
         <div data-hook="product_right_part_wrap">
           <div id="product-description" data-hook="product_description">
-
+            <!-- render sidecart -->
+            <div class="sideCart">
+                <% if simple_current_order.item_count < 1 %>
+                  <%= render :partial => "render_me/side_cart_without" %>
+                <% else %>
+                  <%= render :partial => "render_me/side_cart" %>
+                <% end %>
+            </div>
             <div class="productDescript">
 
                   <div class="TitleDescript">
@@ -114,21 +127,11 @@
                         <%= product_description(@product) %>
                       </div>
                   </div>
-
-                  <!-- render sidecart -->
-              <div class="sideCart">
-                  <% if simple_current_order.item_count < 1 %>
-                    <%= render :partial => "render_me/side_cart_without" %>
-                  <% else %>
-                    <%= render :partial => "render_me/side_cart" %>
-                  <% end %>
-              </div>
-
             </div>
 
-            <!-- <div class="imageDeliver">
+            <div class="imageDeliver">
                 <%= image_tag "deliver.png", class:"imgDeliver" %>
-            </div> -->
+            </div>
             <div data-hook="product_properties_custom">
               <%= render partial: 'properties' %>
             </div>
