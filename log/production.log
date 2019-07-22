@@ -1,0 +1,183 @@
+D, [2019-07-19T09:39:30.382321 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2019-07-19T09:39:30.402389 #18307] DEBUG -- :   [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2019-07-19T09:39:30.425847 #18307] DEBUG -- :   [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-07-19T09:39:30.457520 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-07-19T09:39:30.457720 #18307]  INFO -- : Migrating to CreateWishlists (20180716033321)
+D, [2019-07-19T09:39:30.461430 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.463027 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "wishlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar, "access_hash" varchar, "is_private" boolean DEFAULT 't' NOT NULL, "is_default" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-07-19T09:39:30.465601 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033321"]]
+D, [2019-07-19T09:39:30.478418 #18307] DEBUG -- :   [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.478502 #18307]  INFO -- : Migrating to CreateWishedProducts (20180716033322)
+D, [2019-07-19T09:39:30.487412 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.488608 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "wished_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "variant_id" integer, "wishlist_id" integer, "remark" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-07-19T09:39:30.489376 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033322"]]
+D, [2019-07-19T09:39:30.502192 #18307] DEBUG -- :   [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.502258 #18307]  INFO -- : Migrating to PrefixWishlistTablesWithSpree (20180716033323)
+D, [2019-07-19T09:39:30.510971 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.511587 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "wishlists" RENAME TO "spree_wishlists"[0m
+D, [2019-07-19T09:39:30.512149 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "wished_products" RENAME TO "spree_wished_products"[0m
+D, [2019-07-19T09:39:30.513140 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033323"]]
+D, [2019-07-19T09:39:30.524826 #18307] DEBUG -- :   [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.525058 #18307]  INFO -- : Migrating to RemoveWishedProductsForDeletedVariants (20180716033324)
+D, [2019-07-19T09:39:30.526201 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.531024 #18307] DEBUG -- :   [1m[36mSpree::WishedProduct Load (0.1ms)[0m  [1m[34mSELECT  "spree_wished_products".* FROM "spree_wished_products" ORDER BY "spree_wished_products"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+D, [2019-07-19T09:39:30.535716 #18307] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033324"]]
+D, [2019-07-19T09:39:30.548087 #18307] DEBUG -- :   [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.548153 #18307]  INFO -- : Migrating to AddIndexToWishlists (20180716033325)
+D, [2019-07-19T09:39:30.549279 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.550218 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_spree_wishlists_on_user_id" ON "spree_wishlists" ("user_id")[0m
+D, [2019-07-19T09:39:30.550956 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_spree_wishlists_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_spree_wishlists_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.551301 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_spree_wishlists_on_user_id_and_is_default" ON "spree_wishlists" ("user_id", "is_default")[0m
+D, [2019-07-19T09:39:30.552122 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033325"]]
+D, [2019-07-19T09:39:30.564870 #18307] DEBUG -- :   [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.564941 #18307]  INFO -- : Migrating to AddQuantityToWishedProducts (20180716033326)
+D, [2019-07-19T09:39:30.573636 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.574412 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "spree_wished_products" ADD "quantity" integer DEFAULT 1 NOT NULL[0m
+D, [2019-07-19T09:39:30.575129 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716033326"]]
+D, [2019-07-19T09:39:30.586609 #18307] DEBUG -- :   [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.586668 #18307]  INFO -- : Migrating to CreateReviews (20180716040132)
+D, [2019-07-19T09:39:30.587615 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.588934 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "name" varchar, "location" varchar, "rating" integer, "title" text, "review" text, "approved" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-07-19T09:39:30.589708 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040132"]]
+D, [2019-07-19T09:39:30.602684 #18307] DEBUG -- :   [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.602751 #18307]  INFO -- : Migrating to CreateFeedbackReviews (20180716040133)
+D, [2019-07-19T09:39:30.611517 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.612894 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "feedback_reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "review_id" integer NOT NULL, "rating" integer DEFAULT 0, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2019-07-19T09:39:30.613686 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_feedback_reviews_on_review_id" ON "feedback_reviews" ("review_id")[0m
+D, [2019-07-19T09:39:30.614360 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.614737 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_feedback_reviews_on_user_id" ON "feedback_reviews" ("user_id")[0m
+D, [2019-07-19T09:39:30.615607 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040133"]]
+D, [2019-07-19T09:39:30.628451 #18307] DEBUG -- :   [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.628528 #18307]  INFO -- : Migrating to AddRatingToProducts (20180716040134)
+D, [2019-07-19T09:39:30.637455 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.639177 #18307] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040134"]]
+D, [2019-07-19T09:39:30.650998 #18307] DEBUG -- :   [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.651078 #18307]  INFO -- : Migrating to AddUserToReviews (20180716040135)
+D, [2019-07-19T09:39:30.652091 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.652800 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "reviews" ADD "user_id" integer[0m
+D, [2019-07-19T09:39:30.653712 #18307] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040135"]]
+D, [2019-07-19T09:39:30.665207 #18307] DEBUG -- :   [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.665273 #18307]  INFO -- : Migrating to AddIpAddressToReviews (20180716040136)
+D, [2019-07-19T09:39:30.666147 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.666850 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "reviews" ADD "ip_address" varchar[0m
+D, [2019-07-19T09:39:30.667707 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040136"]]
+D, [2019-07-19T09:39:30.678984 #18307] DEBUG -- :   [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.679055 #18307]  INFO -- : Migrating to NamespaceTables (20180716040137)
+D, [2019-07-19T09:39:30.679924 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.680641 #18307] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "spree_reviews"[0m
+D, [2019-07-19T09:39:30.681310 #18307] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "feedback_reviews" RENAME TO "spree_feedback_reviews"[0m
+D, [2019-07-19T09:39:30.681684 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.681981 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.682392 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.682675 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.683216 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.683505 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.683853 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_spree_feedback_reviews_on_user_id" ON "spree_feedback_reviews" ("user_id")[0m
+D, [2019-07-19T09:39:30.684105 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX "index_feedback_reviews_on_user_id"[0m
+D, [2019-07-19T09:39:30.684400 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_spree_feedback_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_spree_feedback_reviews_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.684709 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.685231 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_spree_feedback_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_spree_feedback_reviews_on_user_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.685509 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feedback_reviews_on_review_id' AND type='index'
+[0m
+D, [2019-07-19T09:39:30.685831 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_spree_feedback_reviews_on_review_id" ON "spree_feedback_reviews" ("review_id")[0m
+D, [2019-07-19T09:39:30.686057 #18307] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX "index_feedback_reviews_on_review_id"[0m
+D, [2019-07-19T09:39:30.687032 #18307] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180716040137"]]
+D, [2019-07-19T09:39:30.700146 #18307] DEBUG -- :   [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+I, [2019-07-19T09:39:30.700208 #18307]  INFO -- : Migrating to RecalculateRatings (20180716040138)
+D, [2019-07-19T09:39:30.709013 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:39:30.710460 #18307] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+D, [2019-07-19T09:50:34.496668 #2262] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-07-19T09:50:34.497614 #2262]  INFO -- : Migrating to RecalculateRatings (20180716040138)
+D, [2019-07-19T09:50:34.501243 #2262] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:50:34.502985 #2262] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+D, [2019-07-19T09:56:16.549307 #2618] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-07-19T09:56:16.549555 #2618]  INFO -- : Migrating to RecalculateRatings (20180716040138)
+D, [2019-07-19T09:56:16.551589 #2618] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-19T09:56:16.552929 #2618] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+D, [2019-07-22T06:05:27.495163 #11148] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-07-22T06:05:27.495921 #11148]  INFO -- : Migrating to RecalculateRatings (20180716040138)
+D, [2019-07-22T06:05:27.499444 #11148] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2019-07-22T06:05:27.501201 #11148] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m

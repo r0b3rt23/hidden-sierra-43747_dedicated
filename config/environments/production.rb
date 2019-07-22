@@ -86,14 +86,13 @@ Rails.application.configure do
  config.paperclip_defaults = {
       storage: :s3,
       s3_credentials: {
-        s3_host_name: ENV["S3_HOST_NAME"],
-        bucket: ENV.fetch('S3_BUCKET'),
+        s3_host_name: ENV["edgepointsolutions.com"],
+        bucket: ENV.fetch('S3_BUCKET_NAME'),
         access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
         secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-        s3_region: ENV.fetch('AWS_REGION'),
+        s3_region: ENV.fetch('AWS_S3_REGION'),
       }
     }
-
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
